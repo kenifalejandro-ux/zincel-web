@@ -1,0 +1,149 @@
+/*client/src/styles/globals.css*/
+
+@import "tailwindcss";
+
+/* CSS legacy DESPUÉS */
+@import "./section.css";
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/*animación scroll indicator*/
+@keyframes scrollWheel {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 12px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadePulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/*animación scroll eva*/
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* flotación suave y elegante */
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/*Animation portfolio*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Tailwind necesario (clases GSAP) - bkars - VERTICAL */
+@layer utilities {
+  .slice,
+  .slice-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ===== SLICE ACTIVO (GSAP) ===== */
+  .slice {
+    clip-path: inset(
+      0 calc(100% - (var(--i) + 1) * (100% / var(--total-slices))) 0
+        calc(var(--i) * (100% / var(--total-slices)))
+    );
+  }
+
+  /* ===== IMAGEN BASE ===== */
+  .slice-bg {
+    clip-path: inset(
+      0 calc(100% - (var(--i) + 1) * (100% / var(--total-slices))) 0
+        calc(var(--i) * (100% / var(--total-slices)))
+    );
+  }
+
+  /* ===== SKELETON ===== */
+  .skeleton-slice {
+    clip-path: inset(
+      0 calc(100% - (var(--i) + 1) * (100% / var(--total-slices)) - 1px) 0
+        calc(var(--i) * (100% / var(--total-slices)))
+    );
+  }
+}
+
+/* Clases iniciales para ocultar antes de que GSAP anime */
+.gsap-hidden {
+  opacity: 0 !important;
+}
+
+.gsap-y-hidden {
+  opacity: 0 !important;
+  transform: translateY(100px) !important;
+}
+
+.gsap-clip-hidden {
+  clip-path: inset(0 100% 0 0) !important;
+  transform: scale(1.2) !important;
+}
+
+.gsap-rotate-hidden {
+  opacity: 0 !important;
+  transform: rotateY(-45deg) translateY(40px) !important;
+}
+
+/* GRID BASE (gris) */
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+
+  /* Fade central */
+  mask-image: radial-gradient(ellipse 100% 60% at 50% 50%, black, transparent);
+}
+
+/* En tu CSS o Tailwind */
+.image-container img,
+.image-container picture,
+.image-container div[style*="background-image"] {
+  pointer-events: auto !important;
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://www.zincelideas.com/</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/ImageInicio/build-branding-1920.avif</image:loc>
+      <image:title>Diseno web y branding profesional para empresas en Peru | Zincel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/ImageInicio/Mockups-responsive-1920.avif</image:loc>
+      <image:title>Mockup de pagina web responsiva en distintos dispositivos - Zincel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.zincelideas.com/servicios</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/servicios/imagenes/desarrollo-web-1920.avif</image:loc>
+      <image:title>Diseno y desarrollo web optimizado para SEO - Zincel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/servicios/imagenes/branding-1920.avif</image:loc>
+      <image:title>Branding, identidad visual y estrategia de marca - Zincel</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/servicios/imagenes/visual3d-1920.avif</image:loc>
+      <image:title>Diseno visual creativo y experiencia 3D - Zincel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.zincelideas.com/portfolio</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/trabajos/puerta-del-valle/carrusel/puerta-del-valle-Logo-1920.avif</image:loc>
+      <image:title>Proyectos de diseno web y branding - Zincel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.zincelideas.com/sobre-nosotros</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/quienes-somos/imagenes/panoramic/team-work-1920.avif</image:loc>
+      <image:title>Equipo creativo y profesional de Zincel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.zincelideas.com/precios-web</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://www.zincelideas.com/imagenes-optim/planes-web/paquete-basico-1920.avif</image:loc>
+      <image:title>Planes de desarrollo web y branding - Zincel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.zincelideas.com/experiencias</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

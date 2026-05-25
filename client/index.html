@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO básico -->
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="content-language" content="es-PE" />
+    <meta name="theme-color" content="#e6e0e0" />
+    <link rel="canonical" href="https://www.zincelideas.com" />
+    <link rel="alternate" hreflang="es-PE" href="https://www.zincelideas.com" />
+
+    <!-- Google Tag Manager (optimizado) -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WW5VV7WG");
+    </script>
+
+    <!-- Preconnect críticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fuente (no bloqueante) -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap"
+      />
+    </noscript>
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" sizes="180x180" />
+
+    <!-- React bundle (defer implícito en module) -->
+    <script type="module" crossorigin src="/src/main.tsx"></script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WW5VV7WG"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      >
+      </iframe>
+    </noscript>
+
+    <div id="root"></div>
+
+    <!-- Scripts PESADOS → SOLO CUANDO SE NECESITEN -->
+    <!-- Cárgalos dinámicamente desde React -->
+    <!--
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script type="module" defer src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  --></body>
+</html>

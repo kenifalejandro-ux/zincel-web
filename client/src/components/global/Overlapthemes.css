@@ -1,0 +1,80 @@
+/* src/components/global/Overlapthemes.css */
+/* Temas dinámicos para glass (vidrio), tabs, floating icon (aplicados por hook) */
+
+/* ← QUITADO: backgrounds de .banner.light-bg / .dark-bg (mover al glass para no interferir) */
+
+/* Vidrio temático: hereda del banner para 100% inmersión */
+.banner.light-bg .glass-container-banner.active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  ); /* ← Nuevo: Gradiente para profundidad */
+  backdrop-filter: blur(12px) saturate(1.2); /* ← Mejora: + saturate para brillo */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5); /* ← Nuevo: Reflejo interno para "vidrio real" */
+}
+
+.banner.dark-bg .glass-container-banner.active {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.7)
+  ); /* Gradiente oscuro */
+  backdrop-filter: blur(12px) brightness(0.9); /* + brightness para sutil oscuridad */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Reflejo sutil en dark */
+}
+
+/* Fallback para sin tema (en header.css ya lo tienes, pero refuerza aquí si quieres) */
+.glass-container-banner.active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, var(--glass-opacity, 0.6)),
+    rgba(255, 255, 255, 0.4)
+  ); /* Gradiente fallback */
+}
+
+/* Floating icon (sin cambios) */
+.floating-icon.light-bg {
+  color: #000000; /* Negro para light */
+}
+
+.floating-icon.dark-bg {
+  color: var(--tertiary-text); /* Claro para dark */
+}
+
+.floating-icon.active.light-bg {
+  color: #000000;
+}
+
+.floating-icon.active.dark-bg {
+  color: var(--tertiary-text);
+}
+
+/* Tabs y línea: colores dinámicos según tema del banner (sin cambios) */
+.banner.light-bg .tab-link,
+.banner.light-bg .tabs ul li a {
+  color: var(--container-bg); /* Oscuro para light-bg */
+}
+
+.banner.dark-bg .tab-link,
+.banner.dark-bg .tabs ul li a {
+  color: var(--tertiary-text); /* Claro para dark-bg */
+}
+
+.banner.light-bg .tab-link.active,
+.banner.dark-bg .tab-link.active {
+  color: var(--primary-color); /* Color active consistente */
+}
+
+/* Línea activa/hover: color dinámico (sin cambios) */
+.banner.light-bg .tab-link::after,
+.banner.light-bg .tab-link:hover::after,
+.banner.light-bg .tab-link.active::after {
+  background-color: var(--primary-text); /* Oscuro para light-bg */
+}
+
+.banner.dark-bg .tab-link::after,
+.banner.dark-bg .tab-link:hover::after,
+.banner.dark-bg .tab-link.active::after {
+  background-color: var(--tertiary-text); /* Claro para dark-bg */
+}

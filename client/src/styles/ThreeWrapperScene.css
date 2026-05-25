@@ -1,0 +1,203 @@
+/* ================================
+   🌐 VARIABLES COMUNES (minimizadas)
+=================================== */
+:root {
+  --altura-wrapper: clamp(300px, 100vh, 1200px);
+  --ancho-container: clamp(250px, 100vw, 1200px);
+  --altura-container: clamp(800px, 60vh, 1200px);
+  --ancho-canvas-base: clamp(250px, 70vw, 1200px);
+  --altura-canvas-base: clamp(400px, 60vh, 1200px);
+  --ancho-tablet: clamp(250px, 80vw, 500px);
+  --altura-tablet: clamp(700px, 60vh, 500px);
+  --ancho-mobile: clamp(250px, 80vw, 500px);
+  --altura-mobile: clamp(300px, 60vh, 500px);
+  --margen-mobile: 50px;
+  --margen-tablet: 200px;
+  --margen-tablet-small-right: 50px;
+  --margen-tablet-small-left: 50px;
+  --margen-desktop-peq: 250px;
+  --offset-side: 0px;
+  --translate-x-offset: 250px;
+  --translate-x-offset: 20vw;
+}
+
+/* ================================
+   🎬 ESCENAS 3D - Todas las variantes
+=================================== */
+.three-wrapper-ThreeWrapperBackground,
+.three-wrapper-BackgroundBranding,
+.three-wrapper-ThreeWrapperBackground3d,
+.three-wrapper-BackgroundSeo {
+  position: absolute;
+  display: flex;
+  width: var(--ancho-container);
+  height: var(--altura-container);
+  overflow: visible;
+  left: 0;
+
+  transition: transform 0.6s ease;
+  z-index: -1;
+  justify-content: flex-start;
+  margin-left: clamp(-400px, -40vh, -120px);
+}
+
+/* 🔁 Reversa (efecto espejo horizontal) */
+.three-wrapper-ThreeWrapperBackground.reverse,
+.three-wrapper-ThreeWrapperBackground3d.reverse {
+  transform: scaleX(-1);
+  transform-origin: center;
+  right: 0;
+  left: auto;
+  justify-content: flex-end;
+  margin-right: clamp(-400px, -40vh, -120px);
+}
+
+/* 🎯 Contenedor interno de Three.js */
+#three-container-ThreeWrapperBackground,
+#three-container-branding,
+#three-container-3d,
+#three-container-seo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible;
+}
+
+/* 📱 Móviles */
+@media (max-width: 480px) {
+  .three-wrapper-ThreeWrapperBackground,
+  .three-wrapper-BackgroundBranding,
+  .three-wrapper-ThreeWrapperBackground3d,
+  .three-wrapper-BackgroundSeo {
+    left: 0;
+    top: -300px;
+    margin-left: clamp(-400px, -40vh, -120px);
+  }
+
+  /* 🔁 Reversa (efecto espejo horizontal) */
+  .three-wrapper-ThreeWrapperBackground.reverse,
+  .three-wrapper-ThreeWrapperBackground3d.reverse {
+    justify-content: flex-end;
+    margin-right: clamp(-400px, -40vh, -120px);
+  }
+}
+/* 💻 Tablets */
+@media (min-width: 480px) and (max-width: 768px) {
+  .three-wrapper-ThreeWrapperBackground,
+  .three-wrapper-BackgroundBranding,
+  .three-wrapper-ThreeWrapperBackground3d,
+  .three-wrapper-BackgroundSeo {
+    position: absolute;
+    width: clamp(250px, 80vw, 1200px) !important;
+    height: clamp(300px, 80vh, 1200px) !important;
+    left: var(--margen-tablet-small-left);
+    top: -200px;
+  }
+
+  .three-wrapper-ThreeWrapperBackground.reverse,
+  .three-wrapper-BackgroundBranding.reverse,
+  .three-wrapper-ThreeWrapperBackground3d.reverse,
+  .three-wrapper-BackgroundSeo.reverse {
+    right: var(--margen-tablet-small-right);
+    left: auto;
+    top: -200px;
+  }
+}
+/* 💻 Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .three-wrapper-ThreeWrapperBackground,
+  .three-wrapper-BackgroundBranding,
+  .three-wrapper-ThreeWrapperBackground3d,
+  .three-wrapper-BackgroundSeo {
+    position: absolute;
+    width: clamp(250px, 80vw, 1200px) !important;
+    height: clamp(100px, 60vh, 600px) !important;
+    left: var(--margen-tablet);
+    top: -400px;
+  }
+
+  .three-wrapper-ThreeWrapperBackground.reverse,
+  .three-wrapper-BackgroundBranding.reverse,
+  .three-wrapper-ThreeWrapperBackground3d.reverse,
+  .three-wrapper-BackgroundSeo.reverse {
+    right: var(--margen-tablet);
+    left: auto;
+    top: -400px;
+  }
+}
+
+/* scena de encabezado  */
+/* client/components/sections/ThreeWrapperServices.css */
+.three-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  transform: translateX(var(--translate-x-offset)); /* más allá del centro */
+  height: clamp(300px, 60vh, 600px);
+  margin-top: 200px;
+}
+
+.three-container-services {
+  position: absolute;
+  display: flex;
+  width: clamp(250px, 80vw, 1200px);
+  height: clamp(100px, 60vh, 800px);
+  margin-left: auto; /* se mueve hacia la derecha */
+  margin-block-start: 100px;
+}
+
+.three-container-services canvas {
+  width: clamp(250px, 80vw, 1200px) !important;
+  height: clamp(100px, 60vh, 600px) !important;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .three-container-services {
+    transform: translateX(var(--translate-x-offset)); /* más allá del centro */
+    margin-block-start: -50px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .three-container-services {
+    transform: translateX(var(--translate-x-offset)); /* más allá del centro */
+    margin-block-start: 200px;
+  }
+}
+@media (max-width: 1024px) {
+  .three-container-services {
+    display: none !important;
+  }
+}
+
+/* scena del footer */
+/* Ensanchado extra para fondo más grande */
+.three-wrapper-contact {
+  position: absolute;
+  height: clamp(300px, 50vh, 1200px); /* ↑ Más alto en todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.three-container-contact {
+  position: absolute;
+  display: flex;
+  width: clamp(250px, 80vw, 1200px); /* ↑ Más ancho */
+  height: clamp(300px, 60vh, 600px);
+  left: 80px;
+}
+
+.three-container-contact canvas {
+  width: clamp(250px, 80vw, 1200px) !important;
+  height: clamp(300px, 60vh, 600px) !important;
+  object-fit: contain;
+}
+
+@media (max-width: 480px) {
+  .three-container-contact {
+    display: none !important;
+  }
+}
