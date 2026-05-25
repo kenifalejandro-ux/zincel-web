@@ -1,0 +1,74 @@
+# ----------------------------------------
+# robots.txt – Zincel Ideas
+# Optimizado para SEO, indexación y rendimiento de rastreo
+# Última actualización: 2026-03-31
+# ----------------------------------------
+
+User-agent: *
+# Bloqueo de rutas internas o privadas
+Disallow: /submit
+Disallow: /formulario
+
+# Bloqueo de parámetros de seguimiento
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+
+# Permitimos el acceso al resto del contenido
+Allow: /
+
+# ----------------------------------------
+# Control específico para bots importantes
+# ----------------------------------------
+
+# Googlebot – indexación y renderizado completo
+User-agent: Googlebot
+Allow: /imagenes-optim/
+Allow: /imagenes/
+Allow: /videos-optim/
+Allow: /video/
+Allow: /assets/
+Allow: /iconos/
+Allow: /favicon/
+Allow: /Fonts/
+Allow: /basis/
+Allow: /draco/
+
+# Googlebot-Image – acceso completo a imágenes
+User-agent: Googlebot-Image
+Allow: /imagenes-optim/
+Allow: /imagenes/
+
+# Bingbot – indexación similar a Googlebot
+User-agent: Bingbot
+Allow: /imagenes-optim/
+Allow: /imagenes/
+Allow: /videos-optim/
+Allow: /video/
+Allow: /assets/
+Allow: /iconos/
+Allow: /favicon/
+Allow: /Fonts/
+Allow: /basis/
+Allow: /draco/
+
+# AhrefsBot – limitado para análisis SEO
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+# Yandex – indexación internacional
+User-agent: Yandex
+Allow: /imagenes-optim/
+Allow: /imagenes/
+Allow: /videos-optim/
+Allow: /video/
+Allow: /assets/
+Allow: /iconos/
+Allow: /favicon/
+Allow: /Fonts/
+Allow: /basis/
+Allow: /draco/
+
+# ----------------------------------------
+# Sitemap principal
+# ----------------------------------------
+Sitemap: https://www.zincelideas.com/sitemap.xml

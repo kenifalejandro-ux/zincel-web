@@ -1,5 +1,3 @@
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -7,7 +5,7 @@
 >
   <url>
     <loc>https://www.zincelideas.com/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -22,7 +20,7 @@
 
   <url>
     <loc>https://www.zincelideas.com/servicios</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -41,7 +39,7 @@
 
   <url>
     <loc>https://www.zincelideas.com/portfolio</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -52,7 +50,7 @@
 
   <url>
     <loc>https://www.zincelideas.com/sobre-nosotros</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -63,7 +61,7 @@
 
   <url>
     <loc>https://www.zincelideas.com/precios-web</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <image:image>
@@ -74,7 +72,7 @@
 
   <url>
     <loc>https://www.zincelideas.com/experiencias</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

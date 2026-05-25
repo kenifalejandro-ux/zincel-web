@@ -1,0 +1,411 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portfolio",
+    "about": "Sobre Nosotros",
+    "pricing": "Precios Web",
+    "experiences": "Experiencias",
+    "contact": "Contáctanos"
+  },
+  "header": {
+    "contactLabel": "Contáctanos",
+    "closeMenu": "Cerrar menú",
+    "openContact": "Abrir panel de contacto",
+    "switchLang": "Cambiar a inglés",
+    "cmdActions": "Acciones",
+    "cmdNav": "Navegar",
+    "cmdContact": "Contacto",
+    "cmdLangHint": "EN",
+    "cmdSearch": "Buscar páginas, acciones, contacto…",
+    "cmdEmpty": "Sin resultados"
+  },
+  "footer": {
+    "title": "Diseñamos marcas, webs y visuales con una dirección más clara y una presencia más seria.",
+    "description": "Trabajamos desde Lima con marcas que quieren verse mejor, ordenar su comunicación y construir una experiencia digital con más criterio visual.",
+    "contact": "Contacto",
+    "emailLabel": "Correo",
+    "phoneLabel": "Teléfono",
+    "addressLabel": "Ubicación",
+    "navigation": "Navegación",
+    "social": "Redes",
+    "madeIn": "© {{year}} Zincel. Hecho en Lima.",
+    "studioLine": "Diseño, desarrollo y dirección creativa en un mismo estudio.",
+    "links": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "portfolio": "Portfolio",
+      "about": "Sobre Nosotros",
+      "pricing": "Precios Web",
+      "experiences": "Experiencias"
+    }
+  },
+  "hero": {
+    "eyebrow": "Zincel Ideas Globales, Lima",
+    "title": "Diseñamos webs",
+    "accent": "UI / UX",
+    "subtitle": "Transformamos tus ideas en realidades digitales impactantes. Diseño, desarrollo y creatividad sin límites",
+    "primaryCta": "Iniciar proyecto",
+    "secondaryCta": "Ver proyectos",
+    "highlights": [
+      { "value": "LCP < 2s", "label": "Performance cuidada." },
+      { "value": "+40%", "label": "Más intención de contacto." },
+      { "value": "Lima", "label": "Trabajo directo y cercano." }
+    ]
+  },
+  "heroHome": {
+    "recentWork": "Algunos trabajos recientes.",
+    "videos": {
+      "calera": { "category": "Experiencia digital", "description": "Presentación editorial industrial y minimalista." },
+      "tiesto": { "category": "Branding + Web", "description": "Identidad sensorial en presencia digital refinada." },
+      "bkars": { "category": "Sitio web", "description": "Narrativa visual enfocada en impacto inmediato." },
+      "inti": { "category": "Identidad", "description": "Construcción visual sólida para marca potente." }
+    }
+  },
+  "heroServicios": {
+    "eyebrow": "Servicios",
+    "title": ["Cuatro disciplinas", "Una dirección visual clara."],
+    "subtitle": "Diseñamos experiencias digitales con criterio visual, estructura y una intención comercial definida para que tu marca comunique mejor y convierta con más intención.",
+    "cta": "Hablemos de tu proyecto",
+    "whatsappText": "Hola, vi sus servicios y quiero saber cómo pueden ayudar a mi marca",
+    "viewDeliverables": "Ver entregables",
+    "overview": "Vista General",
+    "stats": [
+      { "value": "4 frentes", "label": "Desarrollo web, branding, UI/UX y visuales 3D bajo una misma dirección." },
+      { "value": "Enfoque comercial", "label": "Cada decisión visual busca ayudarte a explicar mejor tu valor." },
+      { "value": "Proceso claro", "label": "Trabajamos con estructura, prioridades y entregables aterrizados." }
+    ],
+    "benefits": [
+      { "title": "Desarrollo Web", "description": "Sitios claros, veloces y pensados para convertir visitas en contactos reales." },
+      { "title": "Branding", "description": "Sistemas visuales sobrios y memorables para que tu marca se perciba más madura." },
+      { "title": "Diseño UI/UX", "description": "Interfaces más intuitivas, más ligeras y mejor organizadas para el usuario final." }
+    ]
+  },
+  "heroPortfolio": {
+    "eyebrow": "Portfolio / 2026",
+    "title": "Presencia\ncon dirección",
+    "support": "Diseño web, branding y dirección visual resueltos con una lectura más clara, sobria y comercial.",
+    "subtitle": "Una selección de proyectos donde la estructura, el lenguaje visual y la percepción de marca fueron construidos con más intención, mejor jerarquía y una presencia digital más sólida.",
+    "primaryCta": "Iniciar proyecto",
+    "whatsappText": "Hola, vi su portfolio y me gustaría un proyecto similar",
+    "highlights": [
+      { "value": "Web + branding", "label": "Sistemas visuales conectados, no piezas aisladas." },
+      { "value": "Más claridad", "label": "Mensajes mejor organizados y más fáciles de leer." },
+      { "value": "Dirección precisa", "label": "Decisiones visuales con intención estratégica." }
+    ],
+    "capabilitiesLabel": "Capacidades",
+    "signals": ["Diseño web con criterio de negocio", "Dirección de marca", "Sistemas UI", "Visuales 3D"],
+    "quote": ""
+  },
+  "heroSobreNosotros": {
+    "eyebrow": "Zincel Ideas Globales",
+    "title": "Nosotros transformamos marcas a través de experiencias digitales.",
+    "subtitle": "Zincel nace desde Lima para ayudar a empresas y proyectos a verse con más criterio, más consistencia y más valor percibido en cada punto de contacto.",
+    "cta": "Iniciar proyecto",
+    "whatsappText": "Hola, me interesa conocer más sobre la experiencia de Zincel y cómo pueden ayudar a mi negocio"
+  },
+  "inicio": {
+    "seoTitle": "Diseño Web Lima 2026 | Agencia Profesional Páginas Web y Branding - Zincel",
+    "seoDescription": "Agencia de diseño web en Lima: páginas rápidas, SEO optimizado y branding que generan más leads.",
+    "seoKeywords": "diseño web lima, agencia diseño web lima, páginas web profesionales lima, branding lima, crear página web lima",
+    "imageAlt": "Agencia Zincel: diseño web profesional y branding en Lima, Perú 2026",
+    "positioningEyebrow": "Posicionamiento",
+    "positioningTitle": "Construimos marcas con creatividad y precisión",
+    "positioningBody": "En Zincel Ideas Globales no seguimos un único estilo, diseñamos en función del negocio. Ya sea enfoque editorial, industrial, comercial o híbrido, cada proyecto define una estructura coherente con su sector. El resultado no es una plantilla, sino una web alineada a lo que realmente vendes.",
+    "exploreProjects": "Explorar proyectos",
+    "discoverServices": "Conocer servicios",
+    "howWeWork": "Cómo trabajamos",
+    "howWeWorkTitle": "Menos ruido visual, más dirección creativa con intención de negocio.",
+    "positioning": [
+      { "value": "Dirección visual", "detail": "Una web más sobria, minimalista y mejor jerarquizada para que tu marca se vea premium." },
+      { "value": "Narrativa clara", "detail": "Menos bloques genéricos y más contenido que explique por qué deberían elegirte." },
+      { "value": "Sistema completo", "detail": "Marca, producto y desarrollo conectados para que todo se sienta parte del mismo estudio." }
+    ],
+    "principles": [
+      { "step": "01", "title": "Estrategia antes que decoración", "body": "Primero ordenamos el mensaje, la percepción y la propuesta de valor. Después diseñamos una capa visual que lo potencie." },
+      { "step": "02", "title": "Interfaces con más aire y criterio", "body": "Buscamos ritmo, contraste, jerarquía tipográfica y silencios visuales. Eso hace que una marca se sienta más madura." },
+      { "step": "03", "title": "Entrega lista para negocio", "body": "No nos quedamos en mockups: aterrizamos experiencias usables, rápidas y preparadas para mostrarte mejor y vender mejor." }
+    ],
+    "engagement": [
+      { "label": "Para empresas en crecimiento", "text": "Que ya venden, pero su presencia digital no refleja el nivel real de su negocio." },
+      { "label": "Para negocios que necesitan credibilidad", "text": "Que buscan verse más sólidos, confiables y bien estructurados frente a clientes y oportunidades." },
+      { "label": "Para empresas sin área digital", "text": "Que necesitan una solución clara: desde la estructura hasta la ejecución, sin depender de múltiples proveedores." }
+    ]
+  },
+  "contactSection": {
+    "eyebrow": "Construyamos",
+    "title": "Hagamos que tu presencia digital se vea tan seria como tu ambición.",
+    "description": "Si quieres una web, una marca o una experiencia visual con mejor criterio, mejor ritmo y más percepción de valor, empecemos por una conversación clara.",
+    "button": "Comenzar proyecto",
+    "note": "Consulta sin costo • respuesta en 24h",
+    "whatsappText": "Hola, quiero iniciar mi proyecto web con Zincel 🚀"
+  },
+  "servicesCarousel": {
+    "eyebrow": "Servicios",
+    "featured": "Servicio destacado",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "viewService": "Ver servicio",
+    "serviceLabel": "Servicio",
+    "exploreService": "Explorar servicio",
+    "tagline": "Diseño, claridad y una ejecución pensada para convertir.",
+    "slideLabel": "Vista Visual",
+    "slideDesc": "Composición limpia y centrada en la pieza.",
+    "imageSoon": "Vista previa disponible pronto.",
+    "goToSlide": "Ir al slide {{index}}",
+    "titleLines": ["Cinco servicios.", "Una dirección visual clara."],
+    "description": "Diseñamos experiencias digitales con criterio visual y estructura minimalista.",
+    "items": [
+      {
+        "id": "desarrollo-web",
+        "title": "Desarrollo Web",
+        "description": "",
+        "details": "Creamos sitios web profesionales con arquitectura clara, performance sólida y una experiencia que eleva la percepción de tu negocio desde el primer scroll.",
+        "benefits": ["SEO incluido", "Responsive", "Soporte 3 meses", "LCP < 2s", "90+ Score SEO"]
+      },
+      {
+        "id": "branding",
+        "title": "Branding",
+        "description": "",
+        "details": "Diseñamos sistemas de marca que no se quedan solo en el logo: construimos lenguaje visual, tono, orden y coherencia para que tu empresa se vea más madura y memorable.",
+        "benefits": ["Logo profesional", "Manual de marca", "Paleta de colores", "Tipografía", "Aplicaciones visuales"]
+      },
+      {
+        "id": "diseno-ui-ux",
+        "title": "Diseño UI/UX",
+        "description": "",
+        "details": "Antes de diseñar lo visual, definimos la lógica. Trabajamos desde wireframes para organizar contenido, jerarquizar mensajes y construir flujos que se entienden sin esfuerzo.",
+        "benefits": ["User Research", "Wireframing", "Prototipado", "Usability Testing", "Design System"]
+      },
+      {
+        "id": "modelado-3d",
+        "title": "Modelado 3D",
+        "description": "",
+        "details": "Usamos 3D para sumar presencia, atmósfera y sofisticación. Es una capa visual poderosa cuando quieres vender innovación, premium o una propuesta más aspiracional.",
+        "benefits": ["Renders HD", "Texturas realistas", "Animaciones", "Iluminación profesional"]
+      },
+      {
+        "id": "campanas-digitales",
+        "title": "Campañas Digitales",
+        "description": "",
+        "details": "Gestionamos campañas en (Meta ads, Tiktok ads, Google ads), con integración directa a sus APIs desde nuestro CRM. para un mejor análisis de: métricas, conversiones y audiencias.",
+        "benefits": ["Meta Ads", "TikTok Ads", "Google Ads", "CRM propio", "API integrada"]
+      }
+    ]
+  },
+  "servicesAccordion": {
+    "items": [
+      { "title": "Desarrollo web", "content": "Creamos sitios web modernos, rápidos y optimizados con las últimas tecnologías. Desde landing pages hasta aplicaciones web complejas, desarrollamos soluciones que convierten visitantes en clientes." },
+      { "title": "Branding", "content": "Construimos identidades de marca memorables que conectan emocionalmente con tu audiencia. Desarrollamos estrategias visuales coherentes que comunican los valores de tu negocio y te diferencian de la competencia." },
+      { "title": "Modelado 3D", "content": "Diseñamos experiencias visuales impactantes en 2D y 3D. Desde ilustraciones personalizadas hasta modelados tridimensionales, creamos contenido visual que eleva tu marca al siguiente nivel." },
+      { "title": "Diseño UI/UX", "content": "Creamos interfaces intuitivas, modernas y centradas en el usuario que convierten visitantes en clientes leales." },
+      { "title": "Campañas Digitales", "content": "Gestionamos campañas en Meta Ads, TikTok Ads y Google Ads desde nuestro propio CRM con integración directa a cada plataforma. Sin reportes de terceros: métricas reales, análisis de conversión y optimización continua para maximizar cada sol invertido." }
+    ]
+  },
+  "sobreNosotrosAccordion": {
+    "items": [
+      { "title": "Desarrollo web", "content": "Creamos sitios web modernos, rápidos y optimizados con tecnologías actuales." },
+      { "title": "Branding", "content": "Construimos identidades visuales coherentes que conectan con tu audiencia." },
+      { "title": "Modelado 3D", "content": "Diseñamos experiencias visuales en 2D y 3D que elevan tu marca." },
+      { "title": "Diseño UX/UI", "content": "UI es la apariencia visual. UX es la experiencia completa. Juntos crean productos digitales que las personas aman usar." },
+      { "title": "Campañas Digitales", "content": "Gestionamos campañas en Meta Ads, TikTok Ads y Google Ads desde nuestro propio CRM con integración directa a cada plataforma. Sin reportes de terceros: métricas reales, análisis de conversión y optimización continua." }
+    ]
+  },
+  "sobreNosotros": {
+    "seoTitle": "Sobre Nosotros | Agencia Diseño Web y Branding en Lima - Zincel 2026",
+    "seoDescription": "Conoce a Zincel: estudio creativo en San Isidro, Lima especializado en diseño web profesional, branding empresarial y modelado 3D.",
+    "seoKeywords": "sobre nosotros Zincel, estudio diseño web Lima, agencia branding Lima Perú, diseño UI UX San Isidro, modelado 3D Lima",
+    "imageAlt": "Equipo Zincel: estudio de diseño web, branding y modelado 3D en San Isidro, Lima Perú",
+    "studioNotes": "Notas del estudio",
+    "studioTitle": "Construimos marcas y experiencias digitales con una mirada más directa y más intencional.",
+    "capabilitiesEyebrow": "Capacidades",
+    "capabilitiesTitle": "Lo que hacemos y cómo se conecta dentro del estudio.",
+    "notes": [
+      { "label": "Desde Lima", "text": "Un estudio pequeño con dirección creativa directa y comunicación cercana." },
+      { "label": "Sin capas innecesarias", "text": "Menos estructura burocrática y más claridad para tomar decisiones importantes de diseño." },
+      { "label": "Marca + digital", "text": "Trabajamos identidad, web y visualización como partes del mismo lenguaje." }
+    ],
+    "metrics": [
+      { "valor": "1+", "etiqueta": "Proyecto lanzado" },
+      { "valor": "3", "etiqueta": "Servicios activos", "detalle": "Desarrollo web · Branding · Modelado 3D" },
+      { "valor": "1 a 1", "etiqueta": "Comunicación directa", "detalle": "Sin intermediarios ni delegación" },
+      { "valor": "Perú", "etiqueta": "Cobertura nacional" },
+      { "valor": "2", "etiqueta": "Regiones atendidas", "detalle": "Lima · La Libertad" },
+      { "valor": "B2B", "etiqueta": "Enfoque en negocios" }
+    ]
+  },
+  "aboutConcept": {
+    "eyebrow": "STUDIO PERSPECTIVE",
+    "heroTitle": "Trabajo directo.\nResultados reales.",
+    "heroBody": "Como creador independiente, me involucro en cada detalle. No delego tu marca: diseño soluciones a medida en web, branding y 3D que realmente cumplen objetivos.",
+    "collaborationTitle": "Colaboración cercana y transparente",
+    "collaborationBody": "Trabajo contigo de forma directa y honesta. Comunicación constante, revisiones claras y un resultado que representa exactamente lo que tu marca necesita.",
+    "growthTitle": "Diseños pensados para crecer",
+    "growthBody": "Desarrollo sitios web, identidades visuales y experiencias 3D modernas, optimizadas y listas para evolucionar junto a tu negocio."
+  },
+  "portfolio": {
+    "seoTitle": "Portafolio Diseño Web y Branding Lima | Proyectos Zincel 2026",
+    "seoDescription": "Explora nuestro portafolio: diseño web, branding, UI/UX y visuales 3D desarrollados en Lima para marcas que buscan una presencia más sólida y mejor construida.",
+    "seoKeywords": "portafolio diseño web lima, branding lima, proyectos diseño web perú, portafolio agencia creativa, ui ux lima, modelado 3d lima",
+    "imageAlt": "Portafolio Zincel con proyectos de diseño web, branding y dirección visual en Lima",
+    "featuredEyebrow": "Caso destacado",
+    "featuredTitle": "Una dirección digital más sobria, más clara y mejor construida para empresas que necesitan proyectar peso, confianza y criterio.",
+    "projectsEyebrow": "Selección",
+    "projectsTitle": "Proyectos con dirección estratégica",
+    "projectsIntro": "Casos pensados para demostrar cómo una marca puede verse más sólida cuando el diseño, la narrativa y la estructura trabajan en la misma dirección.",
+    "ctaEyebrow": "Siguiente paso",
+    "ctaTitle": "Construyamos una presencia más sólida",
+    "ctaText": "Si tu empresa necesita verse mejor estructurada, más confiable y con mayor autoridad visual, podemos desarrollar una presentación digital con esa intención.",
+    "ctaButton": "Cotizar proyecto",
+    "footerLeft": "©2026 / Todos los derechos reservados.",
+    "footerRight": "Diseño web, branding y dirección visual.",
+    "tooltipExplore": "Explorar caso destacado",
+    "cardNote": "Una presentación digital pensada para transmitir más solidez, mejor lectura Industrial y una percepción de marca más clara.",
+    "cardCta": "Ver cómo elevamos esta marca",
+    "notes": [
+      "Este proyecto abre una línea de trabajo orientada a empresas que necesitan verse más sólidas, más confiables y mejor presentadas en digital.",
+      "No se trata solo de diseñar una web, sino de construir una lectura institucional más clara, más sobria y mejor dirigida comercialmente.",
+      "Cada decisión visual, narrativa y de movimiento está pensada para elevar la percepción del negocio sin saturarlo de recursos innecesarios."
+    ],
+    "projects": [
+      {
+        "id": "cushuro",
+        "title": "Calera Santa Isabel de Cushuro",
+        "subtitle": "Una propuesta web desarrollada para presentar a la empresa con mayor solidez institucional, mejor jerarquía visual y una narrativa alineada con la escala real de su operación.",
+        "year": "2026",
+        "category": "Sitio web"
+      }
+    ]
+  },
+  "serviciosPage": {
+    "seo": {
+      "title": "Servicios Creativos y Digitales | Zincel",
+      "description": "Servicios de desarrollo web, branding, diseño UI/UX y modelado 3D para marcas que buscan una presencia más clara, sólida y profesional.",
+      "keywords": "desarrollo web lima, branding perú, diseño ui ux lima, modelado 3d perú, servicios creativos zincel"
+    },
+    "deliverablesTitle": "Lo que aterrizamos en cada proyecto.",
+    "deliverablesDescription": "Cada entrega busca dejarte una web lista para operar, actualizar y escalar; no solo una maqueta atractiva.",
+    "deliverables": [
+      { "title": "Arquitectura y narrativa", "description": "Definición de estructura, contenidos clave, ritmo de lectura y llamadas a la acción con intención comercial. Analizamos profundamente tu oferta para construir una jerarquía de información que guíe al usuario sin fricciones hacia el contacto." },
+      { "title": "Diseño responsive", "description": "Sistema visual adaptado a móvil, tablet y desktop, con prioridad en legibilidad y jerarquía. Aseguramos que el layout mantenga la calidad tipográfica y el espaciado óptimo sin importar desde qué dispositivo te lean." },
+      { "title": "Implementación optimizada", "description": "Construcción técnica orientada a performance, SEO on-page y mantenimiento razonable. Entregamos un código limpio que carga en instantes, porque el 2050 no espera a nadie." },
+      { "title": "Soporte de lanzamiento", "description": "Entrega, revisión final y acompañamiento inicial para ajustar detalles después de publicar. Porque el trabajo no termina cuando subimos la web a producción." }
+    ],
+    "processTitle": "Un proceso corto, claro y con criterio.",
+    "processDescription": "Preferimos procesos precisos y bien dirigidos para que las decisiones importantes se tomen rápido y con contexto.",
+    "process": [
+      { "step": "01", "title": "Diagnóstico", "description": "Vemos qué necesita comunicar la marca, qué está frenando la conversión y qué nivel visual debería tener la web." },
+      { "step": "02", "title": "Dirección visual", "description": "Construimos una propuesta visual y de estructura que haga que el sitio se sienta más sólido y más actual." },
+      { "step": "03", "title": "Desarrollo", "description": "Llevamos el diseño a una implementación real, rápida y lista para publicarse con seguridad." },
+      { "step": "04", "title": "Lanzamiento", "description": "Validamos detalles finales, publicamos y ajustamos lo necesario para dejar el sitio afinado." }
+    ],
+    "closingTitle": "Si tu web ya no representa el nivel de tu negocio, es momento de rediseñarla en serio.",
+    "closingDescription": "Podemos empezar con una conversación breve para definir alcance, prioridades y el tipo de experiencia que más te conviene construir.",
+    "closingButtonLabel": "Hablemos de tu proyecto",
+    "deliverables_label": "Entregables",
+    "process_label": "Proceso",
+    "desarrolloWeb": {
+      "eyebrow": "Desarrollo Web",
+      "whatsappText": "Quiero una página web profesional",
+      "benefitsTitle": "Páginas web rápidas y optimizadas que convierten visitantes en clientes.",
+      "benefitsDescription": "Creamos sitios web profesionales con arquitectura clara, performance sólida y una experiencia que eleva la percepción de tu negocio desde el primer scroll.",
+      "benefits": [
+        { "title": "Experiencia responsive", "description": "El sitio mantiene legibilidad, ritmo visual y claridad en móvil, tablet y desktop." },
+        { "title": "Jerarquía que guía la atención", "description": "Ordenamos titulares, secciones y llamadas a la acción para que cada visita entienda rápido qué ofreces y cuál es el siguiente paso." },
+        { "title": "Narrativa comercial más clara", "description": "Estructuramos el contenido para que tu propuesta se sienta más confiable, más precisa y más fácil de convertir en una conversación real." }
+      ]
+    },
+    "branding": {
+      "eyebrow": "Branding",
+      "whatsappText": "Quiero mejorar el branding de mi marca",
+      "benefitsTitle": "Identidad visual completa para diferenciar tu marca del mercado.",
+      "benefitsDescription": "Diseñamos sistemas de marca que no se quedan solo en el logo: construimos lenguaje visual, tono, orden y coherencia para que tu empresa se vea más madura y memorable.",
+      "benefits": [
+        { "title": "Logo profesional", "description": "Creamos un signo visual con mejor criterio formal para que la marca se perciba más seria y reconocible." },
+        { "title": "Sistema de marca", "description": "Definimos color, tipografía y lineamientos para que toda la comunicación mantenga orden y coherencia." },
+        { "title": "Aplicaciones visuales", "description": "Aterrizamos la identidad en piezas concretas para que funcione de verdad y no se quede solo en presentación." }
+      ]
+    },
+    "uiux": {
+      "eyebrow": "Diseño UI/UX",
+      "whatsappText": "Quiero mejorar la experiencia de mi proyecto digital",
+      "benefitsTitle": "Interfaces intuitivas que mejoran la experiencia y las conversiones.",
+      "benefitsDescription": "Pensamos productos y pantallas con una lógica clara, más liviana y más humana. El objetivo es que cada flujo se sienta fácil de entender y convincente de usar.",
+      "benefits": [
+        { "title": "Research y definición", "description": "Leemos el contexto del producto y las necesidades del usuario para tomar decisiones con más criterio." },
+        { "title": "Wireframes y estructura", "description": "Construimos recorridos y jerarquías claras antes de entrar al detalle visual." },
+        { "title": "Prototipos y validación", "description": "Aterrizamos interacciones en prototipos para revisar usabilidad, consistencia y comprensión." }
+      ]
+    },
+    "modelado3d": {
+      "eyebrow": "Modelado 3D",
+      "whatsappText": "Quiero modelado 3D para mi proyecto",
+      "benefitsTitle": "Visualizaciones 3D fotorrealistas para productos, espacios y conceptos.",
+      "benefitsDescription": "Usamos 3D para sumar presencia, atmósfera y sofisticación. Es una capa visual poderosa cuando quieres vender innovación, premium o una propuesta más aspiracional.",
+      "benefits": [
+        { "title": "Renders de alto impacto", "description": "Mostramos productos y espacios con más claridad visual para que el valor se entienda desde el primer vistazo." },
+        { "title": "Texturas e iluminación", "description": "Trabajamos materiales, luz y acabado para que la pieza se sienta más real y mejor resuelta." },
+        { "title": "Animación y presentación", "description": "Creamos secuencias cuando hace falta explicar mejor un concepto o potenciar la propuesta visual." }
+      ]
+    },
+    "marketing": {
+      "eyebrow": "Campañas Digitales",
+      "whatsappText": "Quiero gestionar campañas digitales con Zincel",
+      "benefitsTitle": "Campañas en Meta, TikTok y Google con análisis real de cada sol invertido.",
+      "benefitsDescription": "Gestionamos campañas en las tres plataformas principales desde nuestro propio CRM con integración directa a sus APIs. Sin reportes de terceros: tus métricas, conversiones y audiencias en un solo sistema que controlamos nosotros.",
+      "benefits": [
+        { "title": "Gestión en las tres plataformas", "description": "Creamos y optimizamos campañas en Meta Ads, TikTok Ads y Google Ads con criterio unificado, para que el presupuesto trabaje en los canales donde está tu audiencia." },
+        { "title": "CRM propio con API integrada", "description": "Nuestro CRM se conecta directamente a Meta, TikTok y Google. Importamos campañas, trazamos resultados y tomamos decisiones con datos reales, no con capturas de pantalla." },
+        { "title": "Análisis de conversión y optimización", "description": "Seguimos el costo por resultado, el rendimiento por audiencia y el comportamiento de cada anuncio para optimizar en tiempo real y maximizar el retorno." }
+      ]
+    }
+  },
+  "preciosWeb": {
+    "seoTitle": "Precios Web Lima | Rangos y paquetes de diseño web - Zincel",
+    "seoDescription": "Consulta rangos referenciales para diseño web en Lima: landing pages, webs corporativas y proyectos a medida.",
+    "seoKeywords": "precios diseño web lima, costo página web perú, paquetes web lima, cotizar sitio web san isidro",
+    "overview": "Resumen de precios",
+    "title": "Rangos claros para empezar una web con mejor estructura y mejor presencia.",
+    "description": "Esta página funciona como referencia inicial. El precio final depende del alcance, del contenido, del nivel visual y de si la marca necesita solo una web o una dirección más completa.",
+    "pricingFactors": "Qué cambia el precio",
+    "pricingFactorsBodyOne": "Número de secciones, complejidad visual, sistema de marca, integraciones, carga de contenido y necesidades especiales de performance o escalabilidad.",
+    "pricingFactorsBodyTwo": "Preferimos cotizar con contexto para no venderte menos de lo que tu proyecto necesita ni más de lo que realmente te sirve.",
+    "included": "Incluido",
+    "includedTitle": "Qué buscamos dejar resuelto incluso en proyectos pequeños.",
+    "bands": [
+      { "label": "Entrada", "title": "Landing o sitio base", "price": "Desde S/500", "description": "Para negocios que necesitan una presencia inicial bien presentada, clara y funcional." },
+      { "label": "Más solicitado", "title": "Web Advance", "price": "Desde S/1,300", "description": "Ideal para marcas que necesitan más estructura, mejor narrativa y una percepción más profesional." },
+      { "label": "A medida", "title": "Proyecto platinum", "price": "Desde S/2,000", "description": "Cuando se requiere un sistema más robusto, más contenido, integraciones o una dirección visual más profunda." }
+    ],
+    "includes": ["Claridad de alcance antes de empezar", "Diseño responsive", "Base técnica optimizada", "SEO on-page esencial", "Acompañamiento de lanzamiento"]
+  },
+  "gracias": {
+    "title": "¡Gracias por escribirnos!",
+    "description": "Estamos abriendo WhatsApp para atenderte. Nos vemos ahí.",
+    "note": "Serás redirigido en unos segundos..."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o fue movida.",
+    "cta": "Volver al inicio"
+  },
+  "experiencias": {
+    "badge": "Muy pronto",
+    "title": "Una experiencia para previsualizar tu web por sector",
+    "description": "Estamos preparando una pestaña donde podrás elegir el sector de tu empresa, ingresar datos básicos y ver una primera simulación de cómo se vería tu página web antes de desarrollarla.",
+    "pills": ["Elige tu sector", "Completa datos básicos", "Visualiza una propuesta inicial"],
+    "cards": [
+      { "title": "Sectores", "body": "Opciones pensadas para distintos tipos de negocio." },
+      { "title": "Simulación visual", "body": "Una vista rápida del estilo y estructura de tu web." },
+      { "title": "Proceso simple", "body": "Solo con la información esencial de tu empresa." }
+    ],
+    "previewLabel": "Vista previa",
+    "previewEyebrow": "Próximamente",
+    "previewTitle": "Tu web en minutos",
+    "steps": [
+      { "label": "Paso 1", "text": "Selecciona tu rubro" },
+      { "label": "Paso 2", "text": "Agrega datos básicos" },
+      { "label": "Paso 3", "text": "Mira tu simulación" }
+    ]
+  }
+}

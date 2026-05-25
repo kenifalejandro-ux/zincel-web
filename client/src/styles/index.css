@@ -61,9 +61,7 @@
     justify-content: center;
   }
 
-  .bg-\[\#0a0a0a\] {
-    background-color: #ffffff;
-  }
+
 
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);

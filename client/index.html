@@ -11,6 +11,20 @@
     <link rel="canonical" href="https://www.zincelideas.com" />
     <link rel="alternate" hreflang="es-PE" href="https://www.zincelideas.com" />
 
+    <!-- Anti-FOUC: aplica el tema antes de que React monte -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("zincel-theme");
+          var isDark = t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (isDark) {
+            document.documentElement.classList.add("dark");
+            document.documentElement.style.colorScheme = "dark";
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Google Tag Manager (optimizado) -->
     <script>
       (function (w, d, s, l, i) {
@@ -47,6 +61,21 @@
     <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" sizes="180x180" />
+
+    <script>
+  (function () {
+    try {
+      var v = localStorage.getItem("zincel-theme");
+      var dark = v === "dark" ||
+        ((v === null || v === "system") &&
+         matchMedia("(prefers-color-scheme: dark)").matches);
+      if (dark) {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      }
+    } catch (e) {}
+  })();
+</script>
 
     <!-- React bundle (defer implícito en module) -->
     <script type="module" crossorigin src="/src/main.tsx"></script>

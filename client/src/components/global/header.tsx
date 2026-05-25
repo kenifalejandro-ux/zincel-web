@@ -19,8 +19,10 @@ import {
 import { debounce } from "../../utils/debounce";
 import { useImageOverlap } from "../../hooks/useImageOverlap";
 import { LanguageToggle } from "./LanguageToggle";
+import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "../../context/LanguageContext";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@/hooks/useTheme";
 import logoZincelWhite from "../../assets/logo-zincel-white.svg";
 import logoZincelBlack from "../../assets/logo-zincel-black.svg";
 
@@ -565,7 +567,7 @@ function MenuOverlay({
 }  return (
     <div
       aria-hidden={!open}
-      className="fixed inset-0 z-[60] bg-purple-700 transition-[clip-path] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]"
+      className="fixed inset-0 z-[60] bg-zinc-100 transition-[clip-path] duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]"
       style={{ clipPath: open ? "inset(0% 0% 0% 0%)" : "inset(100% 0% 0% 0%)", pointerEvents: open ? "auto" : "none" }}
     >
       {/* Top bar */}
@@ -758,6 +760,7 @@ export function Header({
 }: HeaderProps) {
   const { language } = useLanguage();
   const { t } = useTranslation();
+  const { resolved: userTheme } = useTheme();
   const { isDarkOverlapping, isLightOverlapping } = useImageOverlap({
     targetElementId: "banner", debounceDelay: 10,
   });
@@ -778,7 +781,7 @@ export function Header({
 
   const resolvedTabs = tabs ?? localizedContent.tabs;
 
-  const isDarkTheme = isDarkOverlapping && !isLightOverlapping;
+  const isDarkTheme = (isDarkOverlapping && !isLightOverlapping) || userTheme === "dark";
   const activeLogo = isDarkTheme ? logoDark : logoLight;
 
   const [isScrolled, setIsScrolled]   = useState(false);
@@ -856,13 +859,13 @@ export function Header({
       {/* ── HEADER BAR ──────────────────────────────────────────────────── */}
       <header
         id="banner"
-        className={`fixed inset-x-0 bg-zinc-100 top-0 z-50 transition-transform duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 ${
           isHidden && !isMenuOpen ? "-translate-y-full" : "translate-y-0"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
             {/* 3-column grid: logo | dots | controls — ensures true center on all sizes */}
-            <div className="grid grid-cols-[1fr_auto_1fr] h-16 items-center px-2 sm:px-4">
+            <div className={`grid grid-cols-[1fr_auto_1fr] h-16 items-center px-2 sm:px-4 rounded-2xl backdrop-blur-md border transition-colors duration-300 ${isScrolled ? tone.bar : "bg-transparent border-transparent"}`}>
 
               {/* Logo — left */}
               <NavLink to="/" className="flex items-center gap-3" data-cursor="label:Inicio">
@@ -897,6 +900,7 @@ export function Header({
 
               {/* Controls — right, flex justify-end */}
               <div className="flex items-center justify-end gap-1.5 sm:gap-2">
+                <ThemeToggle size={34} />
                 <LanguageToggle className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 sm:px-3 sm:py-2 text-[12px] sm:text-[13px] transition-colors ${tone.btn}`} />
 
                 {enableCommandPalette && (
