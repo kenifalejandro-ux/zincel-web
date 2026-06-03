@@ -1,127 +1,87 @@
 // client/src/App.tsx
 
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import Layout from "./components/layout/layout";
-import logoZincel from "@/assets/logo-zincel-black.svg";
+import { lazy, Suspense, type ReactNode } from "react";
 import PageTransition from "./components/global/PageTransition";
-
-// Lazy imports
-const Inicio = lazy(() => import("./components/Paginas/inicio"));
-const Servicios = lazy(() => import("./components/Paginas/Servicios"));
-const Portfolio = lazy(() => import("./components/Paginas/Portfolio"));
-const SobreNosotros = lazy(() => import("./components/Paginas/sobre-nosotros"));
-const PreciosWeb = lazy(() => import("./components/Paginas/precios-web"));
-const Experiencias = lazy(() => import("./components/Paginas/experiencias"));
-const Gracias = lazy(() => import("./components/Paginas/Gracias"));
-const NotFound = lazy(() => import("./components/Paginas/NotFound"));
-
-// Hooks
-
+import WorldMapHero from "./components/MapHero/Hero";
+import FullscreenModal from "./components/MapHero/FullscreenModal";
 import { useGTMPageView } from "./hooks/useGTMPageView";
 import useParallaxEffect from "./hooks/useParallaxEffect";
 
-function AppRoutes() {
-  const location = useLocation();
+const Inicio       = lazy(() => import("./components/Paginas/inicio"));
+const Servicios    = lazy(() => import("./components/Paginas/Servicios"));
+const Portfolio    = lazy(() => import("./components/Paginas/Portfolio"));
+const SobreNosotros = lazy(() => import("./components/Paginas/sobre-nosotros"));
+const PreciosWeb   = lazy(() => import("./components/Paginas/precios-web"));
+const Experiencias = lazy(() => import("./components/Paginas/experiencias"));
+const Contactanos  = lazy(() => import("./components/Paginas/Contactanos"));
+const Gracias      = lazy(() => import("./components/Paginas/Gracias"));
+const NotFound     = lazy(() => import("./components/Paginas/NotFound"));
 
+const MODAL_ROUTES: Record<string, ReactNode> = {
+  "/inicio":         <Inicio />,
+  "/servicios":      <Servicios />,
+  "/portfolio":      <Portfolio />,
+  "/sobre-nosotros": <SobreNosotros />,
+  "/precios-web":    <PreciosWeb />,
+  "/experiencias":   <Experiencias />,
+  "/contactanos":    <Contactanos />,
+};
+
+const LoadingSpinner = () => (
+  <div className="flex min-h-screen items-center justify-center bg-[#f3efe7]">
+    <div className="h-6 w-6 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-800" />
+  </div>
+);
+
+function MapLayout() {
+  const location = useLocation();
   useGTMPageView();
 
+  const path = location.pathname;
+  const isModalRoute = path in MODAL_ROUTES;
+
   return (
-    <Routes location={location} key={location.pathname}>
-      {/* INICIO */}
-      <Route
-        path="/"
-        element={
-          <Layout page="inicio" showVideo logo={logoZincel} brandName="">
-            <div className="fixed bottom-60 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
-            <Inicio />
-          </Layout>
-        }
-      />
+    <>
+      {/* Mapa siempre visible de fondo */}
+      <WorldMapHero isModalOpen={isModalRoute} />
 
-      {/* SERVICIOS */}
-      <Route
-        path="/Servicios"
-        element={
-          <Layout page="servicios" showVideo logo={logoZincel} brandName="">
-            <div className="fixed bottom-60 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
-            <Servicios />
-          </Layout>
-        }
-      />
+      {/* Modal fullscreen con cube flip */}
+      <FullscreenModal isOpen={isModalRoute} path={path}>
+        <Suspense fallback={<LoadingSpinner />}>
+          {MODAL_ROUTES[path]}
+        </Suspense>
+      </FullscreenModal>
+    </>
+  );
+}
 
-      {/* PORTFOLIO */}
-      <Route
-        path="/portfolio"
-        element={
-          <Layout
-            page="portfolio"
-            showVideo={false}
-            logo={logoZincel}
-            brandName=""
-            hideHeroHeader={true}
-          >
-            <Portfolio />
-          </Layout>
-        }
-      />
+function AppRoutes() {
+  return (
+    <Routes>
+      {/* Mapa + modales */}
+      <Route path="/"               element={<MapLayout />} />
+      <Route path="/inicio"         element={<MapLayout />} />
+      <Route path="/servicios"      element={<MapLayout />} />
+      <Route path="/portfolio"      element={<MapLayout />} />
+      <Route path="/sobre-nosotros" element={<MapLayout />} />
+      <Route path="/precios-web"    element={<MapLayout />} />
+      <Route path="/experiencias"   element={<MapLayout />} />
+      <Route path="/contactanos"    element={<MapLayout />} />
+
+      {/* Aliases legacy */}
+      <Route path="/Servicios" element={<Navigate to="/servicios" replace />} />
       <Route path="/Portfolio" element={<Navigate to="/portfolio" replace />} />
 
-      {/* GRACIAS */}
-      <Route path="/gracias" element={<Gracias />} />
-
-      {/* 404 */}
-      <Route path="*" element={<NotFound />} />
-
-      {/* SOBRE NOSOTROS */}
-      <Route
-        path="/sobre-nosotros"
-        element={
-          <Layout page="sobrenosotros" showVideo={false} logo={logoZincel} brandName="">
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
-            <SobreNosotros />
-          </Layout>
-        }
-      />
-
-      {/* PRECIOS WEB */}
-      <Route
-        path="/precios-web"
-        element={
-          <Layout page="precios-web" showVideo={false} logo={logoZincel} brandName="">
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none"></div>
-            <PreciosWeb />
-          </Layout>
-        }
-      />
-
-      {/* EXPERIENCIAS */}
-      <Route
-        path="/experiencias"
-        element={
-          <Layout
-            page="experiencias"
-            showVideo={false}
-            logo={logoZincel}
-            hideNavs={false} /*// <--- Oculta Navbar y HeroHeader para esta página*/
-            brandName="Zincel"
-          >
-            <Suspense fallback={<div className="loading-spinner">Cargando...</div>}>
-              <Experiencias />
-            </Suspense>
-          </Layout>
-        }
-      />
+      {/* Páginas standalone */}
+      <Route path="/gracias" element={<Suspense fallback={null}><Gracias /></Suspense>} />
+      <Route path="*"        element={<Suspense fallback={null}><NotFound /></Suspense>} />
     </Routes>
   );
 }
 
 function App() {
-  useParallaxEffect([], {
-    parallaxFactor: 0.2,
-    debounceDelay: 10,
-    threshold: 100,
-  });
+  useParallaxEffect([], { parallaxFactor: 0.2, debounceDelay: 10, threshold: 100 });
 
   return (
     <div className="app">
