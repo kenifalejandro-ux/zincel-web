@@ -1,4 +1,4 @@
-import SEO from "../global/seo";
+import PageSEO from "../global/PageSEO";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -17,12 +17,7 @@ export default function PreciosWeb() {
 
   return (
     <>
-      <SEO
-        title={t("preciosWeb.seoTitle")}
-        description={t("preciosWeb.seoDescription")}
-        keywords={t("preciosWeb.seoKeywords")}
-        url="https://www.zincelideas.com/precios-web"
-      />
+      <PageSEO pageId="precios-web" />
 
       <div className="min-h-screen bg-[#f3efe7] text-zinc-900">
         <section className="relative overflow-hidden border-b border-black/10">

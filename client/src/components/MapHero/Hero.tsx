@@ -135,7 +135,13 @@ export default function Hero({ isModalOpen }: HeroProps) {
     return () => window.clearInterval(id);
   }, []);
 
-  const handlePinOpen = (pin: PinT) => navigate(pin.route);
+  const handlePinOpen = (pin: PinT) => {
+    if (pin.route === "__briefing") {
+      window.open("/briefing", "_blank", "noopener,noreferrer");
+    } else {
+      navigate(pin.route);
+    }
+  };
 
   /*
    * Mapa mobile: el contenedor se rota 90° para que el mapa de aspecto 2:1

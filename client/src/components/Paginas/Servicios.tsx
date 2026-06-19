@@ -7,6 +7,7 @@ import Procesos from "../sections/Procesos";
 import ContactoServices from "../sections/ContactoServices";
 import FloatingCta from "../shared/FloatingCta";
 import { getServicesPageData } from "../../content/servicesPageData";
+import PageSEO from "../global/PageSEO";
 
 export default function Servicios() {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ export default function Servicios() {
 
   return (
     <>
+      <PageSEO pageId="servicios" />
       <ServiceBenefitsSection {...desarrolloWebData} />
       <ServiceBenefitsSection {...brandingData} />
       <ServiceBenefitsSection {...uiuxData} />

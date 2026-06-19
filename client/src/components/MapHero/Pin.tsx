@@ -25,16 +25,12 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
       return;
     }
 
-    // Desktop: animación hover
-    const dir = left ? -1 : 1;
+    // Desktop: label siempre visible (opacity base 0.55), hover → 1 + core escala
+    gsap.set(labelRef.current, { opacity: 0.55, x: 0 });
+
     const tl = gsap.timeline({ paused: true });
     tl.to(coreRef.current, { scale: 1.55, duration: 0.35, ease: "power2.out" }, 0)
-      .fromTo(
-        labelRef.current,
-        { opacity: 0, x: dir * 10 },
-        { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" },
-        0
-      );
+      .to(labelRef.current, { opacity: 1, duration: 0.25, ease: "power2.out" }, 0);
     tlRef.current = tl;
     return () => { tl.kill(); };
   }, [left, isMapRotated]);
@@ -70,16 +66,34 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
       <span className="absolute -inset-5 rounded-full" />
 
       {/* Anillos pulsantes */}
-      <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse" />
-      <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse [animation-delay:1.7s]" />
+      {pin.kind === "briefing" ? (
+        <>
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400 opacity-0 animate-pinPulse" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400 opacity-0 animate-pinPulse [animation-delay:1.7s]" />
+        </>
+      ) : (
+        <>
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse [animation-delay:1.7s]" />
+        </>
+      )}
 
       {/* Core del pin */}
-      <span
-        ref={coreRef}
-        className="relative block h-[9px] w-[9px] rounded-full bg-accent shadow-[0_0_10px_1px_rgba(233,200,147,0.55),0_0_2px_rgba(255,255,255,0.6)]"
-      >
-        <span className="absolute inset-[2.5px] rounded-full bg-white/90" />
-      </span>
+      {pin.kind === "briefing" ? (
+        <span
+          ref={coreRef}
+          className="relative block h-[9px] w-[9px] rounded-full bg-violet-500 shadow-[0_0_12px_2px_rgba(139,92,246,0.7),0_0_2px_rgba(255,255,255,0.6)]"
+        >
+          <span className="absolute inset-[2.5px] rounded-full bg-white/90" />
+        </span>
+      ) : (
+        <span
+          ref={coreRef}
+          className="relative block h-[9px] w-[9px] rounded-full bg-accent shadow-[0_0_10px_1px_rgba(233,200,147,0.55),0_0_2px_rgba(255,255,255,0.6)]"
+        >
+          <span className="absolute inset-[2.5px] rounded-full bg-white/90" />
+        </span>
+      )}
 
       {/* LABEL — mobile: debajo del pin, contrarrotado. Desktop: izq/der con hover */}
       {isMapRotated ? (
@@ -91,7 +105,7 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
       ) : (
         <span
           ref={labelRef}
-          className={`pointer-events-none absolute top-1/2 flex -translate-y-1/2 flex-col gap-px whitespace-nowrap opacity-0 ${
+          className={`pointer-events-none absolute top-1/2 flex -translate-y-1/2 flex-col gap-px whitespace-nowrap ${
             left ? "right-[22px] items-end text-right" : "left-[22px]"
           }`}
         >
@@ -102,10 +116,10 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
                 : "left-[-22px] bg-[linear-gradient(90deg,#e9c893,transparent)]"
             } opacity-70`}
           />
-          <span className="font-body text-[10.5px] uppercase tracking-[.34em] text-accent">
+          <span className={`font-body text-[8px] uppercase tracking-[.34em] ${pin.kind === "briefing" ? "text-violet-400" : "text-accent"}`}>
             {t(pin.sub, lang)}
           </span>
-          <span className="font-display text-[23px] font-medium leading-none text-white">
+          <span className="font-display text-[16px] font-medium leading-none text-white">
             {t(pin.name, lang)}
           </span>
         </span>

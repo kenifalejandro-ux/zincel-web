@@ -1,6 +1,6 @@
 /**client/src/components/Paginas/sobre-nosotros */
 
-import SEO from "../global/seo";
+import PageSEO from "../global/PageSEO";
 import Metricas from "../ui/Metricas";
 import { ImageStack } from "../ui/ImageStack";
 import AboutConcept, { SobreNosotrosSectionAccordion } from "../sections/SobreNosotrosSection";
@@ -14,14 +14,7 @@ export default function SobreNosotros() {
 
   return (
     <>
-      <SEO
-        title={t("sobreNosotros.seoTitle")}
-        description={t("sobreNosotros.seoDescription")}
-        keywords={t("sobreNosotros.seoKeywords")}
-        url="https://www.zincelideas.com/sobre-nosotros"
-        image="https://www.zincelideas.com/imagenes-optim/meta/sobre-nosotros-1920.webp"
-        imageAlt={t("sobreNosotros.imageAlt")}
-      />
+      <PageSEO pageId="sobre-nosotros" />
 
       <section className="bg-zinc-100 max-w-full px-4 md:px-8 lg:px-12 -mt-26 md:-mt-26 lg:-mt-20">
         <div className="max-w-7xl mx-auto">

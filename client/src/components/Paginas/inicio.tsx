@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SEO from "../global/seo";
+import PageSEO from "../global/PageSEO";
 import { ContactSection } from "../sections/InicioSections";
 import { ArrowRight } from "lucide-react";
 import ServiciosContent from "../sections/servicios";
@@ -16,73 +16,7 @@ export default function Inicio() {
   return (
     <div className="min-h-screen bg-[#f3efe7] text-zinc-900">
       <HeroHeaderVideos />
-      <SEO
-        title={t("inicio.seoTitle")}
-        description={t("inicio.seoDescription")}
-        keywords={t("inicio.seoKeywords")}
-        url="https://www.zincelideas.com"
-        image="https://www.zincelideas.com/imagenes-optim/ImageInicio/build-branding.avif"
-        imageAlt={t("inicio.imageAlt")}
-        schema={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebSite",
-              "@id": "https://www.zincelideas.com#website",
-              url: "https://www.zincelideas.com",
-              name: "Zincel",
-              alternateName: "Zincel Ideas",
-              description: "Agencia de diseño web, branding, UI/UX y modelado 3D en Lima, Perú. Creamos sitios profesionales que convierten visitantes en clientes.",
-              inLanguage: "es-PE",
-              publisher: { "@type": "Organization", "@id": "https://www.zincelideas.com#organization", name: "Zincel", logo: { "@type": "ImageObject", url: "https://www.zincelideas.com/imagenes-optim/logo-zincel/logo-zincel-black.svg", width: 512, height: 512 } },
-            },
-            {
-              "@type": "Organization",
-              "@id": "https://www.zincelideas.com#organization",
-              name: "Zincel",
-              url: "https://www.zincelideas.com",
-              logo: "https://www.zincelideas.com/imagenes-optim/logo-zincel/logo-zincel-black.svg",
-              description: "Estudio creativo en Lima especializado en diseño web profesional, branding empresarial, diseño UI/UX y modelado 3D para empresas peruanas.",
-              foundingDate: "2024",
-              founders: [{ "@type": "Person", name: "Kenif Carlos Alejandro Garro" }],
-              address: { "@type": "PostalAddress", streetAddress: "San Isidro", addressLocality: "San Isidro, Lima", addressRegion: "Lima", postalCode: "27", addressCountry: "PE" },
-              geo: { "@type": "GeoCoordinates", latitude: -12.0464, longitude: -77.0428 },
-              telephone: "+51 933 838 792",
-              email: "hello@zincelideas.com",
-              priceRange: "$$-$$$",
-              paymentAccepted: ["Transferencia", "Efectivo", "Tarjetas"],
-              sameAs: ["https://www.facebook.com/zincelideas", "https://www.instagram.com/zincelideas", "https://www.linkedin.com/company/zincelideas", "https://www.behance.net/zincelideas", "https://www.tiktok.com/@zincelideas"],
-            },
-            {
-              "@type": "LocalBusiness",
-              "@id": "https://www.zincelideas.com#localbusiness",
-              name: "Zincel - Agencia de Diseño Web y Branding",
-              url: "https://www.zincelideas.com",
-              telephone: "+51 933 838 792",
-              priceRange: "$$-$$$",
-              image: "https://www.zincelideas.com/imagenes-optim/ImageInicio/build-branding.avif",
-              description: "Agencia local en Lima: diseño de páginas web optimizadas SEO, branding y visuales 3D para empresas que buscan crecer digitalmente en Perú.",
-              address: { "@type": "PostalAddress", addressLocality: "San Isidro, Lima", addressCountry: "PE" },
-              geo: { "@type": "GeoCoordinates", latitude: -12.0464, longitude: -77.0428 },
-              openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" }],
-              areaServed: { "@type": "Place", name: "Lima, Perú" },
-            },
-            {
-              "@type": "BreadcrumbList",
-              "@id": "https://www.zincelideas.com#breadcrumb",
-              itemListElement: [{ "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.zincelideas.com" }],
-            },
-            {
-              "@type": "FAQPage",
-              mainEntity: [
-                { "@type": "Question", name: "¿Cuánto cuesta una página web profesional en Lima 2026?", acceptedAnswer: { "@type": "Answer", text: "Desde S/500 para sitios básicos hasta S/. 3000+ para proyectos con e-commerce, SEO avanzado y branding. Cotiza personalizado por WhatsApp sin costo." } },
-                { "@type": "Question", name: "¿Por qué elegir una agencia de diseño web en Lima como Zincel?", acceptedAnswer: { "@type": "Answer", text: "Entendemos el mercado peruano: pagos en soles, entrega rápida, enfoque local y optimización para búsquedas en Perú. +40% leads promedio en clientes." } },
-                { "@type": "Question", name: "¿Incluyen SEO en sus diseños web?", acceptedAnswer: { "@type": "Answer", text: "Sí, todos los sitios incluyen SEO on-page básico y Core Web Vitals optimizados para rankear mejor en Google Perú." } },
-              ],
-            },
-          ],
-        }}
-      />
+      <PageSEO pageId="inicio" />
 
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0">

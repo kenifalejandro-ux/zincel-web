@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowRight, Building2, Clock3, MonitorSmartphone, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import PageSEO from "../global/PageSEO";
 
 const Experiencias: React.FC = () => {
   const { t } = useTranslation();
@@ -12,7 +13,9 @@ const Experiencias: React.FC = () => {
   const steps = t("experiencias.steps", { returnObjects: true }) as { label: string; text: string }[];
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
+    <>
+      <PageSEO pageId="experiencias" />
+      <section className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.22),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(59,130,246,0.18),_transparent_28%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
 
@@ -98,7 +101,8 @@ const Experiencias: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 

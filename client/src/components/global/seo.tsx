@@ -12,6 +12,7 @@ interface SEOProps {
   locale?: string;
   siteName?: string;
   schema?: object | object[];
+  robots?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -25,6 +26,7 @@ const SEO: React.FC<SEOProps> = ({
   locale = "es_PE",
   siteName = "Zincel",
   schema,
+  robots = "index, follow",
 }) => {
   useEffect(() => {
     // Limpia metadatos anteriores
@@ -65,7 +67,7 @@ const SEO: React.FC<SEOProps> = ({
     // SEO básico
     addMeta("description", description || "");
     addMeta("keywords", keywords || "");
-    addMeta("robots", "index, follow");
+    addMeta("robots", robots);
     addMeta("content-language", locale || "");
     addLink("canonical", url || "");
 
@@ -91,7 +93,7 @@ const SEO: React.FC<SEOProps> = ({
       const schemas = Array.isArray(schema) ? schema : [schema];
       schemas.forEach((obj) => addScript(obj));
     }
-  }, [title, description, keywords, url, image, imageAlt, type, locale, siteName, schema]);
+  }, [title, description, keywords, url, image, imageAlt, type, locale, siteName, schema, robots]);
 
   return null;
 };

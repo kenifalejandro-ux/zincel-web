@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import SEO from "../global/seo";
+import PageSEO from "../global/PageSEO";
 import { LCPImage } from "../ui/LCPImage";
 import { OptimizedVideo } from "../ui/OptimizedVideo";
 import { Tooltip } from "../ui/Tooltip";
@@ -205,21 +205,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <SEO
-        title={t("portfolio.seoTitle")}
-        description={t("portfolio.seoDescription")}
-        keywords={t("portfolio.seoKeywords")}
-        url="https://www.zincelideas.com/portfolio"
-        image="https://www.zincelideas.com/imagenes-optim/trabajos/imagenes/puerta-del-valle"
-        imageAlt={t("portfolio.imageAlt")}
-        schema={{
-          "@context": "https://schema.org",
-          "@graph": [
-            { "@type": "Organization", "@id": "https://www.zincelideas.com#organization", name: "Zincel", url: "https://www.zincelideas.com", logo: "https://www.zincelideas.com/imagenes-optim/logo-zincel/logo-zincel-black.svg", description: "Agencia creativa en Lima: diseño web profesional, branding empresarial, UI/UX y modelado 3D para marcas peruanas.", address: { "@type": "PostalAddress", addressLocality: "Independencia, Lima", addressRegion: "Lima", addressCountry: "PE" }, geo: { "@type": "GeoCoordinates", latitude: -12.0464, longitude: -77.0428 }, telephone: "+51 933 838 792", email: "kenif.alejandro@zincelideas.com", priceRange: "$$-$$$" },
-            { "@type": "CollectionPage", "@id": "https://www.zincelideas.com/portfolio#page", name: "Portafolio de Proyectos - Zincel", url: "https://www.zincelideas.com/portfolio", description: "Selección de proyectos conceptuales y demostrativos en diseño web, branding, UI/UX y modelado 3D desarrollados en Lima, Perú." },
-          ],
-        }}
-      />
+      <PageSEO pageId="portfolio" />
 
       <HeroPortfolio />
 

@@ -5,7 +5,7 @@ export interface L {
   en: string;
 }
 
-export type PinKind = "services" | "work" | "about" | "contact" | "pricing" | "experience";
+export type PinKind = "services" | "work" | "about" | "contact" | "pricing" | "experience" | "briefing";
 
 export interface Pin {
   id: string;
@@ -105,6 +105,16 @@ export const PINS: Pin[] = [
     name: { es: "Contáctanos", en: "Contact" },
     sub: { es: "Hablemos", en: "Say hello" },
     kind: "contact",
+  },
+  {
+    id: "briefing",
+    route: "__briefing",
+    lon: -58.4,
+    lat: -34.6,
+    labelSide: "right",
+    name: { es: "Briefing", en: "Briefing" },
+    sub: { es: "Inicia tu proyecto", en: "Start your project" },
+    kind: "briefing",
   },
 ];
 

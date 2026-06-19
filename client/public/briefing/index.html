@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Briefing de Proyecto — Zincel</title>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfP0L8rAAAAAPpEytSVRORbhLu_RHUYJaA8vCRe" async defer></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg:      #060510;
+  --bg2:     #0b0918;
+  --bg3:     #100e22;
+  --border:  rgba(255,255,255,.07);
+  --bordhi:  rgba(255,255,255,.14);
+  --pur:     #7c3aed;
+  --purhi:   #a78bfa;
+  --pink:    #ec4899;
+  --pinkhi:  #f9a8d4;
+  --gold:    #f59e0b;
+  --green:   #10b981;
+  --cyan:    #22d3ee;
+  --white:   #ffffff;
+  --g1:      #f1f5f9;
+  --g3:      #cbd5e1;
+  --dim:     #94a3b8;
+  --dimmer:  #475569;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased;}
+
+.gt{background:linear-gradient(100deg,var(--purhi),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.div{height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.3) 40%,rgba(236,72,153,.18) 70%,transparent);}
+
+/* ══ PORTADA ══ */
+.cover{min-height:100vh;background:var(--bg);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.cover-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.065) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,0,0,.3),transparent);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,0,0,.3),transparent);}
+.cover-glow-a{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.18),transparent 65%);top:-200px;right:-180px;pointer-events:none;}
+.cover-glow-b{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(236,72,153,.1),transparent 65%);bottom:-150px;left:-80px;pointer-events:none;}
+.cover-wm{position:absolute;bottom:-30px;right:-10px;font-family:'Space Grotesk',sans-serif;font-size:200px;font-weight:900;color:rgba(255,255,255,.016);letter-spacing:-10px;pointer-events:none;user-select:none;}
+.cover-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:30px 56px;border-bottom:1px solid var(--border);}
+.logo{display:flex;align-items:center;gap:13px;}
+.logo-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--pur),var(--pink));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:800;box-shadow:0 0 28px rgba(124,58,237,.3);}
+.logo-name{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(90deg,#fff,var(--purhi));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;}
+.logo-sub{font-size:9px;color:var(--dimmer);letter-spacing:2px;text-transform:uppercase;margin-top:2px;display:block;}
+.cover-top-right{text-align:right;}
+.doc-tag{font-size:9.5px;color:var(--dimmer);letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:3px;}
+.doc-num{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.25);}
+.cover-main{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:72px 56px 56px;}
+.cover-eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--purhi);margin-bottom:40px;}
+.cover-eyebrow::before{content:'';width:22px;height:1.5px;background:var(--pur);display:block;}
+.cover-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(52px,8vw,96px);font-weight:800;line-height:.94;letter-spacing:-3.5px;margin-bottom:40px;}
+.cover-h1 .l1{display:block;color:#fff;}
+.cover-h1 .l2{display:block;font-weight:300;font-style:italic;letter-spacing:-3px;color:rgba(255,255,255,.4);}
+.cover-h1 .l3{display:block;background:linear-gradient(100deg,var(--purhi),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cover-sub{font-size:15.5px;color:var(--dim);line-height:1.75;max-width:480px;border-left:2px solid rgba(124,58,237,.4);padding-left:20px;margin-bottom:56px;}
+.cover-steps{display:flex;gap:0;flex-wrap:wrap;}
+.cstep{display:flex;align-items:center;gap:12px;padding:14px 24px 14px 0;margin-right:24px;border-right:1px solid var(--border);}
+.cstep:last-child{border-right:none;}
+.cstep-n{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;color:rgba(124,58,237,.2);line-height:1;}
+.cstep-t{font-size:12px;color:var(--dim);line-height:1.4;max-width:100px;}
+.cstep-t strong{display:block;font-size:13px;font-weight:600;color:var(--g3);margin-bottom:2px;}
+.cover-bottom{position:relative;z-index:2;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);}
+.cb{padding:22px 28px;border-right:1px solid var(--border);}
+.cb:last-child{border-right:none;}
+.cb-l{font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--dimmer);margin-bottom:4px;}
+.cb-v{font-size:12.5px;font-weight:500;color:var(--g1);}
+
+/* ══ SECCIONES ══ */
+.page{padding:80px 56px;max-width:none;}
+.page-inner{max-width:900px;margin:0 auto;}
+.section-header{display:flex;align-items:flex-start;gap:20px;padding:28px 32px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:18px 18px 0 0;border-bottom:none;}
+.sh-num{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:800;line-height:1;color:rgba(124,58,237,.2);flex-shrink:0;margin-top:-4px;}
+.sh-eyebrow{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--purhi);margin-bottom:6px;}
+.sh-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.5px;margin-bottom:5px;}
+.sh-desc{font-size:12.5px;color:var(--dim);line-height:1.6;}
+.form-body{background:rgba(255,255,255,.015);border:1px solid var(--border);border-radius:0 0 18px 18px;padding:32px;margin-bottom:32px;}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.field-grid.full{grid-template-columns:1fr;}
+.field{display:flex;flex-direction:column;gap:7px;}
+.flabel{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--purhi);}
+.flabel-req{color:var(--pink);}
+.finput{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13.5px;font-family:'Inter',sans-serif;color:var(--white);outline:none;transition:border-color .2s,background .2s;width:100%;}
+.finput:focus{border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.05);}
+.finput::placeholder{color:var(--dimmer);}
+textarea.finput{resize:vertical;min-height:90px;line-height:1.65;}
+.fhint{font-size:11px;color:var(--dimmer);line-height:1.5;}
+
+/* checkboxes */
+.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.check-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s;}
+.check-item:hover{border-color:rgba(124,58,237,.35);background:rgba(124,58,237,.07);}
+.check-item input[type="checkbox"]{width:16px;height:16px;accent-color:var(--pur);cursor:pointer;flex-shrink:0;}
+.check-label{font-size:12.5px;color:var(--g3);line-height:1.3;}
+.check-label small{display:block;font-size:10.5px;color:var(--dimmer);margin-top:1px;}
+
+/* radio */
+.radio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.radio-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .2s,background .2s;}
+.radio-item:hover{border-color:rgba(124,58,237,.35);background:rgba(124,58,237,.07);}
+.radio-item input[type="radio"]{width:15px;height:15px;accent-color:var(--pur);cursor:pointer;flex-shrink:0;}
+.radio-label{font-size:12.5px;color:var(--g3);}
+
+/* presupuesto */
+.budget-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.bs-item{display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 8px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+.bs-item:hover{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.08);}
+.bs-item input[type="radio"]{accent-color:var(--pur);}
+.bs-price{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--g1);}
+.bs-desc{font-size:10px;color:var(--dimmer);line-height:1.3;}
+
+/* urgencia */
+.urgency-scale{display:flex;gap:10px;flex-wrap:wrap;}
+.us-item{flex:1;min-width:120px;display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 12px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+.us-item:hover{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.08);}
+.us-item input[type="radio"]{accent-color:var(--pur);}
+.us-icon{font-size:22px;}
+.us-lbl{font-size:12px;font-weight:600;color:var(--g3);}
+.us-desc{font-size:10.5px;color:var(--dimmer);}
+
+/* firma */
+.firma-box{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:10px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.firma-field{display:flex;flex-direction:column;gap:6px;}
+.firma-label{font-size:10px;color:var(--dimmer);letter-spacing:1.5px;text-transform:uppercase;}
+.firma-line{height:1px;background:var(--border);margin-top:40px;}
+
+/* instrucciones */
+.instructions{margin-top:40px;padding:24px 28px;background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.16);border-radius:16px;}
+.inst-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--purhi);margin-bottom:14px;}
+.inst-list{display:flex;flex-direction:column;gap:8px;}
+.inst-item{font-size:12.5px;color:var(--dim);line-height:1.5;display:flex;gap:10px;}
+.inst-item::before{content:'→';color:var(--pur);flex-shrink:0;}
+
+/* ══ BOTÓN ENVIAR ══ */
+.submit-wrap{margin-top:40px;display:flex;justify-content:center;}
+.btn-send{
+  position:relative;
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,var(--pur),var(--pink));
+  color:#fff;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;
+  border:none;border-radius:14px;padding:18px 48px;cursor:pointer;
+  box-shadow:0 0 40px rgba(124,58,237,.35);
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 0 56px rgba(124,58,237,.5);}
+.btn-send:active{transform:translateY(0);}
+.btn-send:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.btn-send .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;}
+.btn-send.loading .spinner{display:block;}
+.btn-send.loading .btn-text{opacity:.7;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ══ OVERLAY ÉXITO ══ */
+.success-overlay{
+  position:fixed;inset:0;background:rgba(6,5,16,.92);backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;z-index:999;
+  opacity:0;pointer-events:none;transition:opacity .4s;
+}
+.success-overlay.show{opacity:1;pointer-events:all;}
+.success-card{
+  background:var(--bg2);border:1px solid rgba(124,58,237,.3);border-radius:24px;
+  padding:56px 48px;max-width:440px;text-align:center;
+  transform:translateY(24px);transition:transform .4s;
+}
+.success-overlay.show .success-card{transform:translateY(0);}
+.success-icon{font-size:56px;margin-bottom:20px;}
+.success-title{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:800;margin-bottom:10px;}
+.success-msg{font-size:14px;color:var(--dim);line-height:1.7;margin-bottom:28px;}
+.success-btn{
+  background:transparent;border:1px solid rgba(124,58,237,.4);color:var(--purhi);
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  border-radius:10px;padding:12px 28px;cursor:pointer;transition:background .2s;
+}
+.success-btn:hover{background:rgba(124,58,237,.12);}
+
+/* error inline */
+.error-msg{margin-top:16px;text-align:center;font-size:13px;color:#f87171;display:none;}
+.error-msg.show{display:block;}
+
+/* ══ FOOTER ══ */
+.bfooter{background:var(--bg);border-top:1px solid var(--border);padding:20px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.bfl{display:flex;align-items:center;gap:9px;}
+.bfl .mk{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--pur),var(--pink));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:800;}
+.bfl .nm{font-size:12px;font-weight:700;}
+.bfooter p{font-size:10.5px;color:var(--dimmer);}
+
+/* print */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  .cover{min-height:auto;page-break-after:always;}
+  .page{page-break-inside:avoid;}
+  .form-body{page-break-inside:avoid;}
+  .submit-wrap,.success-overlay{display:none!important;}
+}
+
+@media(max-width:720px){
+  .cover-top,.cover-main,.page,.bfooter{padding-left:24px;padding-right:24px;}
+  .cover-h1{font-size:44px;letter-spacing:-2px;}
+  .field-grid{grid-template-columns:1fr;}
+  .check-grid{grid-template-columns:1fr 1fr;}
+  .radio-grid{grid-template-columns:1fr 1fr;}
+  .budget-scale{grid-template-columns:1fr 1fr;}
+  .cover-bottom{grid-template-columns:1fr 1fr;}
+  .firma-box{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<section class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-glow-a"></div>
+  <div class="cover-glow-b"></div>
+  <div class="cover-wm">Z</div>
+  <div class="cover-top">
+    <div class="logo">
+      <div class="logo-mark">Z</div>
+      <div>
+        <span class="logo-name">ZINCEL</span>
+        <span class="logo-sub">Ideas Globales · Lima, Perú</span>
+      </div>
+    </div>
+    <div class="cover-top-right">
+      <span class="doc-tag">Documento Interno</span>
+      <span class="doc-num">BRIEFING / 2026</span>
+    </div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-eyebrow">Formulario de Proyecto</div>
+    <h1 class="cover-h1">
+      <span class="l1">Briefing</span>
+      <span class="l2">de proyecto</span>
+      <span class="l3">Zincel.</span>
+    </h1>
+    <p class="cover-sub">
+      Este documento nos ayuda a entender tu proyecto en profundidad
+      para ofrecerte la solución más adecuada, con el mejor criterio
+      y sin sorpresas en el camino.
+    </p>
+    <div class="cover-steps">
+      <div class="cstep"><div class="cstep-n">01</div><div class="cstep-t"><strong>Completa</strong>el formulario con la mayor información posible</div></div>
+      <div class="cstep"><div class="cstep-n">02</div><div class="cstep-t"><strong>Envía</strong>con el botón al final del formulario</div></div>
+      <div class="cstep"><div class="cstep-n">03</div><div class="cstep-t"><strong>Recibe</strong>tu propuesta personalizada en 24–48 h</div></div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cb"><div class="cb-l">WhatsApp</div><div class="cb-v">+51 933 838 792</div></div>
+    <div class="cb"><div class="cb-l">Correo</div><div class="cb-v">kenif.alejandro@zincelideas.com</div></div>
+    <div class="cb"><div class="cb-l">Web</div><div class="cb-v">www.zincelideas.com</div></div>
+    <div class="cb"><div class="cb-l">Redes</div><div class="cb-v">@zincelideasglobales</div></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<div class="page">
+<div class="page-inner">
+
+<!-- 01 · EMPRESA -->
+<div class="section-header">
+  <div class="sh-num">01</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Datos de la Empresa</div>
+    <div class="sh-title">¿Quién eres y a qué te dedicas?</div>
+    <div class="sh-desc">Necesitamos conocerte para diseñar una solución que realmente represente tu negocio.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field-grid" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">Nombre de la empresa <span class="flabel-req">*</span></label>
+      <input id="empresa" class="finput" type="text" placeholder="Ej: Grupo Codeli S.A.C."/>
+    </div>
+    <div class="field">
+      <label class="flabel">Nombre del contacto <span class="flabel-req">*</span></label>
+      <input id="contacto" class="finput" type="text" placeholder="Ej: Carlos Rodríguez"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Cargo / Rol</label>
+      <input id="cargo" class="finput" type="text" placeholder="Ej: Gerente General, Fundador"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Teléfono / WhatsApp <span class="flabel-req">*</span></label>
+      <input id="telefono" class="finput" type="text" placeholder="+51 9XX XXX XXX"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Correo electrónico <span class="flabel-req">*</span></label>
+      <input id="correo" class="finput" type="email" placeholder="correo@empresa.com"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Sitio web actual</label>
+      <input id="web" class="finput" type="text" placeholder="www.empresa.com (si tiene)"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Sector / Industria <span class="flabel-req">*</span></label>
+      <input id="sector" class="finput" type="text" placeholder="Ej: Inmobiliaria, Minería, Restaurante, Salud"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Ubicación</label>
+      <input id="ubicacion" class="finput" type="text" placeholder="Ej: Trujillo, La Libertad"/>
+    </div>
+  </div>
+  <div class="field-grid full">
+    <div class="field">
+      <label class="flabel">¿A qué se dedica tu empresa? <span class="flabel-req">*</span></label>
+      <textarea id="descripcion" class="finput" placeholder="Describe brevemente qué hace tu empresa, qué vende o qué ofrece, y a quién va dirigido…"></textarea>
+      <span class="fhint">Cuanto más detalle nos des, mejor será la propuesta.</span>
+    </div>
+  </div>
+</div>
+
+<!-- 02 · PROYECTO -->
+<div class="section-header">
+  <div class="sh-num">02</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Tipo de Proyecto</div>
+    <div class="sh-title">¿Qué necesitas desarrollar?</div>
+    <div class="sh-desc">Selecciona uno o más servicios que apliquen a tu proyecto.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field" style="margin-bottom:20px;">
+    <label class="flabel">Servicio(s) requerido(s) <span class="flabel-req">*</span></label>
+    <div class="check-grid" id="servicios">
+      <label class="check-item"><input type="checkbox" value="Desarrollo Web"/><span class="check-label">🌐 Desarrollo Web<small>Sitio corporativo, landing page</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Branding"/><span class="check-label">🎨 Branding<small>Logo, identidad visual, manual</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Diseño UI/UX"/><span class="check-label">🖥️ Diseño UI/UX<small>Interfaces, prototipos, apps</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Modelado 3D"/><span class="check-label">🎯 Modelado 3D<small>Renders, animaciones, visuales</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Campañas Digitales"/><span class="check-label">📊 Campañas Digitales<small>Meta, TikTok, Google Ads</small></span></label>
+      <label class="check-item"><input type="checkbox" value="ERP Empresarial"/><span class="check-label">⚙️ ERP Empresarial<small>Inventario, facturación, logística</small></span></label>
+      <label class="check-item"><input type="checkbox" value="CRM Personalizado"/><span class="check-label">🤝 CRM Personalizado<small>Leads, pipeline, ventas</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Rediseño Web"/><span class="check-label">🔄 Rediseño Web<small>Actualizar sitio existente</small></span></label>
+      <label class="check-item"><input type="checkbox" value="Paquete completo"/><span class="check-label">📦 Paquete completo<small>Web + Branding + Marketing</small></span></label>
+    </div>
+  </div>
+  <div class="field-grid full">
+    <div class="field">
+      <label class="flabel">¿Tienes web o proyecto anterior? ¿Qué no te gusta de él?</label>
+      <textarea id="proyecto_anterior" class="finput" placeholder="Si ya tienes algo creado, cuéntanos qué funciona y qué quieres mejorar o cambiar por completo…"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 03 · OBJETIVOS -->
+<div class="section-header">
+  <div class="sh-num">03</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Objetivos del Proyecto</div>
+    <div class="sh-title">¿Qué quieres lograr?</div>
+    <div class="sh-desc">Definir el objetivo correctamente es la diferencia entre un proyecto que funciona y uno que no.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field-grid full" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">Objetivo principal <span class="flabel-req">*</span></label>
+      <textarea id="objetivo" class="finput" placeholder="Ej: Quiero que mi empresa se vea más profesional para ganar licitaciones…"></textarea>
+    </div>
+  </div>
+  <div class="field" style="margin-bottom:20px;">
+    <label class="flabel">¿Qué problema concreto quieres resolver?</label>
+    <div class="check-grid" id="problemas">
+      <label class="check-item"><input type="checkbox" value="No tengo presencia digital"/><span class="check-label">No tengo presencia digital</span></label>
+      <label class="check-item"><input type="checkbox" value="Mi web se ve desactualizada"/><span class="check-label">Mi web se ve desactualizada</span></label>
+      <label class="check-item"><input type="checkbox" value="No genero suficientes leads"/><span class="check-label">No genero suficientes leads</span></label>
+      <label class="check-item"><input type="checkbox" value="Mi marca no es reconocible"/><span class="check-label">Mi marca no es reconocible</span></label>
+      <label class="check-item"><input type="checkbox" value="No controlo mis ventas/clientes"/><span class="check-label">No controlo mis ventas/clientes</span></label>
+      <label class="check-item"><input type="checkbox" value="Mis procesos internos son manuales"/><span class="check-label">Mis procesos internos son manuales</span></label>
+      <label class="check-item"><input type="checkbox" value="Quiero diferenciarme de la competencia"/><span class="check-label">Quiero diferenciarme de la competencia</span></label>
+      <label class="check-item"><input type="checkbox" value="Necesito más credibilidad ante clientes"/><span class="check-label">Necesito más credibilidad ante clientes</span></label>
+      <label class="check-item"><input type="checkbox" value="Otro"/><span class="check-label">Otro</span></label>
+    </div>
+  </div>
+  <div class="field-grid full">
+    <div class="field">
+      <label class="flabel">¿Cómo medirás el éxito del proyecto?</label>
+      <textarea id="exito" class="finput" style="min-height:70px;" placeholder="Ej: Quiero recibir 10 consultas mensuales desde la web…"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 04 · PÚBLICO -->
+<div class="section-header">
+  <div class="sh-num">04</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Público Objetivo</div>
+    <div class="sh-title">¿A quién va dirigido?</div>
+    <div class="sh-desc">Conocer a tu cliente ideal nos permite diseñar una experiencia que realmente conecte con ellos.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field-grid" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">¿Quién es tu cliente ideal? <span class="flabel-req">*</span></label>
+      <textarea id="cliente_ideal" class="finput" placeholder="Ej: Empresarios de 35–55 años en Lima que buscan productos industriales B2B…"></textarea>
+    </div>
+    <div class="field">
+      <label class="flabel">¿Dónde está tu cliente?</label>
+      <input id="ubicacion_cliente" class="finput" type="text" placeholder="Ej: Lima, Trujillo, todo el Perú, Latinoamérica"/>
+      <div style="margin-top:12px;">
+        <label class="flabel">Tipo de cliente</label>
+        <div class="radio-grid" style="margin-top:8px;" id="tipo_cliente">
+          <label class="radio-item"><input type="radio" name="b2x" value="B2B (Empresas)"/><span class="radio-label">B2B (Empresas)</span></label>
+          <label class="radio-item"><input type="radio" name="b2x" value="B2C (Personas)"/><span class="radio-label">B2C (Personas)</span></label>
+          <label class="radio-item"><input type="radio" name="b2x" value="Ambos"/><span class="radio-label">Ambos</span></label>
+          <label class="radio-item"><input type="radio" name="b2x" value="No sé aún"/><span class="radio-label">No sé aún</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field-grid full">
+    <div class="field">
+      <label class="flabel">¿Quiénes son tus competidores principales?</label>
+      <textarea id="competidores" class="finput" style="min-height:70px;" placeholder="Nombra 2 o 3 competidores o empresas similares…"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 05 · ESTILO -->
+<div class="section-header">
+  <div class="sh-num">05</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Contenido y Estilo Visual</div>
+    <div class="sh-title">¿Cómo debe verse y comunicarse?</div>
+    <div class="sh-desc">El estilo visual debe reflejar la personalidad de tu marca y conectar con tu público.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field-grid" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">Tono de comunicación <span class="flabel-req">*</span></label>
+      <div class="check-grid" style="grid-template-columns:1fr 1fr;margin-top:8px;" id="tono">
+        <label class="check-item"><input type="checkbox" value="Formal y profesional"/><span class="check-label">Formal y profesional</span></label>
+        <label class="check-item"><input type="checkbox" value="Cercano y amigable"/><span class="check-label">Cercano y amigable</span></label>
+        <label class="check-item"><input type="checkbox" value="Minimalista y premium"/><span class="check-label">Minimalista y premium</span></label>
+        <label class="check-item"><input type="checkbox" value="Moderno y dinámico"/><span class="check-label">Moderno y dinámico</span></label>
+        <label class="check-item"><input type="checkbox" value="Institucional / Corporativo"/><span class="check-label">Institucional / Corporativo</span></label>
+        <label class="check-item"><input type="checkbox" value="Creativo y original"/><span class="check-label">Creativo y original</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="flabel">¿Tienes identidad visual?</label>
+      <div class="check-grid" style="grid-template-columns:1fr;margin-top:8px;" id="identidad">
+        <label class="check-item"><input type="checkbox" value="Tengo logo definitivo"/><span class="check-label">✅ Tengo logo definitivo</span></label>
+        <label class="check-item"><input type="checkbox" value="Tengo logo pero quiero mejorarlo"/><span class="check-label">🎨 Tengo logo pero quiero mejorarlo</span></label>
+        <label class="check-item"><input type="checkbox" value="No tengo logo (necesito branding)"/><span class="check-label">❌ No tengo logo (necesito branding)</span></label>
+        <label class="check-item"><input type="checkbox" value="Tengo fotos/videos propios"/><span class="check-label">📸 Tengo fotos/videos propios</span></label>
+      </div>
+    </div>
+  </div>
+  <div class="field-grid full" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">Referencias visuales <span class="flabel-req">*</span></label>
+      <textarea id="referencias" class="finput" placeholder="Escribe URLs de webs, marcas o diseños que te gusten…&#10;Ej: www.apple.com, www.airbnb.com"></textarea>
+      <span class="fhint">Las referencias son la herramienta más útil para alinearnos contigo. Cuantas más, mejor.</span>
+    </div>
+  </div>
+  <div class="field-grid">
+    <div class="field">
+      <label class="flabel">Colores preferidos</label>
+      <input id="colores_si" class="finput" type="text" placeholder="Ej: Azul corporativo, dorado, negro"/>
+    </div>
+    <div class="field">
+      <label class="flabel">Colores que NO quieres</label>
+      <input id="colores_no" class="finput" type="text" placeholder="Ej: No quiero rosa ni colores muy saturados"/>
+    </div>
+  </div>
+</div>
+
+<!-- 06 · ALCANCE -->
+<div class="section-header">
+  <div class="sh-num">06</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Alcance del Proyecto</div>
+    <div class="sh-title">¿Qué páginas o funciones necesitas?</div>
+    <div class="sh-desc">Completa solo lo que aplique al tipo de proyecto que solicitas.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field" style="margin-bottom:20px;">
+    <label class="flabel">Páginas / secciones requeridas (Web)</label>
+    <div class="check-grid" id="paginas">
+      <label class="check-item"><input type="checkbox" value="Inicio (Home)"/><span class="check-label">🏠 Inicio (Home)</span></label>
+      <label class="check-item"><input type="checkbox" value="Sobre Nosotros"/><span class="check-label">🏢 Sobre Nosotros</span></label>
+      <label class="check-item"><input type="checkbox" value="Servicios / Productos"/><span class="check-label">🛠️ Servicios / Productos</span></label>
+      <label class="check-item"><input type="checkbox" value="Portafolio / Galería"/><span class="check-label">🖼️ Portafolio / Galería</span></label>
+      <label class="check-item"><input type="checkbox" value="Contáctanos"/><span class="check-label">📞 Contáctanos</span></label>
+      <label class="check-item"><input type="checkbox" value="Blog / Noticias"/><span class="check-label">📰 Blog / Noticias</span></label>
+      <label class="check-item"><input type="checkbox" value="Tienda / E-commerce"/><span class="check-label">🛒 Tienda / E-commerce</span></label>
+      <label class="check-item"><input type="checkbox" value="Chat / WhatsApp"/><span class="check-label">💬 Chat / WhatsApp</span></label>
+      <label class="check-item"><input type="checkbox" value="Formulario de cotización"/><span class="check-label">📋 Formulario de cotización</span></label>
+    </div>
+  </div>
+  <div class="field" style="margin-bottom:20px;">
+    <label class="flabel">Funcionalidades especiales</label>
+    <div class="check-grid" id="funcionalidades">
+      <label class="check-item"><input type="checkbox" value="Panel de administración"/><span class="check-label">🔐 Panel de administración</span></label>
+      <label class="check-item"><input type="checkbox" value="Dashboard / Reportes"/><span class="check-label">📊 Dashboard / Reportes</span></label>
+      <label class="check-item"><input type="checkbox" value="Integración con sistemas"/><span class="check-label">🔄 Integración con sistemas</span></label>
+      <label class="check-item"><input type="checkbox" value="App móvil complementaria"/><span class="check-label">📱 App móvil complementaria</span></label>
+      <label class="check-item"><input type="checkbox" value="Multiidioma"/><span class="check-label">🌐 Multiidioma</span></label>
+      <label class="check-item"><input type="checkbox" value="Emails automáticos"/><span class="check-label">📨 Emails automáticos</span></label>
+    </div>
+  </div>
+  <div class="field-grid full">
+    <div class="field">
+      <label class="flabel">Describe cualquier funcionalidad especial que necesites</label>
+      <textarea id="funcionalidades_desc" class="finput" style="min-height:70px;" placeholder="Ej: Necesito que los clientes puedan cotizar en línea…"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- 07 · PLAZOS -->
+<div class="section-header">
+  <div class="sh-num">07</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Plazos y Presupuesto</div>
+    <div class="sh-title">¿Cuándo y cuánto?</div>
+    <div class="sh-desc">Esta información nos ayuda a asignarte el plan y los recursos correctos desde el inicio.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field" style="margin-bottom:24px;">
+    <label class="flabel">Urgencia del proyecto <span class="flabel-req">*</span></label>
+    <div class="urgency-scale" id="urgencia">
+      <label class="us-item"><input type="radio" name="urgency" value="Sin prisa (+2 meses)"/><span class="us-icon">🟢</span><span class="us-lbl">Sin prisa</span><span class="us-desc">+2 meses</span></label>
+      <label class="us-item"><input type="radio" name="urgency" value="Normal (1–2 meses)"/><span class="us-icon">🔵</span><span class="us-lbl">Normal</span><span class="us-desc">1–2 meses</span></label>
+      <label class="us-item"><input type="radio" name="urgency" value="Pronto (2–4 semanas)"/><span class="us-icon">🟡</span><span class="us-lbl">Pronto</span><span class="us-desc">2–4 semanas</span></label>
+      <label class="us-item"><input type="radio" name="urgency" value="Urgente (menos de 2 semanas)"/><span class="us-icon">🔴</span><span class="us-lbl">Urgente</span><span class="us-desc">Menos de 2 sem.</span></label>
+    </div>
+  </div>
+  <div class="field" style="margin-bottom:24px;">
+    <label class="flabel">¿Tienes una fecha límite específica?</label>
+    <input id="fecha_limite" class="finput" type="text" placeholder="Ej: Necesito la web lista antes del 15 de agosto…" style="max-width:460px;"/>
+  </div>
+  <div class="field" style="margin-bottom:8px;">
+    <label class="flabel">Rango de inversión aproximada <span class="flabel-req">*</span></label>
+    <div class="budget-scale" id="presupuesto">
+      <label class="bs-item"><input type="radio" name="budget" value="S/. 500 — Sitio base / landing"/><span class="bs-price">S/. 500</span><span class="bs-desc">Sitio base / landing</span></label>
+      <label class="bs-item"><input type="radio" name="budget" value="S/. 1,300 — Web + Branding"/><span class="bs-price">S/. 1,300</span><span class="bs-desc">Web + Branding</span></label>
+      <label class="bs-item"><input type="radio" name="budget" value="S/. 2,000 — Platinum / Premium"/><span class="bs-price">S/. 2,000</span><span class="bs-desc">Platinum / Premium</span></label>
+      <label class="bs-item"><input type="radio" name="budget" value="S/. 3,000+ — Sistema / ERP / CRM"/><span class="bs-price">S/. 3,000+</span><span class="bs-desc">Sistema / ERP / CRM</span></label>
+      <label class="bs-item"><input type="radio" name="budget" value="A definir — Necesito cotización"/><span class="bs-price">A definir</span><span class="bs-desc">Necesito cotización</span></label>
+    </div>
+  </div>
+  <span class="fhint" style="display:block;margin-top:10px;">Si no estás seguro del presupuesto, cuéntanos tu proyecto y nosotros te recomendaremos la opción más adecuada.</span>
+</div>
+
+<!-- 08 · ADICIONAL -->
+<div class="section-header">
+  <div class="sh-num">08</div>
+  <div class="sh-content">
+    <div class="sh-eyebrow">Información Adicional</div>
+    <div class="sh-title">¿Algo más que debamos saber?</div>
+    <div class="sh-desc">Cualquier detalle que no hayas podido incluir antes y que sea relevante para el proyecto.</div>
+  </div>
+</div>
+<div class="form-body">
+  <div class="field-grid full" style="margin-bottom:20px;">
+    <div class="field">
+      <label class="flabel">Notas libres / Contexto adicional</label>
+      <textarea id="notas" class="finput" style="min-height:100px;" placeholder="Cuéntanos todo lo que consideres importante: contexto del negocio, experiencias previas, expectativas, dudas…"></textarea>
+    </div>
+  </div>
+  <div class="field-grid">
+    <div class="field">
+      <label class="flabel">¿Cómo nos encontraste?</label>
+      <div class="radio-grid" style="margin-top:8px;" id="como">
+        <label class="radio-item"><input type="radio" name="como" value="Instagram"/><span class="radio-label">Instagram</span></label>
+        <label class="radio-item"><input type="radio" name="como" value="TikTok"/><span class="radio-label">TikTok</span></label>
+        <label class="radio-item"><input type="radio" name="como" value="Facebook"/><span class="radio-label">Facebook</span></label>
+        <label class="radio-item"><input type="radio" name="como" value="Google"/><span class="radio-label">Google</span></label>
+        <label class="radio-item"><input type="radio" name="como" value="Referido"/><span class="radio-label">Referido</span></label>
+        <label class="radio-item"><input type="radio" name="como" value="Otro"/><span class="radio-label">Otro</span></label>
+      </div>
+    </div>
+    <div class="field">
+      <label class="flabel">¿Ya trabajaste con alguna agencia antes?</label>
+      <div class="radio-grid" style="margin-top:8px;grid-template-columns:1fr 1fr;" id="agencia_previa">
+        <label class="radio-item"><input type="radio" name="prev" value="Sí"/><span class="radio-label">Sí</span></label>
+        <label class="radio-item"><input type="radio" name="prev" value="No"/><span class="radio-label">No</span></label>
+      </div>
+      <div style="margin-top:12px;">
+        <label class="flabel">Si sí, ¿qué no funcionó?</label>
+        <input id="agencia_problema" class="finput" type="text" style="margin-top:8px;" placeholder="Ej: No cumplían los plazos, mala comunicación…"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIRMA -->
+<div class="firma-box" style="margin-bottom:32px;">
+  <div class="firma-field">
+    <div class="firma-label">Nombre completo</div>
+    <input id="firma_nombre" class="finput" type="text" placeholder=""/>
+    <div class="firma-line"></div>
+  </div>
+  <div class="firma-field">
+    <div class="firma-label">Empresa</div>
+    <input id="firma_empresa" class="finput" type="text" placeholder=""/>
+    <div class="firma-line"></div>
+  </div>
+  <div class="firma-field">
+    <div class="firma-label">Fecha</div>
+    <input id="firma_fecha" class="finput" type="text" placeholder="__ / __ / 2026"/>
+    <div class="firma-line"></div>
+  </div>
+  <div class="firma-field">
+    <div class="firma-label">Firma</div>
+    <div class="firma-line"></div>
+  </div>
+</div>
+
+<!-- BOTÓN ENVIAR -->
+<div class="submit-wrap">
+  <button class="btn-send" id="btnEnviar" type="button">
+    <span class="spinner"></span>
+    <span class="btn-text">Enviar Briefing a Zincel →</span>
+  </button>
+</div>
+<div class="error-msg" id="errorMsg">Ocurrió un error al enviar. Por favor escríbenos directamente a kenif.alejandro@zincelideas.com</div>
+
+</div><!-- /page-inner -->
+</div><!-- /page -->
+
+<div class="div"></div>
+
+<div class="bfooter">
+  <div class="bfl"><div class="mk">Z</div><span class="nm">ZINCEL</span></div>
+  <p>Briefing de Proyecto · 2026</p>
+  <p>www.zincelideas.com &nbsp;·&nbsp; @zincelideasglobales</p>
+</div>
+
+<!-- OVERLAY ÉXITO -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <div class="success-title">¡Briefing enviado!</div>
+    <p class="success-msg">
+      Recibimos tu información correctamente.<br/>
+      Te responderemos con tu propuesta personalizada en <strong style="color:#a78bfa">24 a 48 horas</strong>.<br/><br/>
+      Si tienes dudas urgentes escríbenos por WhatsApp al <strong style="color:#a78bfa">+51 933 838 792</strong>
+    </p>
+    <button class="success-btn" onclick="document.getElementById('successOverlay').classList.remove('show')">Cerrar</button>
+  </div>
+</div>
+
+<script>
+function getChecked(containerId) {
+  const el = document.getElementById(containerId);
+  if (!el) return '';
+  return Array.from(el.querySelectorAll('input[type="checkbox"]:checked'))
+    .map(cb => cb.value).join(', ');
+}
+function getRadio(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : '';
+}
+
+document.getElementById('btnEnviar').addEventListener('click', async () => {
+  const btn = document.getElementById('btnEnviar');
+  const errMsg = document.getElementById('errorMsg');
+
+  const data = {
+    empresa:           val('empresa'),
+    contacto:          val('contacto'),
+    cargo:             val('cargo'),
+    telefono:          val('telefono'),
+    correo:            val('correo'),
+    web:               val('web'),
+    sector:            val('sector'),
+    ubicacion:         val('ubicacion'),
+    descripcion:       val('descripcion'),
+    servicios:         getChecked('servicios'),
+    proyecto_anterior: val('proyecto_anterior'),
+    objetivo:          val('objetivo'),
+    problemas:         getChecked('problemas'),
+    exito:             val('exito'),
+    cliente_ideal:     val('cliente_ideal'),
+    ubicacion_cliente: val('ubicacion_cliente'),
+    tipo_cliente:      getRadio('b2x'),
+    competidores:      val('competidores'),
+    tono:              getChecked('tono'),
+    identidad:         getChecked('identidad'),
+    referencias:       val('referencias'),
+    colores_si:        val('colores_si'),
+    colores_no:        val('colores_no'),
+    paginas:           getChecked('paginas'),
+    funcionalidades:   getChecked('funcionalidades'),
+    funcionalidades_desc: val('funcionalidades_desc'),
+    urgencia:          getRadio('urgency'),
+    fecha_limite:      val('fecha_limite'),
+    presupuesto:       getRadio('budget'),
+    notas:             val('notas'),
+    como:              getRadio('como'),
+    agencia_previa:    getRadio('prev'),
+    agencia_problema:  val('agencia_problema'),
+  };
+
+  if (!data.empresa || !data.contacto || !data.correo) {
+    alert('Por favor completa al menos: empresa, nombre de contacto y correo electrónico.');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.classList.add('loading');
+  errMsg.classList.remove('show');
+
+  try {
+    const token = await grecaptcha.execute('6LfP0L8rAAAAAPpEytSVRORbhLu_RHUYJaA8vCRe', { action: 'briefing' });
+    data.recaptcha_token = token;
+
+    const res = await fetch('/api/send-briefing.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.ok) {
+      document.getElementById('successOverlay').classList.add('show');
+    } else {
+      errMsg.classList.add('show');
+    }
+  } catch {
+    errMsg.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.classList.remove('loading');
+  }
+});
+</script>
+
+</body>
+</html>

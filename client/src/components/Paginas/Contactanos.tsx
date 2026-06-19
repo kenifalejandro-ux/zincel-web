@@ -1,13 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { useWhatsApp } from "../../hooks/useWhatsApp";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import PageSEO from "../global/PageSEO";
 
 export default function Contactanos() {
   const { t } = useTranslation();
   const whatsApp = useWhatsApp();
 
   return (
-    <section className="min-h-screen bg-zinc-950 text-white">
+    <>
+      <PageSEO pageId="contactanos" />
+      <section className="min-h-screen bg-zinc-950 text-white">
       <div className="grid min-h-screen lg:grid-cols-2">
 
         {/* Columna izquierda — info de contacto */}
@@ -69,6 +72,25 @@ export default function Contactanos() {
             Escribir por WhatsApp
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
+
+          {/* CTA Briefing */}
+          <div className="mt-6 border-t border-white/8 pt-6">
+            <p className="mb-3 text-xs text-zinc-500">
+              ¿Prefieres contarnos tu proyecto en detalle?
+            </p>
+            <a
+              href="/briefing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex w-fit items-center gap-3 border border-white/15 px-7 py-4 text-sm font-medium text-zinc-300 transition-colors hover:border-white/30 hover:text-white"
+            >
+              Completar Briefing de Proyecto
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            <p className="mt-3 text-[11px] text-zinc-600">
+              Recibes tu propuesta personalizada en 24–48 h
+            </p>
+          </div>
         </div>
 
         {/* Columna derecha — imagen referencial (cámbiala cuando quieras) */}
@@ -87,6 +109,7 @@ export default function Contactanos() {
         </div>
 
       </div>
-    </section>
+      </section>
+    </>
   );
 }
