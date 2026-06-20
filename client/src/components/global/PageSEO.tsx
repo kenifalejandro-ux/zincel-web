@@ -38,7 +38,7 @@ const SITE_NAME = "Zincel";
 const LEGAL_NAME = "Zincel Ideas S.A.C.";
 const COMPANY_DESCRIPTION =
   "Agencia de diseño web, branding, UI/UX y modelado 3D en Lima, Perú. Creamos sitios profesionales que convierten visitantes en clientes.";
-const CONTACT_EMAIL = "kenif.alejandro@zincelideas.com";
+const CONTACT_EMAIL = "contacto@zincelideas.com";
 const CONTACT_PHONE = "+51 933 838 792";
 const SITE_LOCALE = "es_PE";
 const DEFAULT_IMAGE_PATH = "/imagenes-optim/ImageInicio/build-branding.avif";

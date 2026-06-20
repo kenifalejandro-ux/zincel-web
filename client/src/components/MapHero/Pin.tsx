@@ -9,7 +9,7 @@ interface Props {
   xPct: number;
   yPct: number;
   isMapRotated: boolean; // true en mobile → mapa rotado 90°
-  onOpen: (pin: PinT) => void;
+  onOpen: (pin: PinT, el: HTMLElement) => void;
 }
 
 export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen }: Props) {
@@ -54,7 +54,7 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
     <button
       data-pin
       aria-label={t(pin.name, lang)}
-      onClick={() => onOpen(pin)}
+      onClick={(e) => onOpen(pin, e.currentTarget)}
       onMouseEnter={() => !isMapRotated && tlRef.current?.play()}
       onMouseLeave={() => !isMapRotated && tlRef.current?.reverse()}
       onFocus={() => !isMapRotated && tlRef.current?.play()}
@@ -68,28 +68,28 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
       {/* Anillos pulsantes */}
       {pin.kind === "briefing" ? (
         <>
-          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400 opacity-0 animate-pinPulse" />
-          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400 opacity-0 animate-pinPulse [animation-delay:1.7s]" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] rounded-full border border-amber-400 opacity-0 animate-pinPulse" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] rounded-full border border-amber-400 opacity-0 animate-pinPulse [animation-delay:1.7s]" />
         </>
       ) : (
         <>
-          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse" />
-          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent opacity-0 animate-pinPulse [animation-delay:1.7s]" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] rounded-full border border-[#e9c893] opacity-0 animate-pinPulse" />
+          <span className="absolute left-1/2 top-1/2 h-[10px] w-[10px] rounded-full border border-[#e9c893] opacity-0 animate-pinPulse [animation-delay:1.7s]" />
         </>
       )}
 
-      {/* Core del pin */}
+      {/* Color del pin */}
       {pin.kind === "briefing" ? (
         <span
           ref={coreRef}
-          className="relative block h-[9px] w-[9px] rounded-full bg-violet-500 shadow-[0_0_12px_2px_rgba(139,92,246,0.7),0_0_2px_rgba(255,255,255,0.6)]"
+          className="relative block h-[9px] w-[9px] rounded-full bg-amber-500 shadow-[0_0_12px_2px_rgba(139,92,246,0.7),0_0_2px_rgba(255,255,255,0.6)]"
         >
           <span className="absolute inset-[2.5px] rounded-full bg-white/90" />
         </span>
       ) : (
         <span
           ref={coreRef}
-          className="relative block h-[9px] w-[9px] rounded-full bg-accent shadow-[0_0_10px_1px_rgba(233,200,147,0.55),0_0_2px_rgba(255,255,255,0.6)]"
+          className="relative block h-[9px] w-[9px] rounded-full bg-[#e9c893] shadow-[0_0_10px_1px_rgba(233,200,147,0.55),0_0_2px_rgba(255,255,255,0.6)]"
         >
           <span className="absolute inset-[2.5px] rounded-full bg-white/90" />
         </span>
@@ -116,7 +116,7 @@ export default function Pin({ pin, index, lang, xPct, yPct, isMapRotated, onOpen
                 : "left-[-22px] bg-[linear-gradient(90deg,#e9c893,transparent)]"
             } opacity-70`}
           />
-          <span className={`font-body text-[8px] uppercase tracking-[.34em] ${pin.kind === "briefing" ? "text-violet-400" : "text-accent"}`}>
+          <span className={`font-body text-[8px] uppercase tracking-[.34em] ${pin.kind === "briefing" ? "text-amber-400" : "text-[#e9c893]"}`}>
             {t(pin.sub, lang)}
           </span>
           <span className="font-display text-[16px] font-medium leading-none text-white">

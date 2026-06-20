@@ -174,19 +174,19 @@ export default function Metricas({
 
   const labelClass =
     vista === "mobile"
-      ? "text-[11px] uppercase text-zinc-500 tracking-[0.25em] font-semibold"
-      : "text-xs uppercase text-zinc-500 tracking-[0.25em] font-semibold";
+      ? "text-[11px] uppercase text-[#f4f1ea]/40 tracking-[0.25em] font-semibold"
+      : "text-xs uppercase text-[#f4f1ea]/40 tracking-[0.25em] font-semibold";
 
   const detailClass =
     vista === "mobile"
-      ? "mt-2 text-[11px] leading-5 text-zinc-500 normal-case tracking-normal font-normal"
-      : "mt-2 text-xs leading-5 text-zinc-500 normal-case tracking-normal font-normal";
+      ? "mt-2 text-[11px] leading-5 text-[#f4f1ea]/30 normal-case tracking-normal font-normal"
+      : "mt-2 text-xs leading-5 text-[#f4f1ea]/30 normal-case tracking-normal font-normal";
 
   if (variant === "inline") {
     return (
       <div
         ref={sectionRef}
-        className="max-w-9xl grid grid-cols-1 border bg-zinc-100 border-zinc-200 md:grid-cols-3 lg:grid-cols-3"
+        className="max-w-9xl grid grid-cols-1 border bg-[#0a0a0a] border-white/8 md:grid-cols-3 lg:grid-cols-3"
       >
         {data.map((m, i) => (
           <div
@@ -194,7 +194,7 @@ export default function Metricas({
             data-metrica-item
             className={[
               "relative px-6 py-6 lg:py-8",
-              "border-zinc-200",
+              "border-white/8",
               i > 0 ? "border-t" : "",
               i === 1 ? "md:border-t-0" : "",
               i >= 2 ? "md:border-t" : "",

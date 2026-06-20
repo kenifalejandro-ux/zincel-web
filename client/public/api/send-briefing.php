@@ -16,7 +16,7 @@ $SMTP_HOST        = 'smtp.gmail.com';
 $SMTP_PORT        = 465; // SSL directo (más compatible con hosting compartido)
 $SMTP_USER        = 'kenifalejandro@gmail.com';
 $SMTP_PASS        = 'aqgmfbxnlsadcxvw';
-$EMAIL_TO         = 'kenif.alejandro@zincelideas.com';
+$EMAIL_TO         = 'contacto@zincelideas.com';
 $RECAPTCHA_SECRET = '6LfP0L8rAAAAAB0aapY5ZiuMiDGGvVdjwyHq6Fc9';
 $RECAPTCHA_MIN    = 0.5; // score mínimo (0.0–1.0); bots suelen ser < 0.3
 

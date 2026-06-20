@@ -4,6 +4,7 @@ import { ArrowUpRight, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { buildWhatsAppUrl, trackWhatsAppClick } from "../../utils/whatsapp";
+import HeroBg from "./HeroBg";
 
 export interface HeroServiciosContent {
   eyebrow: string;
@@ -51,8 +52,8 @@ const STATS = [
 const WHATSAPP_TEXT = "Hola, vi sus servicios y quiero saber cómo pueden ayudar a mi marca";
 
 export default function HeroServicios() {
-  const title = TITLE;
-  const stats = STATS;
+  const title        = TITLE;
+  const stats        = STATS;
   const whatsappText = WHATSAPP_TEXT;
   const whatsappHref = buildWhatsAppUrl(whatsappText);
 
@@ -61,31 +62,28 @@ export default function HeroServicios() {
   };
 
   return (
-    <main className="overflow-x-hidden bg-zinc-900 text-zinc-900 selection:bg-zinc-950 selection:text-white">
-      <section className="relative overflow-hidden border-b border-black/10">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-10%] top-10 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute right-[-8%] top-28 h-[28rem] w-[28rem] rounded-full bg-[#ddd4c6]/20 blur-3xl" />
-        </div>
+    <main className="overflow-x-hidden bg-[#0a0a0a] text-[#f4f1ea]">
+      <section className="relative overflow-hidden border-b border-white/8">
+        <HeroBg />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-32">
           <div className="grid gap-14 lg:grid-cols-[1.06fr_0.94fr] lg:items-end">
             <div className="space-y-8">
               <FadeIn>
-                <span className="inline-flex rounded-full border border-black/10 bg-white/60 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-zinc-600 backdrop-blur-sm">
+                <span className="inline-flex border border-[#e9c893]/30 bg-[#e9c893]/8 px-4 py-2 font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
                   Servicios
                 </span>
               </FadeIn>
 
               <LineReveal>
-                <h1 className="max-w-7xl text-[clamp(3rem,7vw,3.5rem)] leading-[0.92] tracking-[-0.05em] text-zinc-100">
+                <h1 className="font-display max-w-7xl text-[clamp(3rem,7vw,3.5rem)] font-medium leading-[0.92] tracking-[-0.05em] text-white">
                   <span className="block">{title[0]}</span>
-                  <span className="block mt-2">{title[1]}</span>
+                  <span className="mt-2 block text-white/60">{title[1]}</span>
                 </h1>
               </LineReveal>
 
               <FadeIn delay={0.1}>
-                <p className="max-w-2xl text-[17px] leading-8 text-zinc-300 lg:text-xl">
+                <p className="max-w-2xl text-[17px] leading-8 text-[#f4f1ea]/60 lg:text-xl">
                   Diseñamos experiencias digitales con criterio visual, estructura y una intención comercial definida para que tu marca comunique mejor y convierta con más intención.
                 </p>
               </FadeIn>
@@ -98,7 +96,7 @@ export default function HeroServicios() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackCta("Hero", "primary")}
-                  className="inline-flex items-center justify-between gap-4 bg-zinc-950 px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-black"
+                  className="inline-flex items-center justify-between gap-4 border border-[#e9c893]/40 bg-[#e9c893]/10 px-6 py-4 text-sm font-medium text-[#e9c893] transition-all hover:bg-[#e9c893]/20 hover:border-[#e9c893]/70"
                 >
                   <span>Hablemos de tu proyecto</span>
                   <ArrowUpRight className="h-4 w-4" />
@@ -106,7 +104,7 @@ export default function HeroServicios() {
 
                 <a
                   href="#deliverables"
-                  className="inline-flex items-center gap-3 border border-black/10 bg-white/70 px-6 py-4 text-sm text-zinc-700 transition-colors hover:border-black/20 hover:text-zinc-950"
+                  className="inline-flex items-center gap-3 border border-white/15 px-6 py-4 text-sm text-white/50 transition-colors hover:border-white/30 hover:text-white/80"
                 >
                   Ver entregables
                   <ChevronRight className="h-4 w-4" />
@@ -114,17 +112,17 @@ export default function HeroServicios() {
               </FadeIn>
             </div>
 
+            {/* Card de stats — adaptada al tema oscuro */}
             <FadeIn delay={0.2} className="lg:pl-10">
-              <div className="rounded-[2rem] border border-black/10 bg-white/75 p-6 shadow-[0_24px_80px_-48px_rgba(24,24,27,0.28)] backdrop-blur-sm">
-                <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
+              <div className="border border-white/10 bg-white/4 p-6 backdrop-blur-sm">
+                <p className="font-body text-[10px] uppercase tracking-[.28em] text-[#e9c893]/70">
                   Vista General
                 </p>
-
                 <div className="mt-6 grid gap-4">
                   {stats.slice(0, 3).map((stat) => (
-                    <div key={stat.value} className="rounded-[1.4rem] border border-black/8 bg-[#faf8f3] p-5">
-                      <p className="text-2xl leading-none tracking-[-0.04em] text-zinc-950">{stat.value}</p>
-                      <p className="mt-3 text-sm leading-6 text-zinc-600">{stat.label}</p>
+                    <div key={stat.value} className="border border-white/8 bg-white/4 p-5">
+                      <p className="font-display text-2xl leading-none tracking-[-0.04em] text-white">{stat.value}</p>
+                      <p className="mt-3 text-sm leading-6 text-[#f4f1ea]/50">{stat.label}</p>
                     </div>
                   ))}
                 </div>

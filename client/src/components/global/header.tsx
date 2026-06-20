@@ -733,7 +733,7 @@ export function Header({
   brandName = "Zincel",
   tabs,
   contactInfo = {
-    email: "kenif.alejandro@zincelideas.com",
+    email: "contacto@zincelideas.com",
     phone: "+51 933 838 792",
     address: "Lima, Perú",
   },

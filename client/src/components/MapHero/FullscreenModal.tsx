@@ -1,9 +1,16 @@
 import { useEffect, useLayoutEffect, useRef, useCallback, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { X } from "lucide-react";
 import Footer from "../global/Footer";
 import HeroHeader, { type HeroPage } from "../hero/HeroHeader";
+import { getTravelOrigin, clearTravelOrigin } from "./travelStore";
+
+// Heroes inyectados por el modal (la página NO los incluye internamente)
+const PAGE_HERO_MAP: Record<string, HeroPage> = {
+  "/servicios":      "servicios",
+  "/sobre-nosotros": "sobrenosotros",
+};
 
 interface Props {
   isOpen: boolean;
@@ -11,59 +18,61 @@ interface Props {
   path: string;
 }
 
-// Páginas que tienen su propio HeroHeader y cuál es su page key
-const HERO_PAGE_MAP: Record<string, HeroPage> = {
-  "/servicios":      "servicios",
-  "/sobre-nosotros": "sobrenosotros",
-  // /inicio → inicio.tsx ya incluye HeroHeaderVideos internamente
-  // /portfolio → Portfolio.tsx ya incluye HeroPortfolio internamente
-  // /precios-web, /experiencias, /contactanos → sin hero de sección
-};
-
 export default function FullscreenModal({ isOpen, children, path }: Props) {
   const navigate   = useNavigate();
-  const flipperRef = useRef<HTMLDivElement>(null);
+  const location   = useLocation();
+  const panelRef   = useRef<HTMLDivElement>(null);
   const scrollRef  = useRef<HTMLDivElement>(null);
   const closingRef = useRef(false);
 
-  // Establece estado inicial ANTES del primer paint → sin flash
+  const pageHero = PAGE_HERO_MAP[location.pathname] as HeroPage | undefined;
+
+  // Estado inicial ANTES del primer paint: anclado en el pin, pequeño y transparente
   useLayoutEffect(() => {
-    const el = flipperRef.current;
+    const el = panelRef.current;
     if (!el) return;
-    gsap.set(el, { rotationY: -70, opacity: 0 });
+    const o = getTravelOrigin();
+    if (o) {
+      el.style.transformOrigin = `${o.x}px ${o.y}px`;
+      gsap.set(el, { opacity: 0, scale: 0.35 });
+    } else {
+      el.style.transformOrigin = "50% 50%";
+      gsap.set(el, { opacity: 0, scale: 0.98 });
+    }
   }, [path]);
 
-  // Animación de entrada
+  // Entrada: crece desde el pin hacia el centro
   useEffect(() => {
-    const el = flipperRef.current;
+    const el = panelRef.current;
     const sc = scrollRef.current;
     if (!el || !sc) return;
     closingRef.current = false;
     sc.scrollTop = 0;
 
+    const o = getTravelOrigin();
     gsap.to(el, {
-      rotationY: 0,
       opacity: 1,
-      duration: 0.85,
+      scale: 1,
+      duration: 0.95,
       ease: "expo.out",
+      delay: o ? 0.45 : 0,
+      onComplete: clearTravelOrigin,
     });
   }, [path]);
 
-  // Cierre con flip inverso
+  // Cierre: se encoge de vuelta, Hero hace el zoom-out
   const handleClose = useCallback(() => {
     if (closingRef.current) return;
     closingRef.current = true;
-
-    gsap.to(flipperRef.current, {
-      rotationY: 70,
+    gsap.to(panelRef.current, {
       opacity: 0,
+      scale: 0.92,
       duration: 0.5,
       ease: "expo.in",
       onComplete: () => navigate("/"),
     });
   }, [navigate]);
 
-  // ESC para cerrar
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") handleClose(); };
     window.addEventListener("keydown", onKey);
@@ -72,41 +81,21 @@ export default function FullscreenModal({ isOpen, children, path }: Props) {
 
   if (!isOpen) return null;
 
-  const heroPage = HERO_PAGE_MAP[path];
-
   return (
-    <div
-      className="fixed inset-0 z-[50]"
-      style={{ perspective: "2000px", perspectiveOrigin: "50% 50%" }}
-    >
-      {/* Botón X fuera del flipper para que no se deforme */}
+    <div className="fixed inset-0 z-[50]">
       <button
         onClick={handleClose}
-        className="fixed right-6 top-6 z-[70] flex h-11 w-11 items-center justify-center rounded-full bg-zinc-900/90 text-white backdrop-blur-sm transition-transform duration-200 hover:scale-110 hover:bg-zinc-900"
-        aria-label="Cerrar"
+        aria-label="Volver al mapa"
+        className="group fixed right-6 top-6 z-[70] flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-zinc-900/70 text-white backdrop-blur-md transition-all duration-300 hover:rotate-90 hover:border-white/30 hover:bg-zinc-900"
       >
         <X className="h-5 w-5" />
       </button>
 
-      {/* flipperRef: solo maneja la rotación 3D */}
-      <div
-        ref={flipperRef}
-        className="absolute inset-0 will-change-transform"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* scrollRef: scroll del contenido */}
-        <div
-          ref={scrollRef}
-          className="absolute inset-0 overflow-y-auto bg-[#f3efe7]"
-        >
-          {/* Hero de sección (solo para las páginas que lo tenían) */}
-          {heroPage && <HeroHeader page={heroPage} />}
-
-          {/* Contenido de la página */}
-          <div className="min-h-screen">
-            {children}
-          </div>
-
+      {/* panel: crece desde el pin */}
+      <div ref={panelRef} className="absolute inset-0 will-change-[transform,opacity]">
+        <div ref={scrollRef} className="absolute inset-0 overflow-x-hidden overflow-y-auto bg-[#f3efe7]">
+          {pageHero && <HeroHeader page={pageHero} />}
+          <div className="min-h-screen">{children}</div>
           <Footer />
         </div>
       </div>

@@ -3,6 +3,7 @@ import { faBehance, faFacebookF, faInstagram, faLinkedinIn, faTiktok } from "@fo
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { trackWhatsAppClick, WHATSAPP_URL } from "../../utils/whatsapp";
+import HeroBg from "../hero/HeroBg";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/zincelideasglobales", icon: faInstagram },
@@ -23,10 +24,10 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#181716] text-white">
+    <footer className="relative overflow-hidden bg-[#0a0a0a] text-[#f4f1ea]">
+      <HeroBg />
+      
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[-8%] top-[-10%] h-72 w-72 rounded-full bg-white/8 blur-3xl" />
-        <div className="absolute right-[-6%] bottom-[-18%] h-96 w-96 rounded-full bg-[#776b57]/20 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-24">
@@ -42,9 +43,9 @@ export default function Footer() {
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-5">
               <p className="text-xs uppercase tracking-[0.18em] text-white/45">Contacto</p>
-              <a href="mailto:kenif.alejandro@zincelideas.com" className="inline-flex items-center gap-3 text-zinc-200 transition-colors hover:text-white">
+              <a href="mailto:contacto@zincelideas.com" className="inline-flex items-center gap-3 text-zinc-200 transition-colors hover:text-white">
                 <Mail className="h-4 w-4" />
-                kenif.alejandro@zincelideas.com
+                contacto@zincelideas.com
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <a

@@ -149,13 +149,13 @@ function ImageSurface({
   safeAreaClassName?: string;
 }) {
   return (
-    <div className={cn("group relative h-full w-full overflow-hidden", className)}>
+    <div className={cn("group relative h-full  w-full overflow-hidden", className)}>
       <div className="pointer-events-none absolute inset-0 " />
       <div className="pointer-events-none absolute inset-0 " />
       <div className="pointer-events-none absolute inset-[10px] " />
       <div
         className={cn(
-          "absolute inset-y-[clamp(0.9rem,3vw,1.6rem)] inset-x-[clamp(1.15rem,5vw,2.3rem)]",
+          "absolute inset-y-[clamp(0.9rem,3vw,1.6rem)]  inset-x-[clamp(1.15rem,5vw,2.3rem)]",
           safeAreaClassName
         )}
       >
@@ -240,7 +240,7 @@ function StackedImageCard({
         safeAreaClassName={cn(
           isFullBleedStacked
             ? "!inset-0"
-            : "inset-y-[clamp(1rem,3vw,1.75rem)] inset-x-[clamp(1.25rem,5.5vw,2.5rem)]",
+            : "inset-y-[clamp(1rem,3vw,1.75rem)]  inset-x-[clamp(1.25rem,5.5vw,2.5rem)]",
           image.safeAreaClassName
         )}
       >
@@ -264,7 +264,7 @@ function StackedImageCard({
 
 function StackBadge({ badge }: { badge: ImageStackBadge }) {
   return (
-    <div className="absolute bottom-4 left-4 z-40 max-w-[220px]">
+    <div className="absolute  bottom-4 left-4 z-40 max-w-[220px]">
       <div className="flex items-start gap-3">
         {badge.icon ? (
           <div className="mt-0.5 flex h-9 w-9 items-center justify-center ">{badge.icon}</div>

@@ -16,6 +16,7 @@ export interface Pin {
   name: L;
   sub: L;
   kind: PinKind;
+  lede: L;
 }
 
 export interface UIStrings {
@@ -26,13 +27,13 @@ export interface UIStrings {
 }
 
 export const UI: UIStrings = {
-  tagline: { es: "Ideas Globales, Lima", en: "Global Ideas, Lima" },
+  tagline: { es: "Zincel Ideas Globales, Lima", en: "Global Ideas, Lima" },
   lede: {
     es: "Diseñamos webs y experiencias digitales que convierten.",
     en: "We design websites and digital experiences that convert.",
   },
   hint: { es: "Selecciona un destino", en: "Select a destination" },
-  meta: { es: "EST. 2016 · LIMA, PERÚ", en: "EST. 2016 · LIMA, PERU" },
+  meta: { es: "EST. 2026 · LIMA, PERÚ", en: "EST. 2026 · LIMA, PERU" },
 };
 
 export const PINS: Pin[] = [
@@ -45,6 +46,10 @@ export const PINS: Pin[] = [
     name: { es: "Inicio", en: "Home" },
     sub: { es: "Volver al mapa", en: "Back to map" },
     kind: "services",
+    lede: {
+      es: "Todo nace aquí, en el mapa. Un solo espacio del que parten todas las ideas.",
+      en: "It all starts here, on the map. One space every idea departs from.",
+    },
   },
   {
     id: "servicios",
@@ -55,6 +60,10 @@ export const PINS: Pin[] = [
     name: { es: "Servicios", en: "Services" },
     sub: { es: "Lo que hacemos", en: "What we do" },
     kind: "services",
+    lede: {
+      es: "Cuatro disciplinas, una sola dirección visual clara.",
+      en: "Four disciplines, one clear visual direction.",
+    },
   },
   {
     id: "portfolio",
@@ -65,6 +74,10 @@ export const PINS: Pin[] = [
     name: { es: "Portfolio", en: "Portfolio" },
     sub: { es: "Nuestros proyectos", en: "Our projects" },
     kind: "work",
+    lede: {
+      es: "Trabajo que cruza husos horarios. Marcas que necesitaban hablarle al mundo.",
+      en: "Work that crosses time zones. Brands that needed to speak to the world.",
+    },
   },
   {
     id: "nosotros",
@@ -75,6 +88,10 @@ export const PINS: Pin[] = [
     name: { es: "Nosotros", en: "About" },
     sub: { es: "El estudio", en: "The studio" },
     kind: "about",
+    lede: {
+      es: "Un estudio en Lima, ideas sin fronteras. Curiosos, en todas partes.",
+      en: "A studio in Lima, ideas without borders. Curious, everywhere.",
+    },
   },
   {
     id: "precios",
@@ -85,6 +102,10 @@ export const PINS: Pin[] = [
     name: { es: "Precios Web", en: "Pricing" },
     sub: { es: "Planes y tarifas", en: "Plans & rates" },
     kind: "pricing",
+    lede: {
+      es: "Planes claros, sin letra chica. Sabes exactamente qué recibes.",
+      en: "Clear plans, no fine print. You know exactly what you get.",
+    },
   },
   {
     id: "experiencias",
@@ -95,6 +116,10 @@ export const PINS: Pin[] = [
     name: { es: "Experiencias", en: "Experiences" },
     sub: { es: "Proyectos especiales", en: "Special projects" },
     kind: "experience",
+    lede: {
+      es: "Donde lo digital se vuelve físico. Proyectos que se recuerdan.",
+      en: "Where digital becomes physical. Projects you remember.",
+    },
   },
   {
     id: "contacto",
@@ -105,18 +130,35 @@ export const PINS: Pin[] = [
     name: { es: "Contáctanos", en: "Contact" },
     sub: { es: "Hablemos", en: "Say hello" },
     kind: "contact",
+    lede: {
+      es: "Hablemos. Respondemos en menos de 24 horas, en tu zona horaria.",
+      en: "Let's talk. We reply within 24 hours, in your time zone.",
+    },
   },
   {
     id: "briefing",
-    route: "__briefing",
+    route: "/briefing",
     lon: -58.4,
     lat: -34.6,
     labelSide: "right",
     name: { es: "Briefing", en: "Briefing" },
     sub: { es: "Inicia tu proyecto", en: "Start your project" },
     kind: "briefing",
+    lede: {
+      es: "Cuéntanos tu proyecto en cinco minutos. Empecemos a trazar la ruta.",
+      en: "Tell us about your project in five minutes. Let's chart the route.",
+    },
   },
 ];
 
 export const t = (o: L | undefined, lang: Lang): string =>
   (o && (o[lang] ?? o.es ?? o.en)) || "";
+
+export const fmtCoords = (lon: number, lat: number): string => {
+  const ns = lat >= 0 ? "N" : "S";
+  const ew = lon >= 0 ? "E" : "W";
+  return `${Math.abs(lat).toFixed(4)}° ${ns}  /  ${Math.abs(lon).toFixed(4)}° ${ew}`;
+};
+
+export const pinByRoute = (path: string): Pin | undefined =>
+  PINS.find((p) => p.route === path);

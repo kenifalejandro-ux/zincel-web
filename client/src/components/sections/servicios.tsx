@@ -5,6 +5,7 @@ import type { CarouselServiceItem } from "../ui/ServicesCarousel";
 import ServicesCarousel from "../ui/ServicesCarousel";
 import type { ImageStackImage } from "../ui/ImageStack";
 
+
 interface ServiciosContentProps {
   className?: string;
 }
@@ -69,29 +70,27 @@ const SERVICES_DATA: CarouselServiceItem[] = [
 
 export default function ServiciosContent({ className = "" }: ServiciosContentProps) {
   return (
-    <section className={`py-24 lg:py-32 ${className}`}>
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+    <section className={`relative overflow-hidden bg-[#0a0a0a] ${className}`}>
+      <div className="relative mx-auto w-full max-w-7xl px-6 pt-20 pb-10 lg:px-10 lg:pt-24 lg:pb-12">
         <div className="mb-16 grid gap-8 lg:mb-20 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
+            <p className="mb-4 font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
               Servicios
             </p>
-
-            <h2 className="max-w-4xl text-4xl font-medium leading-[0.95] tracking-[-0.04em] text-zinc-950 sm:text-5xl lg:text-7xl">
+            <h2 className="font-display max-w-4xl text-4xl font-medium leading-[0.95] tracking-[-0.04em] text-white sm:text-5xl lg:text-7xl">
               Cinco servicios.
               <br />
-              Una dirección visual clara.
+              <span className="text-white/50">Una dirección visual clara.</span>
             </h2>
-            <p className="max-w-md text-sm leading-7 text-zinc-600 sm:text-base">
+            <p className="mt-4 max-w-md text-sm leading-7 text-[#f4f1ea]/50 sm:text-base">
               Diseñamos experiencias digitales con criterio visual y estructura minimalista.
             </p>
           </div>
-
-          <div className="lg:col-span-5 lg:pl-10"></div>
+          <div className="lg:col-span-5 lg:pl-10" />
         </div>
-
-        <ServicesCarousel items={SERVICES_DATA} />
       </div>
+
+      <ServicesCarousel items={SERVICES_DATA} />
     </section>
   );
 }

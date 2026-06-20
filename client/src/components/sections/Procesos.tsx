@@ -1,6 +1,6 @@
 /**client/src/components/sections/Procesos.tsx */
 
-import { useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { motion } from "motion/react";
 
 interface ProcessItem {
@@ -15,15 +15,7 @@ export interface ProcesosPageProps {
   process: ProcessItem[];
 }
 
-function LineReveal({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-}) {
+function LineReveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
     <div className={`overflow-hidden ${className}`}>
       <motion.div
@@ -38,15 +30,7 @@ function LineReveal({
   );
 }
 
-function FadeIn({
-  children,
-  delay = 0,
-  className = "",
-}: {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-}) {
+function FadeIn({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -61,57 +45,41 @@ function FadeIn({
 }
 
 export default function Procesos(props: ProcesosPageProps) {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 260);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <>
-      {/** ---------------------Procesos--------------------- */}
-      <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
-              Proceso
+    <section className="bg-[#0a0a0a] py-20 lg:py-24 text-[#f4f1ea]">
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
+            Proceso
+          </p>
+          <LineReveal className="mt-5">
+            <h2 className="font-display text-4xl font-medium leading-[0.98] tracking-[-0.04em] text-white lg:text-6xl">
+              {props.processTitle}
+            </h2>
+          </LineReveal>
+          <FadeIn delay={0.1}>
+            <p className="mt-6 text-base leading-7 text-[#f4f1ea]/60 lg:text-lg">
+              {props.processDescription}
             </p>
-            <LineReveal className="mt-5">
-              <h2 className="text-4xl leading-[0.98] tracking-[-0.04em] text-zinc-950 lg:text-6xl">
-                {props.processTitle}
-              </h2>
-            </LineReveal>
-            <FadeIn delay={0.1}>
-              <p className="mt-6 text-base leading-7 text-zinc-600 lg:text-lg">
-                {props.processDescription}
-              </p>
-            </FadeIn>
-          </div>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {props.process.map((item, index) => (
-              <FadeIn key={`${item.step}-${item.title}`} delay={0.06 * index} className="h-full">
-                <article className="flex h-full flex-col rounded-[1.75rem] border border-black/10 bg-[#faf8f3] p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white text-sm text-zinc-700">
-                    {item.step}
-                  </div>
-                  <h3 className="mt-6 text-2xl leading-tight tracking-[-0.03em] text-zinc-950">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-zinc-600">{item.description}</p>
-                </article>
-              </FadeIn>
-            ))}
-          </div>
+          </FadeIn>
         </div>
-      </section>
-    </>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {props.process.map((item, i) => (
+            <FadeIn key={`${item.step}-${item.title}`} delay={0.06 * i} className="h-full">
+              <article className="flex h-full flex-col border border-white/10 bg-white/4 p-6">
+                <div className="flex h-12 w-12 items-center justify-center border border-white/10 bg-white/8 text-sm text-[#e9c893]">
+                  {item.step}
+                </div>
+                <h3 className="mt-6 font-display text-2xl font-medium leading-tight tracking-[-0.03em] text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[#f4f1ea]/55">{item.description}</p>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

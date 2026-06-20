@@ -6,6 +6,7 @@ import { ContactSection } from "../sections/InicioSections";
 import { ArrowRight } from "lucide-react";
 import ServiciosContent from "../sections/servicios";
 import Hero from "../hero/Hero";
+import HeroBg from "../hero/HeroBg";
 
 const POSITIONING = [
   { value: "Dirección visual", detail: "Una web más sobria, minimalista y mejor jerarquizada para que tu marca se vea premium." },
@@ -27,83 +28,116 @@ const ENGAGEMENT = [
 
 export default function Inicio() {
   return (
-    <div className="min-h-screen bg-[#f3efe7] text-zinc-900">
+    <div className="min-h-screen bg-[#0a0a0a] text-[#f4f1ea]">
       <Hero />
       <PageSEO pageId="inicio" />
 
-      <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-10%] top-20 h-72 w-72 rounded-full bg-white/60 blur-3xl" />
-          <div className="absolute right-[-8%] top-1/3 h-96 w-96 rounded-full bg-[#d9d0c3]/60 blur-3xl" />
-        </div>
+      {/* ── Posicionamiento ── */}
+      <section className="relative overflow-hidden">
+        <HeroBg />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-          <section className="border-b border-black/5 py-20 lg:py-28">
-            <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
-              <div className="space-y-6">
-                <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">Posicionamiento</p>
-                <div className="grid gap-4 border-black/5 pt-4">
-                  {POSITIONING.map((item) => (
-                    <article key={item.value} className="border-b border-black/5 pb-4">
-                      <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{item.value}</p>
-                      <p className="mt-3 text-base leading-7 text-zinc-700">{item.detail}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-8">
-                <h2 className="max-w-4xl text-[clamp(2.5rem,5vw,4rem)] leading-[0.98] tracking-[-0.04em]">
-                  Construimos marcas con creatividad y precisión
-                </h2>
-                <p className="max-w-2xl text-[17px] leading-7 text-zinc-700 lg:text-lg">En Zincel Ideas Globales no seguimos un único estilo, diseñamos en función del negocio. Ya sea enfoque editorial, industrial, comercial o híbrido, cada proyecto define una estructura coherente con su sector. El resultado no es una plantilla, sino una web alineada a lo que realmente vendes.</p>
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/portfolio" className="inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium text-zinc-900 transition-transform duration-300 hover:-translate-y-0.5">
-                    Explorar proyectos
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link to="/servicios" className="inline-flex items-center gap-3 px-6 py-3 text-sm font-medium text-zinc-900 transition-colors duration-300 hover:bg-white/60">
-                    Conocer servicios
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <ServiciosContent className="bg-zinc-100 rounded-[3rem]" />
-
-          <section className="border-y border-black/5 py-20 lg:py-24">
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-                <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">Cómo trabajamos</p>
-                <h2 className="text-3xl leading-tight tracking-[-0.03em] text-zinc-900 lg:text-5xl">Menos ruido visual, más dirección creativa con intención de negocio.</h2>
-              </div>
-              <div className="space-y-4">
-                {PRINCIPLES.map((item) => (
-                  <article key={item.step}>
-                    <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{item.step}</p>
-                    <h3 className="mt-4 text-2xl text-zinc-900">{item.title}</h3>
-                    <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">{item.body}</p>
+            <div className="space-y-6">
+              <p className="font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
+                Posicionamiento
+              </p>
+              <div className="grid gap-4 pt-4">
+                {POSITIONING.map((item) => (
+                  <article key={item.value} className="border-b border-white/8 pb-4">
+                    <p className="font-body text-[10px] uppercase tracking-[.22em] text-[#e9c893]/60">
+                      {item.value}
+                    </p>
+                    <p className="mt-3 text-base leading-7 text-[#f4f1ea]/60">{item.detail}</p>
                   </article>
                 ))}
               </div>
             </div>
-          </section>
 
-          <section className="py-20 lg:py-24">
-            <div className="grid gap-5 lg:grid-cols-3">
-              {ENGAGEMENT.map((item) => (
-                <article key={item.label}>
-                  <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{item.label}</p>
-                  <p className="mt-4 text-xl leading-8 text-zinc-800">{item.text}</p>
+            <div className="space-y-8">
+              <h2 className="font-display max-w-4xl text-[clamp(2.5rem,5vw,4rem)] font-medium leading-[0.98] tracking-[-0.04em] text-white">
+                Construimos marcas con creatividad y precisión
+              </h2>
+              <p className="max-w-2xl text-[17px] leading-7 text-[#f4f1ea]/55 lg:text-lg">
+                En Zincel Ideas Globales no seguimos un único estilo, diseñamos en función del negocio. Ya sea enfoque editorial, industrial, comercial o híbrido, cada proyecto define una estructura coherente con su sector. El resultado no es una plantilla, sino una web alineada a lo que realmente vendes.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/portfolio"
+                  className="inline-flex items-center gap-3 border border-[#e9c893]/40 bg-[#e9c893]/10 px-5 py-3 text-sm font-medium text-[#e9c893] transition-all duration-300 hover:bg-[#e9c893]/20 hover:border-[#e9c893]/70"
+                >
+                  Explorar proyectos
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/servicios"
+                  className="inline-flex items-center gap-3 border border-white/10 px-5 py-3 text-sm font-medium text-[#f4f1ea]/50 transition-colors duration-300 hover:border-white/25 hover:text-[#f4f1ea]/80"
+                >
+                  Conocer servicios
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Servicios carousel ── */}
+      <ServiciosContent />
+
+      {/* ── Cómo trabajamos ── */}
+      <section className="relative overflow-hidden">
+        <HeroBg halo="80% 40%" dots="70% 30%" haloOpacity={30} dotsOpacity={18} />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+
+            <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+              <p className="font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
+                Cómo trabajamos
+              </p>
+              <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.03em] text-white lg:text-5xl">
+                Menos ruido visual, más dirección creativa con intención de negocio.
+              </h2>
+            </div>
+
+            <div className="space-y-8">
+              {PRINCIPLES.map((item) => (
+                <article key={item.step} className="border-b border-white/8 pb-8 last:border-b-0">
+                  <p className="font-body text-[10px] uppercase tracking-[.22em] text-[#e9c893]/50">
+                    {item.step}
+                  </p>
+                  <h3 className="mt-4 text-xl font-medium text-white">{item.title}</h3>
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-[#f4f1ea]/55">{item.body}</p>
                 </article>
               ))}
             </div>
-          </section>
-        </div>
-      </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Para quién ── */}
+      <section className="relative overflow-hidden">
+        <HeroBg halo="50% 80%" dots="50% 70%" haloOpacity={25} dotsOpacity={14} />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-24">
+          <p className="mb-10 font-body text-[10px] uppercase tracking-[.34em] text-[#e9c893]">
+            Para quién trabajamos
+          </p>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {ENGAGEMENT.map((item) => (
+              <article key={item.label} className="border-t border-white/8 pt-6">
+                <p className="font-body text-[10px] uppercase tracking-[.22em] text-[#e9c893]/60">
+                  {item.label}
+                </p>
+                <p className="mt-4 text-lg leading-8 text-[#f4f1ea]/65">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Contacto ── */}
       <section id="contact">
         <ContactSection />
       </section>
