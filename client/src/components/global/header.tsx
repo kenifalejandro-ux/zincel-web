@@ -12,16 +12,13 @@ import React, {
 } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
-  Mail, Phone, MapPin, X, Search, Command, Globe,
+  Mail, Phone, MapPin, X, Search, Command,
   MessageSquare, ArrowRight, MessageCircle,
 } from "lucide-react";
 
 import { debounce } from "../../utils/debounce";
 import { useImageOverlap } from "../../hooks/useImageOverlap";
-import { LanguageToggle } from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
-import { useLanguage } from "../../context/LanguageContext";
-import { useTranslation } from "react-i18next";
 import { useTheme } from "@/hooks/useTheme";
 import logoZincelWhite from "../../assets/logo-zincel-white.svg";
 import logoZincelBlack from "../../assets/logo-zincel-black.svg";
@@ -384,19 +381,17 @@ function CommandPalette({
   open: boolean; onClose: () => void; tabs: Tab[];
   onOpenContact: () => void; contactInfo?: ContactInfo;
 }) {
-  const { language, setLanguage } = useLanguage() as { language: "es" | "en"; setLanguage?: (l: "es" | "en") => void };
-  const { t } = useTranslation();
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const cmd = {
-    search: t("header.cmdSearch"),
-    nav: t("header.cmdNav"),
-    actions: t("header.cmdActions"),
-    contact: t("header.cmdContact"),
-    empty: t("header.cmdEmpty"),
+    search: "Buscar páginas, acciones, contacto…",
+    nav: "Navegar",
+    actions: "Acciones",
+    contact: "Contacto",
+    empty: "Sin resultados",
     esc: "esc",
     enter: "↵",
   };
@@ -412,18 +407,10 @@ function CommandPalette({
     }));
     list.push({
       id: "contact",
-      label: t("header.openContact"),
+      label: "Abrir panel de contacto",
       group: cmd.actions, icon: <MessageSquare size={14} />, hint: "C",
       run: () => { onOpenContact(); onClose(); },
     });
-    if (setLanguage) {
-      list.push({
-        id: "lang",
-        label: t("header.switchLang"),
-        group: cmd.actions, icon: <Globe size={14} />, hint: t("header.cmdLangHint"),
-        run: () => { setLanguage(language === "en" ? "es" : "en"); onClose(); },
-      });
-    }
     if (contactInfo?.email) list.push({
       id: "email", label: contactInfo.email, group: cmd.contact, icon: <Mail size={14} />,
       run: () => { window.location.href = `mailto:${contactInfo.email}`; onClose(); },
@@ -433,12 +420,12 @@ function CommandPalette({
       run: () => { window.location.href = `tel:${contactInfo.phone}`; onClose(); },
     });
     return list;
-  }, [tabs, language, contactInfo, navigate, onClose, onOpenContact, setLanguage, cmd.nav, cmd.actions, cmd.contact, t]);
+  }, [tabs, contactInfo, navigate, onClose, onOpenContact, cmd.nav, cmd.actions, cmd.contact]);
 
   const filtered = useMemo(() => {
     if (!query.trim()) return items;
     const q = query.toLowerCase();
-    return items.filter(i => i.label.toLowerCase().includes(q) || i.group.toLowerCase().includes(q));
+    return items.filter((i) => i.label.toLowerCase().includes(q) || i.group.toLowerCase().includes(q));
   }, [items, query]);
 
   useEffect(() => { if (open) { setQuery(""); setActive(0); setTimeout(() => inputRef.current?.focus(), 60); } }, [open]);
@@ -554,10 +541,10 @@ function NavRow({
 
 // ── MenuOverlay — beige curtain, original layout ──────────────────────────────
 function MenuOverlay({
-  open, onClose, tabs, pathname, language, contactInfo, labels, logo,
+  open, onClose, tabs, pathname, contactInfo, labels, logo,
 }: {
   open: boolean; onClose: () => void; tabs: Tab[]; pathname: string;
-  language: "es" | "en"; contactInfo?: ContactInfo; labels: Labels; logo: string;
+  contactInfo?: ContactInfo; labels: Labels; logo: string;
 }) {
   const normalized = pathname.toLowerCase();
   const isServicesActive = normalized.startsWith("/servicios");
@@ -579,7 +566,7 @@ function MenuOverlay({
           <button
             type="button" onClick={onClose}
             className="inline-flex items-center justify-center p-3 text-zinc-800 transition-colors hover:text-zinc-300"
-            aria-label={language === "en" ? "Close menu" : "Cerrar menú"}
+            aria-label="Cerrar menú"
           >
             <MenuIcon state="open" />
           </button>
@@ -683,7 +670,6 @@ function ContactAside({
           >
             <X size={16} strokeWidth={1.8} />
           </button>
-          <LanguageToggle className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-2 text-[13px] text-zinc-700 transition-colors hover:bg-black/10 hover:text-zinc-950" />
         </div>
         <div className="flex flex-col gap-10 px-8 py-10">
           <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">{labels.contactTitle}</p>
@@ -758,8 +744,6 @@ export function Header({
   enablePageCurtain    = true,
   enableLogoMorph      = true,
 }: HeaderProps) {
-  const { language } = useLanguage();
-  const { t } = useTranslation();
   const { resolved: userTheme } = useTheme();
   const { isDarkOverlapping, isLightOverlapping } = useImageOverlap({
     targetElementId: "banner", debounceDelay: 10,
@@ -767,16 +751,16 @@ export function Header({
 
   const localizedContent = {
     tabs: [
-      { label: t("nav.services"), href: "/servicios" },
-      { label: t("nav.portfolio"), href: "/portfolio" },
-      { label: t("nav.about"), href: "/sobre-nosotros" },
-      { label: t("nav.pricing"), href: "/precios-web" },
-      { label: t("nav.experiences"), href: "/experiencias" },
+      { label: "Servicios", href: "/servicios" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Sobre Nosotros", href: "/sobre-nosotros" },
+      { label: "Precios Web", href: "/precios-web" },
+      { label: "Experiencias", href: "/experiencias" },
     ],
-    emailLabel: t("footer.emailLabel"),
-    phoneLabel: t("footer.phoneLabel"),
-    addressLabel: t("footer.addressLabel"),
-    contactTitle: t("header.contactLabel"),
+    emailLabel: "Correo",
+    phoneLabel: "Teléfono",
+    addressLabel: "Ubicación",
+    contactTitle: "Contáctanos",
   };
 
   const resolvedTabs = tabs ?? localizedContent.tabs;
@@ -901,8 +885,7 @@ export function Header({
               {/* Controls — right, flex justify-end */}
               <div className="flex items-center justify-end gap-1.5 sm:gap-2">
                 <ThemeToggle size={34} />
-                <LanguageToggle className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1.5 sm:px-3 sm:py-2 text-[12px] sm:text-[13px] transition-colors ${tone.btn}`} />
-
+        
                 {enableCommandPalette && (
                   <Mag strength={0.3} radius={60}>
                     <button
@@ -923,7 +906,7 @@ export function Header({
                   >
                     {/* Icon only on mobile, full label on sm+ */}
                     <MessageCircle size={15} className="sm:hidden" />
-                    <span className="hidden sm:inline">{t("header.contactLabel")}</span>
+                    <span className="hidden sm:inline">Contáctanos</span>
                   </button>
                 </Mag>
               </div>
@@ -946,7 +929,6 @@ export function Header({
         onClose={() => setIsMenuOpen(false)}
         tabs={resolvedTabs}
         pathname={location.pathname}
-        language={language as "es" | "en"}
         contactInfo={contactInfo}
         labels={{
           contactTitle: localizedContent.contactTitle,

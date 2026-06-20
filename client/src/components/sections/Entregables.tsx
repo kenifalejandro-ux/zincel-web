@@ -2,7 +2,6 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "motion/react";
-import { useTranslation } from "react-i18next";
 
 export interface EntregablesPageProps {
   deliverablesTitle: string;
@@ -56,7 +55,6 @@ function FadeIn({
 }
 
 export default function Entregables(props: EntregablesPageProps) {
-  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -78,7 +76,7 @@ export default function Entregables(props: EntregablesPageProps) {
           <div className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-start">
             <div className="space-y-5">
               <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
-                {t("serviciosPage.deliverables_label")}
+                Entregables
               </p>
               <LineReveal>
                 <h2 className="text-4xl leading-[0.98] tracking-[-0.04em] text-zinc-950 lg:text-5xl">

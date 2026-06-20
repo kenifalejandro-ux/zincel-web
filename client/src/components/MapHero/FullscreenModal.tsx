@@ -13,9 +13,9 @@ interface Props {
 
 // Páginas que tienen su propio HeroHeader y cuál es su page key
 const HERO_PAGE_MAP: Record<string, HeroPage> = {
-  "/inicio":         "inicio",
   "/servicios":      "servicios",
   "/sobre-nosotros": "sobrenosotros",
+  // /inicio → inicio.tsx ya incluye HeroHeaderVideos internamente
   // /portfolio → Portfolio.tsx ya incluye HeroPortfolio internamente
   // /precios-web, /experiencias, /contactanos → sin hero de sección
 };

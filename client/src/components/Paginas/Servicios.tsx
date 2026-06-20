@@ -1,6 +1,5 @@
 /** client/src/components/Paginas/Servicios.tsx */
 
-import { useTranslation } from "react-i18next";
 import ServiceBenefitsSection from "../sections/ServiceBenefitsSection";
 import Entregables from "../sections/Entregables";
 import Procesos from "../sections/Procesos";
@@ -9,12 +8,11 @@ import FloatingCta from "../shared/FloatingCta";
 import { getServicesPageData } from "../../content/servicesPageData";
 import PageSEO from "../global/PageSEO";
 
+const WHATSAPP_TEXT = "Hola, vi sus servicios y quiero saber cómo pueden ayudar a mi marca";
+
 export default function Servicios() {
-  const { t } = useTranslation();
   const { pageData, brandingData, desarrolloWebData, modelado3DData, uiuxData, marketingData } =
     getServicesPageData();
-
-  const whatsappText = t("heroServicios.whatsappText");
 
   return (
     <>
@@ -27,8 +25,8 @@ export default function Servicios() {
 
       <Entregables {...pageData} />
       <Procesos {...pageData} />
-      <ContactoServices {...pageData} whatsappText={whatsappText} />
-      <FloatingCta whatsappText={whatsappText} />
+      <ContactoServices {...pageData} whatsappText={WHATSAPP_TEXT} />
+      <FloatingCta whatsappText={WHATSAPP_TEXT} />
     </>
   );
 }

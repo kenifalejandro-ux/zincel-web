@@ -8,7 +8,6 @@ import { LCPImage } from "../ui/LCPImage";
 import { OptimizedVideo } from "../ui/OptimizedVideo";
 import { Tooltip } from "../ui/Tooltip";
 import { initVideoEvents } from "../sections/VideoParallaxHover";
-import { useTranslation } from "react-i18next";
 import HeroPortfolio from "../hero/HeroPortfolio";
 
 interface ProjectItem {
@@ -30,8 +29,26 @@ type PortfolioProjectCardProps = {
 
 const TOUCH_DEVICE_QUERY = "(hover: none), (pointer: coarse), (max-width: 1024px)";
 
+const PORTFOLIO_NOTES = [
+  "Este proyecto abre una línea de trabajo orientada a empresas que necesitan verse más sólidas, más confiables y mejor presentadas en digital.",
+  "No se trata solo de diseñar una web, sino de construir una lectura institucional más clara, más sobria y mejor dirigida comercialmente.",
+  "Cada decisión visual, narrativa y de movimiento está pensada para elevar la percepción del negocio sin saturarlo de recursos innecesarios.",
+];
+
+const PROJECTS_DATA = [
+  {
+    id: "cushuro",
+    title: "Calera Santa Isabel de Cushuro",
+    subtitle: "Una propuesta web desarrollada para presentar a la empresa con mayor solidez institucional, mejor jerarquía visual y una narrativa alineada con la escala real de su operación.",
+    year: "2026",
+    category: "Sitio web",
+    src: "/videos-optim/hero/calera/parallax-calera",
+    poster: "/imagenes-optim/poster/poster-calera/cantera001",
+    link: "https://kenifa.sg-host.com/",
+  },
+];
+
 function PortfolioProjectCard({ project, index, onNavigate }: PortfolioProjectCardProps) {
-  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -111,7 +128,7 @@ function PortfolioProjectCard({ project, index, onNavigate }: PortfolioProjectCa
   return (
     <article className="group border-t border-black/10 pt-8 first:border-t-0 first:pt-0">
       <Tooltip
-        content={t("portfolio.tooltipExplore")}
+        content="Explorar caso destacado"
         active={!isTouchDevice && isInViewport && isTooltipActive}
         position={tooltipPosition}
         showHand={false}
@@ -165,9 +182,9 @@ function PortfolioProjectCard({ project, index, onNavigate }: PortfolioProjectCa
             </div>
 
             <div className="grid gap-5 border-t border-black/10 pt-6">
-              <p className="max-w-sm text-sm leading-6 text-zinc-500">{t("portfolio.cardNote")}</p>
+              <p className="max-w-sm text-sm leading-6 text-zinc-500">Una presentación digital pensada para transmitir más solidez, mejor lectura Industrial y una percepción de marca más clara.</p>
               <span className="inline-flex items-center gap-2 text-sm font-medium text-zinc-900 transition-transform duration-300 group-hover:translate-x-1">
-                {t("portfolio.cardCta")}
+                Ver cómo elevamos esta marca
                 <ArrowRight className="h-5 w-5" />
               </span>
             </div>
@@ -179,29 +196,12 @@ function PortfolioProjectCard({ project, index, onNavigate }: PortfolioProjectCa
 }
 
 export default function Portfolio() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleProjectNavigation = (link: string) => {
     if (/^https?:\/\//i.test(link)) { window.location.assign(link); return; }
     navigate(link);
   };
-
-  const projectsData = t("portfolio.projects", { returnObjects: true }) as { id: string; title: string; subtitle: string; year: string; category: string }[];
-  const portfolioNotes = t("portfolio.notes", { returnObjects: true }) as string[];
-
-  const staticPaths: Record<string, { src: string; poster: string; link: string }> = {
-    cushuro: {
-      src: "/videos-optim/hero/calera/parallax-calera",
-      poster: "/imagenes-optim/poster/poster-calera/cantera001",
-      link: "https://kenifa.sg-host.com/",
-    },
-  };
-
-  const projects: ProjectItem[] = projectsData.map((p) => ({
-    ...p,
-    ...staticPaths[p.id],
-  }));
 
   return (
     <>
@@ -213,11 +213,11 @@ export default function Portfolio() {
         <section id="manifiesto" className="border-b border-black/10 pb-20 lg:pb-24">
           <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr]">
             <div className="space-y-4">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">{t("portfolio.featuredEyebrow")}</p>
-              <h2 className="max-w-2xl text-3xl leading-tight tracking-[-0.04em] lg:text-4xl">{t("portfolio.featuredTitle")}</h2>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Caso destacado</p>
+              <h2 className="max-w-2xl text-3xl leading-tight tracking-[-0.04em] lg:text-4xl">Una dirección digital más sobria, más clara y mejor construida para empresas que necesitan proyectar peso, confianza y criterio.</h2>
             </div>
             <div className="grid gap-4 border-t border-black/10 pt-4">
-              {portfolioNotes.map((note) => (
+              {PORTFOLIO_NOTES.map((note) => (
                 <article key={note} className="border-b border-black/10 pb-4">
                   <p className="text-base leading-7 text-zinc-700">{note}</p>
                 </article>
@@ -229,13 +229,13 @@ export default function Portfolio() {
         <section id="proyectos" className="py-20 lg:py-24">
           <div className="mb-14 grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
             <div className="space-y-4">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">{t("portfolio.projectsEyebrow")}</p>
-              <h2 className="text-3xl leading-tight tracking-[-0.04em] lg:text-5xl">{t("portfolio.projectsTitle")}</h2>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">Selección</p>
+              <h2 className="text-3xl leading-tight tracking-[-0.04em] lg:text-5xl">Proyectos con dirección estratégica</h2>
             </div>
-            <p className="max-w-2xl text-base leading-7 text-zinc-600">{t("portfolio.projectsIntro")}</p>
+            <p className="max-w-2xl text-base leading-7 text-zinc-600">Casos pensados para demostrar cómo una marca puede verse más sólida cuando el diseño, la narrativa y la estructura trabajan en la misma dirección.</p>
           </div>
           <div className="grid gap-10">
-            {projects.map((project, index) => (
+            {PROJECTS_DATA.map((project, index) => (
               <PortfolioProjectCard key={project.id} project={project} index={index} onNavigate={handleProjectNavigation} />
             ))}
           </div>
@@ -244,14 +244,14 @@ export default function Portfolio() {
 
       <section id="contacto" className="relative overflow-hidden border-t border-black/10 bg-zinc-950 text-zinc-50">
         <div className="relative mx-auto max-w-5xl px-6 py-24 text-center lg:px-12 lg:py-28">
-          <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-zinc-400">{t("portfolio.ctaEyebrow")}</p>
-          <h2 className="mx-auto max-w-4xl text-4xl leading-[0.95] tracking-[-0.05em] lg:text-7xl">{t("portfolio.ctaTitle")}</h2>
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-7 text-zinc-400 lg:text-lg">{t("portfolio.ctaText")}</p>
+          <p className="mb-6 text-[11px] uppercase tracking-[0.28em] text-zinc-400">Siguiente paso</p>
+          <h2 className="mx-auto max-w-4xl text-4xl leading-[0.95] tracking-[-0.05em] lg:text-7xl">Construyamos una presencia más sólida</h2>
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-7 text-zinc-400 lg:text-lg">Si tu empresa necesita verse mejor estructurada, más confiable y con mayor autoridad visual, podemos desarrollar una presentación digital con esa intención.</p>
           <button
             onClick={() => handleProjectNavigation("https://wa.me/51933838792?text=Hola%2C%20quiero%20cotizar%20un%20proyecto.")}
             className="group mt-12 inline-flex items-center gap-3 border border-white/15 bg-white px-7 py-4 text-sm font-medium text-zinc-950 transition-colors duration-300 hover:bg-zinc-200"
           >
-            <span>{t("portfolio.ctaButton")}</span>
+            <span>Cotizar proyecto</span>
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>

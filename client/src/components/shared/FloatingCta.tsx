@@ -4,7 +4,6 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { buildWhatsAppUrl, trackWhatsAppClick } from "../../utils/whatsapp";
-import { useTranslation } from "react-i18next";
 
 export interface FloatingCtaProps {
   whatsappText: string;
@@ -33,7 +32,6 @@ function FadeIn({
 }
 
 export default function FloatingCta(props: FloatingCtaProps) {
-  const { t: _t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {

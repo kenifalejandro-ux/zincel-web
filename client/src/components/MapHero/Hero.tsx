@@ -5,16 +5,13 @@ import WorldMap, { type WorldMapHandle } from "./WorldMap";
 import Pin from "./Pin";
 import { project } from "./mapEngine";
 import { PINS, UI, t, type Pin as PinT, type Lang } from "./data";
-import { LanguageToggle } from "../global/LanguageToggle";
-import { useLanguage } from "../../context/LanguageContext";
 
 interface HeroProps {
   isModalOpen: boolean;
 }
 
 export default function Hero({ isModalOpen }: HeroProps) {
-  const { language } = useLanguage();
-  const lang = language as Lang;
+  const lang: Lang = "es";
   const navigate = useNavigate();
 
   // Rotar el mapa 90° cuando el dispositivo está en portrait y no es desktop.
@@ -212,16 +209,11 @@ export default function Hero({ isModalOpen }: HeroProps) {
           </span>
         </div>
 
-        {/* Top-right: meta (desktop) + language toggle */}
+        {/* Top-right: meta (desktop) */}
         <div ref={toprightRef} className="absolute right-5 top-6 flex items-center gap-[18px] md:right-[46px] md:top-10">
           <span className="hidden whitespace-nowrap font-body text-[10px] uppercase tracking-[.3em] text-white/30 md:block">
             {t(UI.meta, lang)}
           </span>
-          <LanguageToggle
-            className="flex items-center gap-[6px] text-white/50 hover:text-white transition-colors"
-            iconClassName="h-3.5 w-3.5"
-            labelClassName="font-body text-[11px] tracking-[.18em]"
-          />
         </div>
 
         {/* Bottom-left: caption */}

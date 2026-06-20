@@ -1,10 +1,10 @@
-import { useTranslation } from "react-i18next";
 import { useWhatsApp } from "../../hooks/useWhatsApp";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import PageSEO from "../global/PageSEO";
 
+const WHATSAPP_TEXT = "Hola, quiero iniciar un proyecto con Zincel";
+
 export default function Contactanos() {
-  const { t } = useTranslation();
   const whatsApp = useWhatsApp();
 
   return (
@@ -13,7 +13,6 @@ export default function Contactanos() {
       <section className="min-h-screen bg-zinc-950 text-white">
       <div className="grid min-h-screen lg:grid-cols-2">
 
-        {/* Columna izquierda — info de contacto */}
         <div className="flex flex-col justify-center px-10 py-20 lg:px-16 lg:py-24">
           <p className="mb-4 text-[11px] uppercase tracking-[0.32em] text-zinc-400">
             Contáctanos
@@ -27,7 +26,6 @@ export default function Contactanos() {
             Escríbenos y te respondemos en menos de 24 horas. Trabajamos contigo desde Lima para el mundo.
           </p>
 
-          {/* Datos de contacto */}
           <div className="mb-12 space-y-5">
             <a
               href="mailto:kenif.alejandro@zincelideas.com"
@@ -57,11 +55,10 @@ export default function Contactanos() {
             </div>
           </div>
 
-          {/* CTA WhatsApp */}
           <button
             onClick={() =>
               whatsApp({
-                text: t("contactSection.whatsappText"),
+                text: WHATSAPP_TEXT,
                 section: "Contacto",
                 component: "Contactanos",
                 variant: "primary",
@@ -73,7 +70,6 @@ export default function Contactanos() {
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
-          {/* CTA Briefing */}
           <div className="mt-6 border-t border-white/8 pt-6">
             <p className="mb-3 text-xs text-zinc-500">
               ¿Prefieres contarnos tu proyecto en detalle?
@@ -93,7 +89,6 @@ export default function Contactanos() {
           </div>
         </div>
 
-        {/* Columna derecha — imagen referencial (cámbiala cuando quieras) */}
         <div className="relative hidden overflow-hidden lg:block">
           <img
             src="/imagenes-optim/imagenes/ads001-1920.avif"

@@ -2,7 +2,6 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { motion } from "motion/react";
-import { useTranslation } from "react-i18next";
 
 interface ProcessItem {
   step: string;
@@ -62,7 +61,6 @@ function FadeIn({
 }
 
 export default function Procesos(props: ProcesosPageProps) {
-  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -83,7 +81,7 @@ export default function Procesos(props: ProcesosPageProps) {
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
-              {t("serviciosPage.process_label")}
+              Proceso
             </p>
             <LineReveal className="mt-5">
               <h2 className="text-4xl leading-[0.98] tracking-[-0.04em] text-zinc-950 lg:text-6xl">

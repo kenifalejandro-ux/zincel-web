@@ -5,7 +5,6 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { ImageStack, type ImageStackImage } from "./ImageStack";
 import { cn } from "./utils";
-import { useTranslation } from "react-i18next";
 
 export interface CarouselServiceItem {
   id: string;
@@ -25,7 +24,6 @@ interface ServicesCarouselProps {
 }
 
 export default function ServicesCarousel({ items, className = "" }: ServicesCarouselProps) {
-  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
 
   const prevSlide = () => {
@@ -48,7 +46,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-zinc-400">
-            {t("servicesCarousel.featured")}
+            Servicio destacado
           </p>
 
           <div className="mt-3 flex items-center gap-4">
@@ -72,7 +70,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
             type="button"
             onClick={prevSlide}
             disabled={current === 0}
-            aria-label={t("servicesCarousel.previous")}
+            aria-label="Anterior"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-zinc-900 shadow-[0_10px_30px_-22px_rgba(24,24,27,0.25)] transition hover:-translate-x-0.5 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -82,7 +80,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
             type="button"
             onClick={nextSlide}
             disabled={current === items.length - 1}
-            aria-label={t("servicesCarousel.next")}
+            aria-label="Siguiente"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-zinc-900 shadow-[0_10px_30px_-22px_rgba(24,24,27,0.25)] transition hover:translate-x-0.5 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronRight className="h-4 w-4" />
@@ -101,7 +99,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
               </div>
 
               <span className="rounded-full border border-black/8 bg-white/75 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                {t("servicesCarousel.serviceLabel")} {String(current + 1).padStart(2, "0")}
+                Servicio {String(current + 1).padStart(2, "0")}
               </span>
             </div>
 
@@ -135,12 +133,12 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
                 to={service.href}
                 className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:gap-3 hover:bg-zinc-800"
               >
-                {t("servicesCarousel.exploreService")}
+                Explorar servicio
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
               <p className="text-sm text-zinc-400">
-                {t("servicesCarousel.tagline")}
+                Diseño, claridad y una ejecución pensada para convertir.
               </p>
             </div>
           </div>
@@ -150,10 +148,10 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
               <div className="mb-4 flex items-center justify-between px-1">
                 <div>
                   <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-zinc-400">
-                    {t("servicesCarousel.slideLabel")}
+                    Vista Visual
                   </p>
                   <p className="mt-1 text-sm text-zinc-500">
-                    {t("servicesCarousel.slideDesc")}
+                    Composición limpia y centrada en la pieza.
                   </p>
                 </div>
 
@@ -169,7 +167,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
                 />
               ) : (
                 <div className="flex min-h-[280px] items-center justify-center rounded-[1.75rem] border border-dashed border-black/10 bg-white/60 px-6 text-center text-sm text-zinc-400">
-                  {t("servicesCarousel.imageSoon")}
+                  Vista previa disponible pronto.
                 </div>
               )}
             </div>
@@ -183,7 +181,7 @@ export default function ServicesCarousel({ items, className = "" }: ServicesCaro
             key={item.id}
             type="button"
             onClick={() => setCurrent(index)}
-            aria-label={t("servicesCarousel.goToSlide", { index: index + 1 })}
+            aria-label={`Ir al slide ${index + 1}`}
             aria-pressed={current === index}
             className={cn(
               "rounded-full border px-3.5 py-2 text-left transition-all duration-300",

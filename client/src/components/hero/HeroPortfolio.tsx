@@ -5,11 +5,20 @@ import { gsap } from "gsap";
 import { ArrowRight } from "lucide-react";
 import { useWhatsApp } from "../../hooks/useWhatsApp";
 import { ImageStack } from "../ui/ImageStack";
-import { useTranslation } from "react-i18next";
+
+const HIGHLIGHTS = [
+  { value: "Web + branding", label: "Sistemas visuales conectados, no piezas aisladas." },
+  { value: "Más claridad", label: "Mensajes mejor organizados y más fáciles de leer." },
+  { value: "Dirección precisa", label: "Decisiones visuales con intención estratégica." },
+];
+const SIGNALS = [
+  "Diseño web con criterio de negocio",
+  "Dirección de marca",
+  "Sistemas UI",
+  "Visuales 3D",
+];
 
 export default function HeroPortfolio() {
-  const { t } = useTranslation();
-
   const heroRef = useRef<HTMLElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLParagraphElement | null>(null);
@@ -35,11 +44,11 @@ export default function HeroPortfolio() {
 
   const whatsApp = useWhatsApp();
   const handleWhatsAppClick = () => {
-    whatsApp({ text: t("heroPortfolio.whatsappText"), section: "Hero Portfolio", component: "HeroPortfolio", variant: "secondary" });
+    whatsApp({ text: "Hola, vi su portfolio y me gustaría un proyecto similar", section: "Hero Portfolio", component: "HeroPortfolio", variant: "secondary" });
   };
 
-  const highlights = t("heroPortfolio.highlights", { returnObjects: true }) as { value: string; label: string }[];
-  const signals = t("heroPortfolio.signals", { returnObjects: true }) as string[];
+  const highlights = HIGHLIGHTS;
+  const signals = SIGNALS;
 
   return (
     <section ref={heroRef} className="relative overflow-hidden py-20 border-b border-black/10 bg-[#f5f3ee] text-zinc-900">
@@ -48,7 +57,7 @@ export default function HeroPortfolio() {
           <div className="flex min-h-[88vh] flex-col justify-between border-b border-black/10 py-24 min-[1025px]:border-b-0 min-[1025px]:border-r min-[1025px]:border-black/10 min-[1025px]:pr-10 xl:pr-14">
             <div className="flex items-start justify-between gap-6">
               <p ref={eyebrowRef} className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-                {t("heroPortfolio.eyebrow")}
+                Portfolio / 2026
               </p>
             </div>
 
@@ -58,13 +67,13 @@ export default function HeroPortfolio() {
                   ref={titleRef}
                   className="whitespace-pre-line text-[clamp(3rem,4vw,5rem)] font-semibold leading-[0.86] tracking-[-0.06em] text-zinc-950"
                 >
-                  {t("heroPortfolio.title")}
+                  {"Presencia\ncon dirección"}
                 </h1>
                 <p ref={supportRef} className="max-w-xl text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-                  {t("heroPortfolio.support")}
+                  Diseño web, branding y dirección visual resueltos con una lectura más clara, sobria y comercial.
                 </p>
                 <p ref={subtitleRef} className="max-w-2xl text-[16px] leading-7 text-zinc-700 lg:text-[17px]">
-                  {t("heroPortfolio.subtitle")}
+                  Una selección de proyectos donde la estructura, el lenguaje visual y la percepción de marca fueron construidos con más intención, mejor jerarquía y una presencia digital más sólida.
                 </p>
               </div>
 
@@ -83,7 +92,7 @@ export default function HeroPortfolio() {
                     onClick={handleWhatsAppClick}
                     className="group inline-flex items-center justify-between border border-zinc-900 bg-zinc-950 px-5 py-4 text-sm font-medium text-white transition-colors duration-300 hover:bg-black"
                   >
-                    <span>{t("heroPortfolio.primaryCta")}</span>
+                    <span>Iniciar proyecto</span>
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </div>
@@ -93,7 +102,7 @@ export default function HeroPortfolio() {
 
           <div ref={rightPanelRef} className="flex min-h-[88vh] flex-col justify-between py-10 min-[1025px]:pl-10 xl:pl-14">
             <div className="space-y-6 border-t border-black/10 pt-6">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">{t("heroPortfolio.capabilitiesLabel")}</p>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">Capacidades</p>
               <div className="grid gap-3 sm:grid-cols-2">
                 {signals.map((signal) => (
                   <p key={signal} className="border-b border-black/10 pb-3 text-base text-zinc-800">{signal}</p>
@@ -109,7 +118,7 @@ export default function HeroPortfolio() {
             </div>
 
             <div className="border-t border-black/10 pt-5">
-              <p className="max-w-sm text-[11px] uppercase tracking-[0.22em] text-zinc-500">{t("heroPortfolio.quote")}</p>
+              <p className="max-w-sm text-[11px] uppercase tracking-[0.22em] text-zinc-500"></p>
             </div>
           </div>
         </div>

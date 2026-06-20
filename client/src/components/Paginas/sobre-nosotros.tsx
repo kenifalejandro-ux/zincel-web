@@ -4,14 +4,23 @@ import PageSEO from "../global/PageSEO";
 import Metricas from "../ui/Metricas";
 import { ImageStack } from "../ui/ImageStack";
 import AboutConcept, { SobreNosotrosSectionAccordion } from "../sections/SobreNosotrosSection";
-import { useTranslation } from "react-i18next";
+
+const NOTES = [
+  { label: "Desde Lima", text: "Un estudio pequeño con dirección creativa directa y comunicación cercana." },
+  { label: "Sin capas innecesarias", text: "Menos estructura burocrática y más claridad para tomar decisiones importantes de diseño." },
+  { label: "Marca + digital", text: "Trabajamos identidad, web y visualización como partes del mismo lenguaje." },
+];
+
+const METRICS = [
+  { valor: "1+", etiqueta: "Proyecto lanzado" },
+  { valor: "3", etiqueta: "Servicios activos", detalle: "Desarrollo web · Branding · Modelado 3D" },
+  { valor: "1 a 1", etiqueta: "Comunicación directa", detalle: "Sin intermediarios ni delegación" },
+  { valor: "Perú", etiqueta: "Cobertura nacional" },
+  { valor: "2", etiqueta: "Regiones atendidas", detalle: "Lima · La Libertad" },
+  { valor: "B2B", etiqueta: "Enfoque en negocios" },
+];
 
 export default function SobreNosotros() {
-  const { t } = useTranslation();
-
-  const notes = t("sobreNosotros.notes", { returnObjects: true }) as { label: string; text: string }[];
-  const metrics = t("sobreNosotros.metrics", { returnObjects: true }) as { valor: string; etiqueta: string; detalle?: string }[];
-
   return (
     <>
       <PageSEO pageId="sobre-nosotros" />
@@ -27,7 +36,7 @@ export default function SobreNosotros() {
       </section>
 
       <div className="relative z-30">
-        <Metricas variant="inline" vista="desktop" color="#000000" data={metrics} />
+        <Metricas variant="inline" vista="desktop" color="#000000" data={METRICS} />
       </div>
 
       <div className="min-h-screen bg-[#f3efe7] text-zinc-900">
@@ -35,12 +44,12 @@ export default function SobreNosotros() {
           <section className="border-b border-black/10 pb-20 lg:pb-24">
             <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr]">
               <div className="space-y-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{t("sobreNosotros.studioNotes")}</p>
-                <h2 className="text-3xl leading-tight tracking-[-0.03em] lg:text-5xl">{t("sobreNosotros.studioTitle")}</h2>
+                <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">Notas del estudio</p>
+                <h2 className="text-3xl leading-tight tracking-[-0.03em] lg:text-5xl">Construimos marcas y experiencias digitales con una mirada más directa y más intencional.</h2>
               </div>
 
               <div className="grid gap-4 border-t border-black/10 pt-4">
-                {notes.map((note) => (
+                {NOTES.map((note) => (
                   <article key={note.label} className="border-b border-black/10 pb-4">
                     <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{note.label}</p>
                     <p className="mt-3 text-base leading-7 text-zinc-700">{note.text}</p>
@@ -56,8 +65,8 @@ export default function SobreNosotros() {
 
           <section className="border-t border-black/10 pt-20 lg:pt-24">
             <div className="mb-12 max-w-3xl space-y-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">{t("sobreNosotros.capabilitiesEyebrow")}</p>
-              <h2 className="text-3xl leading-tight tracking-[-0.03em] lg:text-4xl">{t("sobreNosotros.capabilitiesTitle")}</h2>
+              <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">Capacidades</p>
+              <h2 className="text-3xl leading-tight tracking-[-0.03em] lg:text-4xl">Lo que hacemos y cómo se conecta dentro del estudio.</h2>
             </div>
             <SobreNosotrosSectionAccordion />
           </section>

@@ -4,10 +4,8 @@ import { gsap } from "gsap";
 import { ArrowRight } from "lucide-react";
 import { useWhatsApp } from "../../hooks/useWhatsApp";
 import HeroCubeScene from "./HeroCubeScene";
-import { useTranslation } from "react-i18next";
 
 export function HeroSobreNosotros() {
-  const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -52,7 +50,7 @@ export function HeroSobreNosotros() {
 
   const whatsApp = useWhatsApp();
   const handleWhatsAppClick = () => {
-    whatsApp({ text: t("heroSobreNosotros.whatsappText"), section: "Hero", component: "HeroSobreNosotros", variant: "primary" });
+    whatsApp({ text: "Hola, me interesa conocer más sobre la experiencia de Zincel y cómo pueden ayudar a mi negocio", section: "Hero", component: "HeroSobreNosotros", variant: "primary" });
   };
 
   return (
@@ -65,19 +63,19 @@ export function HeroSobreNosotros() {
       <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-16 lg:px-12 lg:pt-32 lg:pb-24">
         <div className="grid min-h-[72vh] gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div className="space-y-8">
-            <p className="text-xs uppercase tracking-[0.18em] text-zinc-300">{t("heroSobreNosotros.eyebrow")}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-zinc-300">Zincel Ideas Globales</p>
             <h1 ref={titleRef} className="text-[clamp(2.7rem,5vw,4.8rem)] leading-[0.98] tracking-[-0.05em]">
-              {t("heroSobreNosotros.title")}
+              Nosotros transformamos marcas a través de experiencias digitales.
             </h1>
             <p ref={subtitleRef} className="max-w-2xl text-[17px] leading-7 text-zinc-300 lg:text-lg">
-              {t("heroSobreNosotros.subtitle")}
+              Zincel nace desde Lima para ayudar a empresas y proyectos a verse con más criterio, más consistencia y más valor percibido en cada punto de contacto.
             </p>
             <div ref={ctaRef} className="flex flex-wrap items-center gap-5">
               <button
                 onClick={handleWhatsAppClick}
                 className="inline-flex items-center gap-3 rounded-none bg-zinc-100 px-5 py-3 text-sm font-medium text-zinc-950 transition-colors duration-300 hover:bg-white"
               >
-                {t("heroSobreNosotros.cta")}
+                Iniciar proyecto
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

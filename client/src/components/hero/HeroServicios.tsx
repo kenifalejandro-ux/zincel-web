@@ -4,7 +4,6 @@ import { ArrowUpRight, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { buildWhatsAppUrl, trackWhatsAppClick } from "../../utils/whatsapp";
-import { useTranslation } from "react-i18next";
 
 export interface HeroServiciosContent {
   eyebrow: string;
@@ -43,12 +42,18 @@ function LineReveal({ children, delay = 0, className = "" }: { children: ReactNo
   );
 }
 
-export default function HeroServicios() {
-  const { t } = useTranslation();
+const TITLE = ["Cuatro disciplinas", "Una dirección visual clara."];
+const STATS = [
+  { value: "4 frentes", label: "Desarrollo web, branding, UI/UX y visuales 3D bajo una misma dirección." },
+  { value: "Enfoque comercial", label: "Cada decisión visual busca ayudarte a explicar mejor tu valor." },
+  { value: "Proceso claro", label: "Trabajamos con estructura, prioridades y entregables aterrizados." },
+];
+const WHATSAPP_TEXT = "Hola, vi sus servicios y quiero saber cómo pueden ayudar a mi marca";
 
-  const title = t("heroServicios.title", { returnObjects: true }) as string[];
-  const stats = t("heroServicios.stats", { returnObjects: true }) as { value: string; label: string }[];
-  const whatsappText = t("heroServicios.whatsappText");
+export default function HeroServicios() {
+  const title = TITLE;
+  const stats = STATS;
+  const whatsappText = WHATSAPP_TEXT;
   const whatsappHref = buildWhatsAppUrl(whatsappText);
 
   const trackCta = (section: string, variant: string) => {
@@ -68,7 +73,7 @@ export default function HeroServicios() {
             <div className="space-y-8">
               <FadeIn>
                 <span className="inline-flex rounded-full border border-black/10 bg-white/60 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-zinc-600 backdrop-blur-sm">
-                  {t("heroServicios.eyebrow")}
+                  Servicios
                 </span>
               </FadeIn>
 
@@ -81,7 +86,7 @@ export default function HeroServicios() {
 
               <FadeIn delay={0.1}>
                 <p className="max-w-2xl text-[17px] leading-8 text-zinc-300 lg:text-xl">
-                  {t("heroServicios.subtitle")}
+                  Diseñamos experiencias digitales con criterio visual, estructura y una intención comercial definida para que tu marca comunique mejor y convierta con más intención.
                 </p>
               </FadeIn>
 
@@ -95,7 +100,7 @@ export default function HeroServicios() {
                   onClick={() => trackCta("Hero", "primary")}
                   className="inline-flex items-center justify-between gap-4 bg-zinc-950 px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-black"
                 >
-                  <span>{t("heroServicios.cta")}</span>
+                  <span>Hablemos de tu proyecto</span>
                   <ArrowUpRight className="h-4 w-4" />
                 </motion.a>
 
@@ -103,7 +108,7 @@ export default function HeroServicios() {
                   href="#deliverables"
                   className="inline-flex items-center gap-3 border border-black/10 bg-white/70 px-6 py-4 text-sm text-zinc-700 transition-colors hover:border-black/20 hover:text-zinc-950"
                 >
-                  {t("heroServicios.viewDeliverables")}
+                  Ver entregables
                   <ChevronRight className="h-4 w-4" />
                 </a>
               </FadeIn>
@@ -112,7 +117,7 @@ export default function HeroServicios() {
             <FadeIn delay={0.2} className="lg:pl-10">
               <div className="rounded-[2rem] border border-black/10 bg-white/75 p-6 shadow-[0_24px_80px_-48px_rgba(24,24,27,0.28)] backdrop-blur-sm">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
-                  {t("heroServicios.overview")}
+                  Vista General
                 </p>
 
                 <div className="mt-6 grid gap-4">

@@ -2,16 +2,23 @@
 
 import React from "react";
 import { ArrowRight, Building2, Clock3, MonitorSmartphone, Sparkles } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import PageSEO from "../global/PageSEO";
 
+const PILLS = ["Elige tu sector", "Completa datos básicos", "Visualiza una propuesta inicial"];
+
+const CARDS = [
+  { title: "Sectores", body: "Opciones pensadas para distintos tipos de negocio." },
+  { title: "Simulación visual", body: "Una vista rápida del estilo y estructura de tu web." },
+  { title: "Proceso simple", body: "Solo con la información esencial de tu empresa." },
+];
+
+const STEPS = [
+  { label: "Paso 1", text: "Selecciona tu rubro" },
+  { label: "Paso 2", text: "Agrega datos básicos" },
+  { label: "Paso 3", text: "Mira tu simulación" },
+];
+
 const Experiencias: React.FC = () => {
-  const { t } = useTranslation();
-
-  const pills = t("experiencias.pills", { returnObjects: true }) as string[];
-  const cards = t("experiencias.cards", { returnObjects: true }) as { title: string; body: string }[];
-  const steps = t("experiencias.steps", { returnObjects: true }) as { label: string; text: string }[];
-
   return (
     <>
       <PageSEO pageId="experiencias" />
@@ -24,16 +31,16 @@ const Experiencias: React.FC = () => {
           <div className="max-w-2xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-200">
               <Clock3 className="h-4 w-4" />
-              {t("experiencias.badge")}
+              Muy pronto
             </div>
 
             <h1 className="max-w-xl text-4xl font-black uppercase leading-[0.95] tracking-[-0.04em] text-white sm:text-5xl lg:text-7xl">
-              {t("experiencias.title")}
+              Una experiencia para previsualizar tu web por sector
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">{t("experiencias.description")}</p>
+            <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg">Estamos preparando una pestaña donde podrás elegir el sector de tu empresa, ingresar datos básicos y ver una primera simulación de cómo se vería tu página web antes de desarrollarla.</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {pills.map((pill) => (
+              {PILLS.map((pill) => (
                 <span key={pill} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">{pill}</span>
               ))}
             </div>
@@ -41,18 +48,18 @@ const Experiencias: React.FC = () => {
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                 <Building2 className="mb-3 h-5 w-5 text-cyan-300" />
-                <p className="text-sm font-semibold text-white">{cards[0].title}</p>
-                <p className="mt-1 text-sm text-slate-400">{cards[0].body}</p>
+                <p className="text-sm font-semibold text-white">{CARDS[0].title}</p>
+                <p className="mt-1 text-sm text-slate-400">{CARDS[0].body}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                 <MonitorSmartphone className="mb-3 h-5 w-5 text-cyan-300" />
-                <p className="text-sm font-semibold text-white">{cards[1].title}</p>
-                <p className="mt-1 text-sm text-slate-400">{cards[1].body}</p>
+                <p className="text-sm font-semibold text-white">{CARDS[1].title}</p>
+                <p className="mt-1 text-sm text-slate-400">{CARDS[1].body}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
                 <Sparkles className="mb-3 h-5 w-5 text-cyan-300" />
-                <p className="text-sm font-semibold text-white">{cards[2].title}</p>
-                <p className="mt-1 text-sm text-slate-400">{cards[2].body}</p>
+                <p className="text-sm font-semibold text-white">{CARDS[2].title}</p>
+                <p className="mt-1 text-sm text-slate-400">{CARDS[2].body}</p>
               </div>
             </div>
           </div>
@@ -70,7 +77,7 @@ const Experiencias: React.FC = () => {
                     <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
                   </div>
                   <div className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-slate-400">
-                    {t("experiencias.previewLabel")}
+                    Vista previa
                   </div>
                 </div>
 
@@ -78,8 +85,8 @@ const Experiencias: React.FC = () => {
                   <div className="rounded-[1.2rem] border border-white/10 bg-[#07101d]/85 p-5">
                     <div className="flex items-center justify-between gap-4">
                       <div>
-                        <p className="text-xs uppercase tracking-[0.22em] text-cyan-200/80">{t("experiencias.previewEyebrow")}</p>
-                        <h2 className="mt-2 text-2xl font-black uppercase tracking-[-0.04em] text-white">{t("experiencias.previewTitle")}</h2>
+                        <p className="text-xs uppercase tracking-[0.22em] text-cyan-200/80">Próximamente</p>
+                        <h2 className="mt-2 text-2xl font-black uppercase tracking-[-0.04em] text-white">Tu web en minutos</h2>
                       </div>
                       <div className="rounded-2xl border border-cyan-300/20 bg-cyan-400/10 p-3 text-cyan-200">
                         <ArrowRight className="h-6 w-6" />
@@ -87,7 +94,7 @@ const Experiencias: React.FC = () => {
                     </div>
 
                     <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                      {steps.map((step) => (
+                      {STEPS.map((step) => (
                         <div key={step.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                           <p className="text-xs uppercase tracking-[0.16em] text-slate-400">{step.label}</p>
                           <p className="mt-2 text-sm font-semibold text-white">{step.text}</p>

@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus, Minus } from "lucide-react";
 import { ImageStack } from "../ui/ImageStack";
 import ModelViewer from "../global/ModelViewer";
-import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +20,14 @@ interface AccordionItem {
   title: string;
   content: string;
 }
+
+const SOBRE_ACCORDION: AccordionItem[] = [
+  { title: "Desarrollo web", content: "Creamos sitios web modernos, rápidos y optimizados con tecnologías actuales." },
+  { title: "Branding", content: "Construimos identidades visuales coherentes que conectan con tu audiencia." },
+  { title: "Modelado 3D", content: "Diseñamos experiencias visuales en 2D y 3D que elevan tu marca." },
+  { title: "Diseño UX/UI", content: "UI es la apariencia visual. UX es la experiencia completa. Juntos crean productos digitales que las personas aman usar." },
+  { title: "Campañas Digitales", content: "Gestionamos campañas en Meta Ads, TikTok Ads y Google Ads desde nuestro propio CRM con integración directa a cada plataforma. Sin reportes de terceros: métricas reales, análisis de conversión y optimización continua." },
+];
 
 export function ContentSection({ title, description, reverse = false, imageElement }: ContentSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -67,22 +74,20 @@ export function ContentSection({ title, description, reverse = false, imageEleme
 }
 
 export default function AboutConcept() {
-  const { t } = useTranslation();
-
   return (
     <section className="relative py-24 lg:py-32 bg-zinc-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           <div className="lg:col-span-6 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs tracking-[0.125em] text-zinc-500 border">
-              {t("aboutConcept.eyebrow")}
+              STUDIO PERSPECTIVE
             </div>
             <h2 className="text-[clamp(2.8rem,5.5vw,4.2rem)] leading-[0.95] tracking-[-0.04em] text-zinc-900 font-light">
-              {t("aboutConcept.heroTitle").split("\n")[0]}
+              Trabajo directo.
               <br />
-              {t("aboutConcept.heroTitle").split("\n")[1]}
+              Resultados reales.
             </h2>
-            <p className="text-xl lg:text-xl text-zinc-600 max-w-lg leading-relaxed">{t("aboutConcept.heroBody")}</p>
+            <p className="text-xl lg:text-xl text-zinc-600 max-w-lg leading-relaxed">Como creador independiente, me involucro en cada detalle. No delego tu marca: diseño soluciones a medida en web, branding y 3D que realmente cumplen objetivos.</p>
           </div>
           <div className="lg:col-span-6">
             <div className="aspect-square lg:aspect-[4/3] rounded-3xl overflow-hidden bg-zinc-100 shadow-xl">
@@ -102,8 +107,8 @@ export default function AboutConcept() {
             </div>
           </div>
           <div className="lg:col-span-7 order-1 lg:order-2 space-y-8">
-            <h3 className="text-4xl lg:text-5xl tracking-tight text-zinc-900">{t("aboutConcept.collaborationTitle")}</h3>
-            <p className="text-lg lg:text-xl text-zinc-600 leading-relaxed max-w-2xl">{t("aboutConcept.collaborationBody")}</p>
+            <h3 className="text-4xl lg:text-5xl tracking-tight text-zinc-900">Colaboración cercana y transparente</h3>
+            <p className="text-lg lg:text-xl text-zinc-600 leading-relaxed max-w-2xl">Trabajo contigo de forma directa y honesta. Comunicación constante, revisiones claras y un resultado que representa exactamente lo que tu marca necesita.</p>
           </div>
         </div>
       </div>
@@ -111,8 +116,8 @@ export default function AboutConcept() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-28">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           <div className="lg:col-span-7 space-y-8">
-            <h3 className="text-4xl lg:text-5xl tracking-tight text-zinc-900">{t("aboutConcept.growthTitle")}</h3>
-            <p className="text-lg lg:text-xl text-zinc-600 leading-relaxed max-w-2xl">{t("aboutConcept.growthBody")}</p>
+            <h3 className="text-4xl lg:text-5xl tracking-tight text-zinc-900">Diseños pensados para crecer</h3>
+            <p className="text-lg lg:text-xl text-zinc-600 leading-relaxed max-w-2xl">Desarrollo sitios web, identidades visuales y experiencias 3D modernas, optimizadas y listas para evolucionar junto a tu negocio.</p>
           </div>
           <div className="lg:col-span-5">
             <div className="aspect-square rounded-3xl overflow-hidden bg-zinc-100 shadow-2xl">
@@ -126,11 +131,8 @@ export default function AboutConcept() {
 }
 
 export function SobreNosotrosSectionAccordion({ reverse = false }: { reverse?: boolean }) {
-  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const ref = useRef<HTMLDivElement>(null);
-
-  const items = t("sobreNosotrosAccordion.items", { returnObjects: true }) as AccordionItem[];
 
   useEffect(() => {
     if (!ref.current) return;
@@ -144,7 +146,7 @@ export function SobreNosotrosSectionAccordion({ reverse = false }: { reverse?: b
     <section ref={ref} className="py-4 lg:py-8">
       <div className={`grid lg:grid-cols-2 gap-20 items-start ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
         <div className="space-y-4">
-          {items.map((item, index) => (
+          {SOBRE_ACCORDION.map((item, index) => (
             <div key={index} className="border-t border-black/10 py-1">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

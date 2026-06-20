@@ -4,11 +4,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { VideoPreview } from "../ui/VideoPreview";
 import { useVideoInView } from "../ui/useVideoInView";
-import { useTranslation } from "react-i18next";
 
 const HeroHeaderVideos: React.FC = () => {
-  const { t } = useTranslation();
-
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1024);
 
   useEffect(() => {
@@ -36,8 +33,8 @@ const HeroHeaderVideos: React.FC = () => {
       src: "/videos-optim/hero/calera/parallax-calera.mp4",
       poster: "/imagenes-optim/poster/poster-calera/cantera001",
       title: "Calera Santa Isabel",
-      category: t("heroHome.videos.calera.category"),
-      description: t("heroHome.videos.calera.description"),
+      category: "Experiencia digital",
+      description: "Presentación editorial industrial y minimalista.",
     },
     {
       key: "tiesto",
@@ -45,8 +42,8 @@ const HeroHeaderVideos: React.FC = () => {
       src: "/videos-optim/hero/tiesto-coffee/animacion-cafe.mp4",
       poster: "/imagenes-optim/trabajos/imagenes/tiesto-coffee/branding/tiesto-coffee",
       title: "Tiesto Coffee",
-      category: t("heroHome.videos.tiesto.category"),
-      description: t("heroHome.videos.tiesto.description"),
+      category: "Branding + Web",
+      description: "Identidad sensorial en presencia digital refinada.",
     },
     {
       key: "bkars",
@@ -54,8 +51,8 @@ const HeroHeaderVideos: React.FC = () => {
       src: "/videos-optim/hero/bkars/bkars.mp4",
       poster: "/imagenes-optim/trabajos/imagenes/bkars/bkars",
       title: "BKARS",
-      category: t("heroHome.videos.bkars.category"),
-      description: t("heroHome.videos.bkars.description"),
+      category: "Sitio web",
+      description: "Narrativa visual enfocada en impacto inmediato.",
     },
     {
       key: "inti",
@@ -63,8 +60,8 @@ const HeroHeaderVideos: React.FC = () => {
       src: "/videos-optim/hero/inti-pintay/inti-pintay.mp4",
       poster: "/imagenes-optim/trabajos/imagenes/inti-pintay/inti-pintay",
       title: "Inti Pintay",
-      category: t("heroHome.videos.inti.category"),
-      description: t("heroHome.videos.inti.description"),
+      category: "Identidad",
+      description: "Construcción visual sólida para marca potente.",
     },
   ];
 
@@ -74,7 +71,7 @@ const HeroHeaderVideos: React.FC = () => {
     <section className="relative w-full bg-[#f3efe7] py-20 lg:py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="mb-10 text-2xl lg:text-4xl text-zinc-900 tracking-tight leading-tight">
-          {t("heroHome.recentWork")}
+          Algunos trabajos recientes.
         </h2>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4 lg:gap-6">

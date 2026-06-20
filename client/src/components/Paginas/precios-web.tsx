@@ -1,6 +1,5 @@
 import PageSEO from "../global/PageSEO";
 import { ArrowRight } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 interface PricingBand {
   label: string;
@@ -9,12 +8,21 @@ interface PricingBand {
   description: string;
 }
 
+const PRICING_BANDS: PricingBand[] = [
+  { label: "Entrada", title: "Landing o sitio base", price: "Desde S/500", description: "Para negocios que necesitan una presencia inicial bien presentada, clara y funcional." },
+  { label: "Más solicitado", title: "Web Advance", price: "Desde S/1,300", description: "Ideal para marcas que necesitan más estructura, mejor narrativa y una percepción más profesional." },
+  { label: "A medida", title: "Proyecto platinum", price: "Desde S/2,000", description: "Cuando se requiere un sistema más robusto, más contenido, integraciones o una dirección visual más profunda." },
+];
+
+const INCLUDES = [
+  "Claridad de alcance antes de empezar",
+  "Diseño responsive",
+  "Base técnica optimizada",
+  "SEO on-page esencial",
+  "Acompañamiento de lanzamiento",
+];
+
 export default function PreciosWeb() {
-  const { t } = useTranslation();
-
-  const pricingBands = t("preciosWeb.bands", { returnObjects: true }) as PricingBand[];
-  const includes = t("preciosWeb.includes", { returnObjects: true }) as string[];
-
   return (
     <>
       <PageSEO pageId="precios-web" />
@@ -28,30 +36,28 @@ export default function PreciosWeb() {
 
           <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-12 lg:py-32">
             <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-              {/**PRICING OVERVIEW */}
               <div className="space-y-14">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                  {t("preciosWeb.overview")}
+                  Resumen de precios
                 </p>
                 <h1 className="max-w-4xl text-[clamp(2.7rem,5vw,4.8rem)] leading-[0.98] tracking-[-0.04em]">
-                  {t("preciosWeb.title")}
+                  Rangos claros para empezar una web con mejor estructura y mejor presencia.
                 </h1>
                 <p className="max-w-2xl text-[17px] leading-7 text-zinc-700 lg:text-lg">
-                  {t("preciosWeb.description")}
+                  Esta página funciona como referencia inicial. El precio final depende del alcance, del contenido, del nivel visual y de si la marca necesita solo una web o una dirección más completa.
                 </p>
                 <a
                   href="https://www.zincelideas.com/planes-web"
                   className="inline-flex items-center gap-3 bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-black"
                 >
-                  {t("preciosWeb.plansCta", "Ver planes web")}
+                  Ver planes web
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
 
-              {/**--------------- ENTRADA  ------------------*/}
-              <section className=" rounded-t-[100px] py-20 lg:py-14 bg-zinc-900">
+              <section className="rounded-t-[100px] py-20 lg:py-14 bg-zinc-900">
                 <div className="mx-auto grid max-w-7xl gap-5 px-6 lg:grid-cols-1 lg:px-12">
-                  {pricingBands.map((band) => (
+                  {PRICING_BANDS.map((band) => (
                     <article key={band.title} className="border-t border-black/10 pt-6">
                       <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
                         {band.label}
@@ -66,14 +72,14 @@ export default function PreciosWeb() {
 
               <div className="border-t border-black/10 pt-6">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                  {t("preciosWeb.pricingFactors")}
+                  Qué cambia el precio
                 </p>
                 <div className="mt-4 space-y-4">
                   <p className="text-base leading-7 text-zinc-700">
-                    {t("preciosWeb.pricingFactorsBodyOne")}
+                    Número de secciones, complejidad visual, sistema de marca, integraciones, carga de contenido y necesidades especiales de performance o escalabilidad.
                   </p>
                   <p className="text-base leading-7 text-zinc-700">
-                    {t("preciosWeb.pricingFactorsBodyTwo")}
+                    Preferimos cotizar con contexto para no venderte menos de lo que tu proyecto necesita ni más de lo que realmente te sirve.
                   </p>
                 </div>
               </div>
@@ -86,15 +92,15 @@ export default function PreciosWeb() {
             <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr]">
               <div className="space-y-4">
                 <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                  {t("preciosWeb.included")}
+                  Incluido
                 </p>
                 <h2 className="text-3xl leading-tight tracking-[-0.03em] lg:text-4xl">
-                  {t("preciosWeb.includedTitle")}
+                  Qué buscamos dejar resuelto incluso en proyectos pequeños.
                 </h2>
               </div>
 
               <div className="grid gap-4">
-                {includes.map((item, index) => (
+                {INCLUDES.map((item, index) => (
                   <article key={item} className="border-b border-black/10 pb-4 last:border-b-0">
                     <p className="text-xs uppercase tracking-[0.18em] text-zinc-400">
                       0{index + 1}

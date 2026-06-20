@@ -3,7 +3,6 @@ import { faBehance, faFacebookF, faInstagram, faLinkedinIn, faTiktok } from "@fo
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { trackWhatsAppClick, WHATSAPP_URL } from "../../utils/whatsapp";
-import { useTranslation } from "react-i18next";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/zincelideasglobales", icon: faInstagram },
@@ -13,18 +12,16 @@ const socialLinks = [
   { label: "TikTok", href: "https://www.tiktok.com/@zincelideasglobales", icon: faTiktok },
 ];
 
+const footerLinks = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Sobre Nosotros", href: "/sobre-nosotros" },
+  { label: "Precios Web", href: "/precios-web" },
+  { label: "Experiencias", href: "/experiencias" },
+];
+
 export default function Footer() {
-  const { t } = useTranslation();
-
-  const footerLinks = [
-    { label: t("footer.links.home"), href: "/" },
-    { label: t("footer.links.services"), href: "/servicios" },
-    { label: t("footer.links.portfolio"), href: "/portfolio" },
-    { label: t("footer.links.about"), href: "/sobre-nosotros" },
-    { label: t("footer.links.pricing"), href: "/precios-web" },
-    { label: t("footer.links.experiences"), href: "/experiencias" },
-  ];
-
   return (
     <footer className="relative overflow-hidden bg-[#181716] text-white">
       <div className="pointer-events-none absolute inset-0">
@@ -37,14 +34,14 @@ export default function Footer() {
           <div className="space-y-8">
             <p className="text-xs uppercase tracking-[0.18em] text-white/45">Zincel</p>
             <h2 className="max-w-3xl text-3xl leading-[1.02] tracking-[-0.03em] lg:text-5xl">
-              {t("footer.title")}
+              Diseñamos marcas, webs y visuales con una dirección más clara y una presencia más seria.
             </h2>
-            <p className="max-w-xl text-base leading-7 text-zinc-300">{t("footer.description")}</p>
+            <p className="max-w-xl text-base leading-7 text-zinc-300">Trabajamos desde Lima con marcas que quieren verse mejor, ordenar su comunicación y construir una experiencia digital con más criterio visual.</p>
           </div>
 
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-5">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/45">{t("footer.contact")}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white/45">Contacto</p>
               <a href="mailto:kenif.alejandro@zincelideas.com" className="inline-flex items-center gap-3 text-zinc-200 transition-colors hover:text-white">
                 <Mail className="h-4 w-4" />
                 kenif.alejandro@zincelideas.com
@@ -63,7 +60,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-5">
-              <p className="text-xs uppercase tracking-[0.18em] text-white/45">{t("footer.navigation")}</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-white/45">Navegación</p>
               <nav className="grid gap-3">
                 {footerLinks.map((link) => (
                   <NavLink key={link.href} to={link.href} className="text-zinc-200 transition-colors hover:text-white">
@@ -75,7 +72,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-5">
-            <p className="text-xs uppercase tracking-[0.18em] text-white/45">{t("footer.social")}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-white/45">Redes</p>
             <div className="grid w-fit grid-cols-5 gap-3">
               {socialLinks.map((link) => (
                 <a
@@ -95,8 +92,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-zinc-400 md:flex-row md:items-center md:justify-between">
-          <span>{t("footer.madeIn", { year: new Date().getFullYear() })}</span>
-          <span>{t("footer.studioLine")}</span>
+          <span>© {new Date().getFullYear()} Zincel. Hecho en Lima.</span>
+          <span>Diseño, desarrollo y dirección creativa en un mismo estudio.</span>
         </div>
       </div>
     </footer>
